@@ -28,6 +28,10 @@ public class GyroController : MonoBehaviour
         GUILayout.Label("Orientation: " + Screen.orientation);
         GUILayout.Label("input.gyro.attitude: " + Input.gyro.attitude);
         GUILayout.Label("iphone width/font: " + Screen.width + " : " + GUI.skin.label.fontSize);
+        
+        float angle = Vector3.Angle(Vector3.up, transform.right);
+
+        GUILayout.Label("Z-rotation: " + angle);
     }
 
     private static Quaternion GyroToUnity(Quaternion q)
