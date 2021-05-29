@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RollController : MonoBehaviour
 {
+    public int acceleration;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,9 +12,14 @@ public class RollController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        float xValue=Input.acceleration.x;
+        float yValue=Input.acceleration.y;
+
+        Vector2 force = new Vector2(xValue, yValue);
+
+        GetComponent<Rigidbody2D>().velocity =force*acceleration;
     }
 
     protected void OnGUI()
