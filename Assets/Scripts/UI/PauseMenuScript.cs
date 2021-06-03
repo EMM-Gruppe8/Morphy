@@ -57,4 +57,12 @@ public class PauseMenuScript : MonoBehaviour
         isPaused = false;
         UpdatePauseStatus();
     }
+
+    /**
+     * Reset the level
+     */
+    public void reset() {
+        Resume();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
