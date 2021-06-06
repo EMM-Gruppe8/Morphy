@@ -6,26 +6,31 @@ using static EventManager;
 
 public class PlayerController : KinematicObject
 {
-
-    public float maxSpeed = 15;
-    public float jumpTakeOffSpeed = 15;
+    public float maxSpeed = 8;
+    public float jumpTakeOffSpeed = 7;
     public JumpState jumpState = JumpState.Grounded;
-    private bool stopJump;
-    private float jumpAccelerationSpeed;
+    public MovementState movementState = MovementState.Standing;
     public Collider2D collider2d;
     public Health health;
     public bool controlEnabled = true;
 
-    bool jump;
-    Vector2 movement;
+    private bool _stopJump;
+    private float _jumpAccelerationSpeed;
+    private bool _jump;
+    private Vector2 _movement;
+
+    private const float WalkingThreshold = 0.05f;
+    private const float SprintingThreshold = 0.7f;
+    private const float JumpingThreshold = 0.15f;
+    private const float MaxJumpForce = 0.5f;
 
     //SpriteRenderer spriteRenderer;
     //internal Animator animator;
-    readonly PlatformerModel model = EventManager.GetModel<PlatformerModel>();
+    readonly PlatformerModel _model = EventManager.GetModel<PlatformerModel>();
 
     public Bounds Bounds => collider2d.bounds;
 
-    void Awake()
+    private void Awake()
     {
         health = GetComponent<Health>();
         collider2d = GetComponent<Collider2D>();
@@ -35,52 +40,48 @@ public class PlayerController : KinematicObject
 
     protected override void Update()
     {
-        if (Input.acceleration.z >= 0.15)
-        {
-            Debug.Log(Input.acceleration.z);
-        }
-
         if (controlEnabled)
         {
-            if (Input.acceleration.x >= 0.03 || Input.acceleration.x <= -0.03)
+            if (Input.acceleration.x >= WalkingThreshold || Input.acceleration.x <= -WalkingThreshold)
             {
-                movement.x = Input.acceleration.x * 1.5f;
+                _movement.x = Input.acceleration.x * 1.5f;
             }
             else
             {
-                movement.x = 0;
+                _movement.x = 0;
             }
 
-            if (jumpState == JumpState.Grounded && Input.acceleration.z >= 0.15)
+            if (jumpState == JumpState.Grounded && Input.acceleration.z >= JumpingThreshold)
             {
                 jumpState = JumpState.PrepareToJump;
-                jumpAccelerationSpeed = Input.acceleration.z;
+                _jumpAccelerationSpeed = Input.acceleration.z >= MaxJumpForce ? MaxJumpForce : Input.acceleration.z;
             }
-            else if (Input.acceleration.z >= 0.15)
+            else if (Input.acceleration.z >= JumpingThreshold)
             {
-                jumpAccelerationSpeed = Input.acceleration.z;
+                _jumpAccelerationSpeed = Input.acceleration.z;
                 //  stopJump = true;
                 //  Schedule<PlayerStopJump>().player = this;
             }
         }
         else
         {
-            movement.x = 0;
+            _movement.x = 0;
         }
 
         UpdateJumpState();
+        UpdateMovementState();
         base.Update();
     }
 
-    void UpdateJumpState()
+    private void UpdateJumpState()
     {
-        jump = false;
+        _jump = false;
         switch (jumpState)
         {
             case JumpState.PrepareToJump:
                 jumpState = JumpState.Jumping;
-                jump = true;
-                stopJump = false;
+                _jump = true;
+                _stopJump = false;
                 break;
             case JumpState.Jumping:
                 if (!IsGrounded)
@@ -100,32 +101,49 @@ public class PlayerController : KinematicObject
                 break;
             case JumpState.Landed:
                 jumpState = JumpState.Grounded;
-                jumpAccelerationSpeed = 0;
+                _jumpAccelerationSpeed = 0;
                 break;
+        }
+    }
+
+    private void UpdateMovementState()
+    {
+        if (Math.Abs(_movement.x) >= WalkingThreshold && Math.Abs(_movement.x) < SprintingThreshold)
+        {
+            movementState = MovementState.Walking;
+        }
+        else if (Math.Abs(_movement.x) >= SprintingThreshold)
+        {
+            movementState = MovementState.Sprinting;
+        }
+        else
+        {
+            movementState = MovementState.Standing;
         }
     }
 
     protected override void ComputeVelocity()
     {
-        if (jump && IsGrounded)
+        if (_jump && IsGrounded)
         {
-            velocity.y = jumpTakeOffSpeed * model.jumpModifier * (1 + jumpAccelerationSpeed);
-            jump = false;
+            velocity.y = jumpTakeOffSpeed * _model.jumpModifier * (1 + _jumpAccelerationSpeed);
+            _jump = false;
         }
-        else if (stopJump)
+        else if (_stopJump)
         {
-            stopJump = false;
+            _stopJump = false;
             if (velocity.y > 0)
             {
-                velocity.y = velocity.y * model.jumpDeceleration * (1 + jumpAccelerationSpeed);
+                velocity.y = velocity.y * _model.jumpDeceleration * (1 + _jumpAccelerationSpeed);
             }
         }
 
-        if (movement.x > 0.01f)
+        // Texturen spiegeln beim umdrehen der Spielfigur
+        if (_movement.x > 0.01f)
         {
             // spriteRenderer.flipX = false;
         }
-        else if (movement.x < -0.01f)
+        else if (_movement.x < -0.01f)
         {
             //  spriteRenderer.flipX = true;
         }
@@ -134,7 +152,7 @@ public class PlayerController : KinematicObject
         //    animator.SetBool("grounded", IsGrounded);
         //    animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
 
-        targetVelocity = movement * maxSpeed;
+        targetVelocity = _movement * maxSpeed;
     }
 
     public enum JumpState
@@ -144,5 +162,12 @@ public class PlayerController : KinematicObject
         Jumping,
         InFlight,
         Landed
+    }
+
+    public enum MovementState
+    {
+        Standing,
+        Walking,
+        Sprinting
     }
 }

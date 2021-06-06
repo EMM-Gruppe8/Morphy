@@ -17,6 +17,11 @@ public class PlatformerModel
     public PlayerController player;
 
     /// <summary>
+    /// The main component which controls the highscores
+    /// </summary>
+    public HighscoreController highscoreController;
+
+    /// <summary>
     /// The spawn point in the scene.
     /// </summary>
     public Transform spawnPoint;
@@ -31,5 +36,4 @@ public class PlatformerModel
     /// the user releases the jump input.
     /// </summary>
     public float jumpDeceleration = 0.5f;
-
 }
