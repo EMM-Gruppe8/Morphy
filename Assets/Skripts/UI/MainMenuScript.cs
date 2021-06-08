@@ -17,7 +17,7 @@ public class MainMenuScript : MonoBehaviour
      */
     public void StartGame() {
         Debug.Log("Start Game");
-        // TODO: Implement when Game Engine is ready
+        SceneManager.LoadScene("Prototype1");
     }
 
     /**
