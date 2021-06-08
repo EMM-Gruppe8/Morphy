@@ -10,6 +10,7 @@ public class PlayerController : KinematicObject
     public float jumpTakeOffSpeed = 7;
     public JumpState jumpState = JumpState.Grounded;
     public MovementState movementState = MovementState.Standing;
+    public Animator animator;
     public Collider2D collider2d;
     public Health health;
     public bool controlEnabled = true;
@@ -70,6 +71,7 @@ public class PlayerController : KinematicObject
 
         UpdateJumpState();
         UpdateMovementState();
+        UpdateAnimator();
         base.Update();
     }
 
@@ -153,6 +155,22 @@ public class PlayerController : KinematicObject
         //    animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
 
         targetVelocity = _movement * maxSpeed;
+    }
+
+    private void UpdateAnimator(){
+        animator.SetFloat("Speed", Mathf.Abs(_movement.x));
+        
+        switch(jumpState){
+            case JumpState.Grounded:
+            case JumpState.PrepareToJump:
+            case JumpState.Landed:
+                animator.SetBool("isJumping", false);
+                break;
+            case JumpState.Jumping:
+            case JumpState.InFlight:
+                animator.SetBool("isJumping", true);
+                break;
+        }
     }
 
     public enum JumpState

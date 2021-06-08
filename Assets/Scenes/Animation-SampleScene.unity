@@ -888,10 +888,11 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   gravityModifier: 1
   velocity: {x: 0, y: 0}
-  animator: {fileID: 528809868}
   maxSpeed: 7
   jumpTakeOffSpeed: 7
   jumpState: 0
+  movementState: 0
+  animator: {fileID: 0}
   collider2d: {fileID: 0}
   health: {fileID: 0}
   controlEnabled: 1
@@ -931,10 +932,11 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   gravityModifier: 1
   velocity: {x: 0, y: 0}
-  animator: {fileID: 585785328}
   maxSpeed: 7
   jumpTakeOffSpeed: 7
   jumpState: 0
+  movementState: 0
+  animator: {fileID: 585785328}
   collider2d: {fileID: 0}
   health: {fileID: 0}
   controlEnabled: 1
@@ -10129,6 +10131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  currentHp: 0
 --- !u!114 &1241022573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10144,10 +10147,11 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   gravityModifier: 1
   velocity: {x: 0, y: 0}
-  animator: {fileID: 0}
   maxSpeed: 7
   jumpTakeOffSpeed: 7
   jumpState: 0
+  movementState: 0
+  animator: {fileID: 0}
   collider2d: {fileID: 0}
   health: {fileID: 0}
   controlEnabled: 1
@@ -17645,10 +17649,11 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   gravityModifier: 1
   velocity: {x: 0, y: 0}
-  animator: {fileID: 1948682081}
   maxSpeed: 7
   jumpTakeOffSpeed: 7
   jumpState: 0
+  movementState: 0
+  animator: {fileID: 0}
   collider2d: {fileID: 0}
   health: {fileID: 0}
   controlEnabled: 1
