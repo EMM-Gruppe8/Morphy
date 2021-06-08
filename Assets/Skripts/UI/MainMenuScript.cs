@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /**
  * Main Menu Script
@@ -24,7 +25,14 @@ public class MainMenuScript : MonoBehaviour
      */
     public void OpenLevel(int level) {
         Debug.Log("Start Game at level " + level);
-        // TODO: Implement when Game Engine is ready
+        switch(level){
+            case 1:
+                SceneManager.LoadScene("GyroDemo");
+                break;
+            case 2:
+                SceneManager.LoadScene("Prototype1");
+                break;
+        }
     }
 
     /**
