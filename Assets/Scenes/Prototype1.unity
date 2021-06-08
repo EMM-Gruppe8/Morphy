@@ -384,10 +384,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model:
-    virtualCamera: {fileID: 0}
-    player: {fileID: 0}
-    highscoreController: {fileID: 0}
-    spawnPoint: {fileID: 0}
+    virtualCamera: {fileID: 155817097}
+    player: {fileID: 1331723935}
+    highscoreController: {fileID: 1053086389}
+    spawnPoint: {fileID: 950303225}
     jumpModifier: 1
     jumpDeceleration: 0.5
 --- !u!4 &791361178
