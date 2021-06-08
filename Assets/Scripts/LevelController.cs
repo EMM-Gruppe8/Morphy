@@ -15,6 +15,7 @@ public class LevelController : MonoBehaviour
     // Save if we already loaded the data from disk
     private static bool hasLoaded = false;
 
+    // Number of levels that exist in the game - for validation purposes
     private static readonly int MAX_LEVEL = 3;
 
     // Get the highest level the user completed
@@ -24,6 +25,9 @@ public class LevelController : MonoBehaviour
         return highestCompletedLevel;
     }
 
+    // Set the highest level, the player has completed
+    // Example:
+    // LevelController.setHighestCompletedLevel(currentLevel);
     public static void setHighestCompletedLevel(int val) {
         // Make sure we are setup first
         setup();

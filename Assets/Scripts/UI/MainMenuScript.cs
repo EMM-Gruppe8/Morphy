@@ -17,8 +17,8 @@ public class MainMenuScript : MonoBehaviour
         updateDisabledLevels();
     }
 
+    // Enable all levels in the level selection screen that the user has unlocked
     private void updateDisabledLevels() {
-        // Enable all levels that the user has unlocked
         int enabledLevels = LevelController.getHighestCompletedLevel();
         Debug.Log("Enabeling level selection up to level " + (enabledLevels + 1));
         for(int i = 0; i <= enabledLevels; i++) {
@@ -34,6 +34,8 @@ public class MainMenuScript : MonoBehaviour
      */
     public void StartGame() {
         Debug.Log("Start Game");
+
+        int currentLevel = LevelController.getHighestCompletedLevel() + 1;
         // TODO: Implement when Game Engine is ready
     }
 
@@ -46,9 +48,6 @@ public class MainMenuScript : MonoBehaviour
             Debug.Log("Level is not unlocked yet");
             return;
         }
-
-        LevelController.setHighestCompletedLevel(level);
-        updateDisabledLevels();
 
         // TODO: Implement when Game Engine is ready
     }
