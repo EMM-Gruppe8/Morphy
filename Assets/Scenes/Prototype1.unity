@@ -585,6 +585,7 @@ MonoBehaviour:
   jumpTakeOffSpeed: 7
   jumpState: 0
   movementState: 0
+  animator: {fileID: 1331723938}
   collider2d: {fileID: 0}
   health: {fileID: 0}
   controlEnabled: 1
