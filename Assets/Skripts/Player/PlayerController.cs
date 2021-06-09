@@ -25,7 +25,7 @@ public class PlayerController : KinematicObject
     private const float JumpingThreshold = 0.15f;
     private const float MaxJumpForce = 0.5f;
 
-    //SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     //internal Animator animator;
     readonly PlatformerModel _model = EventManager.GetModel<PlatformerModel>();
 
@@ -143,11 +143,11 @@ public class PlayerController : KinematicObject
         // Texturen spiegeln beim umdrehen der Spielfigur
         if (_movement.x > 0.01f)
         {
-            // spriteRenderer.flipX = false;
+             spriteRenderer.flipX = true;
         }
         else if (_movement.x < -0.01f)
         {
-            //  spriteRenderer.flipX = true;
+              spriteRenderer.flipX = false;
         }
 
 
