@@ -9,6 +9,9 @@ public class AttackableAttacker : MonoBehaviour
     // Range this object can use to attack other objects
     public float attackRange = 150;
 
+    // Range for near attacks
+    public float nearAttackRange = 100;
+
     // define the character mass
     public float mass = 1.0f;
 
@@ -65,6 +68,17 @@ public class AttackableAttacker : MonoBehaviour
         attack(nearestEnemy);
     }
 
+    // Attack the nearest enemy with our current special action
+    public void attackNearestWithCustomAction() {
+        GameObject nearestEnemy = getNearestEnemy();
+        if (nearestEnemy == null) {
+            Debug.Log("No enemy found");
+            return;
+        }
+
+        attackWithCustomAction(nearestEnemy);
+    }
+
     // Try to attack a specific GameObject on the map
     public void attack(GameObject go) {
         if (calculateDistanceToObject(go) > attackRange) {
@@ -73,12 +87,26 @@ public class AttackableAttacker : MonoBehaviour
         }
 
         Debug.Log("Attacking enemy");
-        go.GetComponent<AttackableAttacker>().getAttacked(gameObject);
+        go.GetComponent<AttackableAttacker>().getAttacked(gameObject, 1);
+    }
+
+    // Try to attack a specific GameObject with our special custom action
+    public void attackWithCustomAction(GameObject go) {
+        if (calculateDistanceToObject(go) > nearAttackRange) {
+            Debug.Log("No enemy in attack range");
+            return;
+        }
+        
+        // TODO: Handle custom actions. This can only be implemented once skills have been implemented
+
+        Debug.Log("Attacking enemy with custom action");
+        // Special action can do 2 damage
+        go.GetComponent<AttackableAttacker>().getAttacked(gameObject, 2);
     }
 
     // Let this object get attacked by another object
     // This method is mostly called by other AttackableAttacker components to attack each other
-    public void getAttacked(GameObject attacker) {
+    public void getAttacked(GameObject attacker, int strength) {
         Vector2 pathFromAttackerToMe = transform.position - attacker.transform.position;
         pathFromAttackerToMe.Normalize();
 
@@ -87,8 +115,15 @@ public class AttackableAttacker : MonoBehaviour
         
         Debug.Log("Got attacked");
         Debug.Log(pathFromAttackerToMe);
+
+        Health h = GetComponent<Health>();
+        if (h != null) {
+            h.Decrement(strength);
+            Debug.Log("Decremented health by: " + strength);
+        }
     }
 
+    // Let the current sprite blink to indicate being attacked
     IEnumerator blink(int times = 2, float pause = 0.1f) {
         for (int i = 0; i < times; i++) {
             GetComponent<SpriteRenderer>().color = Color.yellow;
