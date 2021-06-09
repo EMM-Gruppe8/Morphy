@@ -18,6 +18,16 @@ public class AttackableAttacker : MonoBehaviour
     // Impact currently impacting this object
     Vector3 impact = Vector3.zero;
 
+    // Is the current object in attack cooldown?
+    // Cooled down objects cannot attack others until the cooldown is over
+    bool isInCooldown = false;
+
+    // Time the cooldown needs to complete
+    public float cooldownTimeInSeconds = 1;
+
+    // Attack Button that should be greyed out during cooldowm
+    public GameObject attackButton;
+
     // Get the tag for our enemy, who we should attack
     // For the player, these will be the "Enemy" objects
     // For enemies this will be the player
@@ -79,21 +89,36 @@ public class AttackableAttacker : MonoBehaviour
         attackWithCustomAction(nearestEnemy);
     }
 
-    // Try to attack a specific GameObject on the map
-    public void attack(GameObject go) {
+    private bool canAttack(GameObject go, float range) {
+        if (isInCooldown) {
+            Debug.Log("Object is currently in cooldown and can't attack");
+            return false;
+        }
         if (calculateDistanceToObject(go) > attackRange) {
             Debug.Log("No enemy in attack range");
+            return false;
+        }
+
+        return true;
+    }
+
+    // Try to attack a specific GameObject on the map
+    public void attack(GameObject go) {
+        if (!canAttack(go, attackRange)) {
+            Debug.Log("Can't attack");
             return;
         }
 
         Debug.Log("Attacking enemy");
         go.GetComponent<AttackableAttacker>().getAttacked(gameObject, 1);
+
+        StartCoroutine(cooldown());
     }
 
     // Try to attack a specific GameObject with our special custom action
     public void attackWithCustomAction(GameObject go) {
-        if (calculateDistanceToObject(go) > nearAttackRange) {
-            Debug.Log("No enemy in attack range");
+        if (!canAttack(go, nearAttackRange)) {
+            Debug.Log("Can't attack");
             return;
         }
         
@@ -102,6 +127,25 @@ public class AttackableAttacker : MonoBehaviour
         Debug.Log("Attacking enemy with custom action");
         // Special action can do 2 damage
         go.GetComponent<AttackableAttacker>().getAttacked(gameObject, 2);
+
+        StartCoroutine(cooldown());
+    }
+
+    // Let the attack cooldown
+    private IEnumerator cooldown() {
+        isInCooldown = true;
+        if (gameObject.tag == "Player") {
+            var customEvent = EventManager.Schedule<AttackEntersLeavesCooldown>();
+            customEvent.attackButton = attackButton;
+            customEvent.isInCooldown = true;
+        }
+        yield return new WaitForSeconds(cooldownTimeInSeconds);
+        isInCooldown = false;
+        if (gameObject.tag == "Player") {
+            var customEvent = EventManager.Schedule<AttackEntersLeavesCooldown>();
+            customEvent.attackButton = attackButton;
+            customEvent.isInCooldown = false;
+        }
     }
 
     // Let this object get attacked by another object
@@ -131,6 +175,11 @@ public class AttackableAttacker : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.white;
             yield return new WaitForSeconds(pause);
         }
+    }
+
+    // Get if the current object is in a cooldown
+    public bool getIsInCooldown() {
+        return isInCooldown;
     }
 
     // Impact System, Source: http://answers.unity.com/answers/309747/view.html
