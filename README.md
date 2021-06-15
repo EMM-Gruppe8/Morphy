@@ -5,3 +5,21 @@ Morphy is a mobile game centered around movement. Turn, push and pull your phone
 
 ![Screenshot](/Documents/Screenshot.png)
 
+## Movement
+- Tilt your phone right or left to move into that direction
+- Pull your phone towards you to jump
+- Tap the left side of the screen to attack
+- Tap the right side of the screen to change charakters
+
+## Charakters
+### Bunny
+- Can Jump
+- Attacks hard by jumping on enemies
+
+### Rhino
+- Gets very fast
+- Attacks hard by ramming enemies
+
+### Slime
+- Can walk on floor as well as on ceiling
+- Attacks hard by falling onto enemies
