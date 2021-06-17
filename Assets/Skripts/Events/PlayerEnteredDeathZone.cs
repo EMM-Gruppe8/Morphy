@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerEnteredDeathZone : EventManager.Event<PlayerEnteredDeathZone>
 {
-    
     public DeathZone DeathZone;
 
     PlatformerModel _model = EventManager.GetModel<PlatformerModel>();
@@ -14,4 +13,3 @@ public class PlayerEnteredDeathZone : EventManager.Event<PlayerEnteredDeathZone>
         EventManager.Schedule<PlayerDeath>(0);
     }
 }
-
