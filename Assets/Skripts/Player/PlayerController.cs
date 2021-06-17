@@ -54,6 +54,7 @@ public class PlayerController : KinematicObject
 
             if (jumpState == JumpState.Grounded && Input.acceleration.z >= JumpingThreshold)
             {
+                FindObjectOfType<AudioManager>().Play("PlayerJump");
                 jumpState = JumpState.PrepareToJump;
                 _jumpAccelerationSpeed = Input.acceleration.z >= MaxJumpForce ? MaxJumpForce : Input.acceleration.z;
             }

@@ -62,3 +62,6 @@ crashlytics-build.properties
 # IDE
 .idea/
 .vs/
+
+# Mac
+.DS_Store

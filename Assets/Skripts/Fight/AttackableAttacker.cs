@@ -110,6 +110,9 @@ public class AttackableAttacker : MonoBehaviour
         }
 
         Debug.Log("Attacking enemy");
+        if (gameObject.tag == "Player") {
+            FindObjectOfType<AudioManager>().Play("PlayerAttack");
+        }
         go.GetComponent<AttackableAttacker>().getAttacked(gameObject, 1);
 
         StartCoroutine(cooldown());
