@@ -10,14 +10,14 @@ public class Health : MonoBehaviour
 
     public int currentHp;
 
-    public void Increment()
+    public void Increment(int amount = 1)
     {
-        currentHp = Mathf.Clamp(currentHp + 1, 0, maxHP);
+        currentHp = Mathf.Clamp(currentHp + amount, 0, maxHP);
     }
 
-    public void Decrement()
+    public void Decrement(int amount = 1)
     {
-        currentHp = Mathf.Clamp(currentHp - 1, 0, maxHP);
+        currentHp = Mathf.Clamp(currentHp - amount, 0, maxHP);
         if (currentHp == 0)
         {
             var customEvent = EventManager.Schedule<HealthIsZero>();
