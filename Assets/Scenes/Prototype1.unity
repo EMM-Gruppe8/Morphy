@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 909096039}
   - component: {fileID: 909096033}
   m_Layer: 7
-  m_Name: Rhino
+  m_Name: Bunny
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
