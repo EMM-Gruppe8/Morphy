@@ -5,6 +5,8 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
+    public Animator animator;
+
     [Header("Pathfinding")]
     public Transform target;
     public float activateDistance = 50f;
@@ -81,10 +83,12 @@ public class EnemyAI : MonoBehaviour
             {
                 rb.AddForce(Vector2.up * speed * jumpModifier);
             }
-        }
+        } 
 
         // Movement
-        if (!isGrounded){ force.y = 0;}
+        if (!isGrounded){ 
+            force.y = 0;
+        }
         rb.AddForce(force);
 
         // Next Waypoint
@@ -106,6 +110,30 @@ public class EnemyAI : MonoBehaviour
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
         }
+
+        // Animation
+        if (isGrounded)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(force.x));
+        }
+        else if (rb.velocity.magnitude < 0)
+        {
+            animator.SetFloat("Speed", 0);
+        } 
+
+        if (jumpEnabled && !isGrounded)
+        {
+            animator.SetBool("isJumping", true);
+        } else
+        {
+            animator.SetBool("isJumping", false);
+        }
+
+        /*
+        if(recieve Damage)
+        {
+            animator.SetBool("recieveDamage", true);
+        } */
     }
 
     private bool TargetInDistance()
