@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/GyroDemo.unity
     guid: e9f12ba72267c5e2b8bf95862f095611
   - enabled: 1
-    path: Assets/Scenes/Prototype1.unity
+    path: Assets/Scenes/CharacterView.unity
     guid: ad2d66118dd2836adb9be53a4a0d9d42
   m_configObjects: {}
