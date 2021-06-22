@@ -19,7 +19,7 @@ public class EnemyDeath : EventManager.Event<HealthIsZero>
         gameObject.SetActive(false);
 
         // Spawn new enemy artifact
-        Debug.Log(enemyArtifact.characterType);
+        if (!enemyArtifact) return;
         spawner.SpawnArtifact(enemyArtifact.characterType, position);
     }
 }

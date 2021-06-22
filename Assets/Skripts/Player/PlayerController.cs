@@ -156,7 +156,41 @@ public class PlayerController : KinematicObject
         }
     }
 
-    public void ChangeCharacterType(CharacterType characterType)
+    public float calculateDistanceToObject(GameObject go)
+    {
+        Vector3 ownPosition = transform.position;
+        Vector3 diff = go.transform.position - ownPosition;
+        return diff.sqrMagnitude;
+    }
+
+    public GameObject getNearestEnemyArtifact()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("EnemyArtifact");
+        GameObject closest = null;
+        var distance = Mathf.Infinity;
+
+        foreach (GameObject go in gos)
+        {
+            var curDistance = calculateDistanceToObject(go);
+
+            if (!(curDistance < distance)) continue;
+            closest = go;
+            distance = curDistance;
+        }
+
+        return distance <= 6.0f ? closest : null;
+    }
+
+    public void morphNearest()
+    {
+        var gameObject = getNearestEnemyArtifact();
+        if (!gameObject) return;
+        var customEvent = Schedule<MorphPlayer>();
+        customEvent.gameObject = gameObject;
+    }
+
+    private void ChangeCharacterType(CharacterType characterType)
     {
         switch (characterType)
         {
