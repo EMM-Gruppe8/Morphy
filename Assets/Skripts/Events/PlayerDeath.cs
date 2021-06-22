@@ -13,7 +13,7 @@ public class PlayerDeath : EventManager.Event<PlayerDeath>
         {
             player.health.Die();
         }
-
+        // Lose camera Focus and deactivate input for smooth respawn
         model.virtualCamera.m_Follow = null;
         model.virtualCamera.m_LookAt = null;
         player.controlEnabled = false;

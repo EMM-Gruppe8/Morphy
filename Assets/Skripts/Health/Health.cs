@@ -31,11 +31,10 @@ public class Health : MonoBehaviour
     {
         currentHp = Mathf.Clamp(currentHp - amount, 0, maxHP);
         updateHealthBar();
-        if (currentHp == 0 && gameObject.tag == "Player")
-        {
-            var customEvent = EventManager.Schedule<HealthIsZero>();
-            customEvent.Health = this;
-        }
+        if (currentHp != 0) return;
+        var customEvent = EventManager.Schedule<HealthIsZero>();
+        customEvent.gameObject = gameObject;
+
     }
 
     public void Die()

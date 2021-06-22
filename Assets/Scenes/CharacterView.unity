@@ -300,6 +300,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &285427672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 285427673}
+  - component: {fileID: 285427675}
+  - component: {fileID: 285427674}
+  m_Layer: 0
+  m_Name: DeathZone 3 (Top)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &285427673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285427672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 583414149}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &285427674
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285427672}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 100, y: 5}
+  m_EdgeRadius: 0
+--- !u!114 &285427675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285427672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49feed15b1a942444bd5c38d41f80af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &579986242 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4868422855877081731, guid: 668863a52825340bdab312529f5eaada, type: 3}
@@ -335,6 +405,7 @@ Transform:
   - {fileID: 1357593615}
   - {fileID: 1836155959}
   - {fileID: 1945575457}
+  - {fileID: 285427673}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -595,6 +666,7 @@ MonoBehaviour:
     virtualCamera: {fileID: 155817097}
     player: {fileID: 1331723935}
     highscoreController: {fileID: 1053086389}
+    enemyArtifactSpawner: {fileID: 1851325158}
     spawnPoint: {fileID: 950303225}
     jumpModifier: 1.3
     jumpDeceleration: 0.5
@@ -719,13 +791,13 @@ GameObject:
   m_Component:
   - component: {fileID: 909096038}
   - component: {fileID: 909096037}
-  - component: {fileID: 909096036}
   - component: {fileID: 909096035}
   - component: {fileID: 909096034}
   - component: {fileID: 909096033}
   - component: {fileID: 909096032}
   - component: {fileID: 909096039}
   - component: {fileID: 909096040}
+  - component: {fileID: 909096036}
   m_Layer: 0
   m_Name: Rhino Enemy
   m_TagString: Enemy
@@ -823,22 +895,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909096031}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8af6ab14454cb49986ca0b75113606, type: 3}
+  m_Script: {fileID: 11500000, guid: fbb0e9be4e89d524fbdc1764ffb68952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minGroundNormalY: 0.65
-  gravityModifier: 1
-  velocity: {x: 0, y: 0}
-  maxSpeed: 7
-  jumpTakeOffSpeed: 7
-  jumpState: 0
-  movementState: 0
-  animator: {fileID: 0}
-  collider2d: {fileID: 0}
-  health: {fileID: 0}
-  controlEnabled: 1
+  characterType: 2
 --- !u!212 &909096037
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -919,6 +981,7 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   gravityModifier: 1
   velocity: {x: 0, y: 0}
+  invertedMovement: 0
 --- !u!114 &909096040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9001,6 +9064,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49feed15b1a942444bd5c38d41f80af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1851325157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1851325159}
+  - component: {fileID: 1851325158}
+  m_Layer: 0
+  m_Name: EnemyArtifactSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1851325158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851325157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ce493b62fe6e349a71e86ca0810217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySlimeArtifactPrefab: {fileID: 4457235375205496769, guid: 262cb73aaa309734a8f760a5d83c115e, type: 3}
+  enemyRhinoArtifactPrefab: {fileID: 5998178207849804782, guid: e28f97ead26f1ff40a7af613d1e00fcb, type: 3}
+  enemyBunnyArtifactPrefab: {fileID: 8420065179477367207, guid: 2ad757d9f29bf9d45b4d7c2efbaad9f9, type: 3}
+--- !u!4 &1851325159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851325157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9102486, y: -2.933287, z: -10.589532}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1945575456
 GameObject:
   m_ObjectHideFlags: 0
