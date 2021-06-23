@@ -8065,7 +8065,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1850549723}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8147,6 +8147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bunny
       objectReference: {fileID: 0}
+    - target: {fileID: 6230191228824865575, guid: fe8eb82ae5bb2d348866cdd9e77f6a68, type: 3}
+      propertyPath: characterType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8eb82ae5bb2d348866cdd9e77f6a68, type: 3}
 --- !u!1001 &5189245992890890192
@@ -8224,6 +8228,10 @@ PrefabInstance:
     - target: {fileID: 6023027876475338272, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
       propertyPath: m_Name
       value: Rhino
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023027876475338272, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6023027876475338280, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
       propertyPath: m_RootOrder

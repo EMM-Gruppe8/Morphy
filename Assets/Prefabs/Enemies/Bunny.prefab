@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5087857396356817501}
   - component: {fileID: 5087857396356817496}
   - component: {fileID: 5087857396356817502}
+  - component: {fileID: 6230191228824865575}
   m_Layer: 7
   m_Name: Bunny
   m_TagString: Enemy
@@ -137,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53805f7457bb3484b866c04c360bdaf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHp: 10
+  maxHP: 3
+  currentHp: 3
   healthBarPrefab: {fileID: 4306621868248852509, guid: cf00219910f2c40b9adcce6b67dd044a, type: 3}
 --- !u!114 &5087857396356817493
 MonoBehaviour:
@@ -232,3 +233,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.02}
   m_Size: {x: 0.2, y: 0.38}
   m_Direction: 0
+--- !u!114 &6230191228824865575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087857396356817504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbb0e9be4e89d524fbdc1764ffb68952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: 0
