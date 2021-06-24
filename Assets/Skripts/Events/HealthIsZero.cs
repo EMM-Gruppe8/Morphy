@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class HealthIsZero : EventManager.Event<HealthIsZero>
 {
-    public Health Health;
+    public GameObject gameObject;
 
     public override void Execute()
     {
-        EventManager.Schedule<PlayerDeath>();
+        // Event for Player Death
+        if (gameObject.CompareTag("Player"))
+        {
+            EventManager.Schedule<PlayerDeath>();
+        }
+        else
+        {
+            // Or Enemy Death
+            var customEvent = EventManager.Schedule<EnemyDeath>();
+            customEvent.gameObject = gameObject;
+        }
     }
 }
