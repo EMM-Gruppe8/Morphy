@@ -1,0 +1,4 @@
+- Auffällige Fehler als Issues posten
+- evtl. Todolisten zu den Tasks hinzufügen
+- Prefabs nutzen
+- Ziel bis nächstes Mal: Features fertig
