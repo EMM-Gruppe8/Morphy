@@ -48,6 +48,13 @@ public class PauseMenuScript : MonoBehaviour
     public void Pause() {
         isPaused = true;
         UpdatePauseStatus();
+
+        // Flip pause menu if needed
+        if (Input.acceleration.y < 0) {
+            pauseMenuUI.transform.localScale = new Vector3(Mathf.Abs(pauseMenuUI.transform.localScale.x), Mathf.Abs(pauseMenuUI.transform.localScale.y), pauseMenuUI.transform.localScale.z);
+        } else {
+            pauseMenuUI.transform.localScale = new Vector3(-1f * Mathf.Abs(pauseMenuUI.transform.localScale.x), -1f * Mathf.Abs(pauseMenuUI.transform.localScale.y), pauseMenuUI.transform.localScale.z);
+        }
     }
 
     /**
