@@ -83,10 +83,16 @@ public class EnemyAI : MonoBehaviour
         } else {
             ahead = Vector3.left*2;
         }
-        Vector3 down = Vector3.down* 10;
+
+        float rayLength;
+        if (jumpEnabled){
+            rayLength = 15;
+        } else{
+            rayLength = 2;
+        }
+        
         Vector3 startDown = this.transform.position + ahead;
- 
-        RaycastHit2D  raycastHit = Physics2D.Raycast(startDown, Vector2.down, 20f, platformLayerMask);
+        RaycastHit2D  raycastHit = Physics2D.Raycast(startDown, Vector2.down, rayLength, platformLayerMask);
 
         Color rayColor;
 
@@ -100,7 +106,7 @@ public class EnemyAI : MonoBehaviour
         } else {
             rayColor = Color.red;
         }
-        Debug.DrawRay(startDown, Vector2.down *20, rayColor, 0);
+        Debug.DrawRay(startDown, Vector2.down *rayLength, rayColor, 0);
         Debug.DrawLine(this.transform.position, this.transform.position + ahead, rayColor, 0);
 
         if(nearHole && !jumpEnabled){
