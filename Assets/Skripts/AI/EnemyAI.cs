@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Pathfinding")]
     public Transform target;
-    public float activateDistance = 25f;
+    public float activateDistance = 50f;
     public float pathUpdateSeconds = 0.5f;
 
     [Header("Physics")]
@@ -84,6 +84,31 @@ public class EnemyAI : MonoBehaviour
                 rb.AddForce(Vector2.up * speed * jumpModifier);
             }
         } 
+
+        // Check if hole is ahead
+        Vector3 ahead;
+        if (target.position.x > this.transform.position.x){
+            ahead = Vector3.right*2;
+        } else {
+            ahead = Vector3.left*2;
+        }
+        Vector3 down = Vector3.down* 10;
+        Vector3 startDown = this.transform.position + ahead;
+ 
+        RaycastHit2D  raycastHit = Physics2D.Raycast(startDown, Vector2.down, 20f, platformLayerMask);
+
+        Color rayColor;
+        if(raycastHit.collider != null){
+            rayColor = Color.green;
+        } else {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay(startDown, Vector2.down *20, rayColor, 0);
+        Debug.DrawLine(this.transform.position, this.transform.position + ahead, rayColor, 0);
+        if(raycastHit.collider == null){
+            force = Vector3.zero;
+        }
+
 
         // Movement
         if (!isGrounded){ 
