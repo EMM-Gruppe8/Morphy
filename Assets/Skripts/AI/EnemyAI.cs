@@ -6,6 +6,7 @@ using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
     public Animator animator;
+    public CharacterType characterType;
 
     [Header("Pathfinding")]
     public Transform target;
@@ -18,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     public float jumpNodeHeightRequirement = 0.8f;
     public float jumpModifier = 0.3f;
     public float jumpCheckOffset = 0.1f;
+    public bool gravityDown = true;
 
     public LayerMask platformLayerMask;
 
@@ -32,10 +34,18 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
+    private Vector2 downVector = Vector2.down;
+
     public void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        if(!gravityDown){
+            rb.gravityScale=-rb.gravityScale;
+            downVector = Vector2.up;
+            transform.localScale = new Vector3(transform.localScale.x, -1f * Mathf.Abs(transform.localScale.y), transform.localScale.z);
+            jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
+        }
 
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
@@ -70,7 +80,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         // See if colliding with anything
-        isGrounded = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, Vector2.down, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffset, platformLayerMask);
+        isGrounded = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, downVector, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffset, platformLayerMask);
         
         // Direction Calculation
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
@@ -92,7 +102,7 @@ public class EnemyAI : MonoBehaviour
         }
         
         Vector3 startDown = this.transform.position + ahead;
-        RaycastHit2D  raycastHit = Physics2D.Raycast(startDown, Vector2.down, rayLength, platformLayerMask);
+        RaycastHit2D  raycastHit = Physics2D.Raycast(startDown, downVector, rayLength, platformLayerMask);
 
         Color rayColor;
 
@@ -106,7 +116,7 @@ public class EnemyAI : MonoBehaviour
         } else {
             rayColor = Color.red;
         }
-        Debug.DrawRay(startDown, Vector2.down *rayLength, rayColor, 0);
+        Debug.DrawRay(startDown, downVector *rayLength, rayColor, 0);
         Debug.DrawLine(this.transform.position, this.transform.position + ahead, rayColor, 0);
 
         if(nearHole && !jumpEnabled){
@@ -122,7 +132,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (direction.y > jumpNodeHeightRequirement)
             {
-                rb.AddForce(Vector2.up * speed * jumpModifier);
+                rb.AddForce(-downVector * speed * jumpModifier);
             }
         } 
 

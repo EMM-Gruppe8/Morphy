@@ -7884,6 +7884,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1331723932}
+    - target: {fileID: 5087857396356817496, guid: fe8eb82ae5bb2d348866cdd9e77f6a68, type: 3}
+      propertyPath: gravityDown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5087857396356817497, guid: fe8eb82ae5bb2d348866cdd9e77f6a68, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -8025,6 +8029,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5864683336227782189, guid: 86309158a0e3b8d42b78452df7a10311, type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAAAIIeyf0z+8ZwIAAAwFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziVjE8DQW+sQ0kM+JqSTiy+ytcYaZMmjjwDJ8N+7kg126ZQL8tt9q31v1/4iXJoGCqv0WnP2qBiQ7yPiz+TbqA8+wIFuldzwTzjnvHNmK59EQ84rtVwhHnuaUTVYzYsfcit8coSgk7xUul6xLaTKWINwSYUBDGllPVsi9DUiB/wbLz3liKdJ4k+feFpGoxMeC5AWdJ8aL26W/jefdIyky49vJrN4vkzms9U4mgeuk4WgdQPMC+lLJNOOetteIVFil+HlFEoIbrr+iD02QX9KG+NQHSYwTlFvaCq6mSFQAd9W1nc/pD+XpQHb2aHp8Y5rNK6tS36q1s2aml3b2QcVzt80n4am2pqP/4THcQiXWtUP52vjyF9hK17sXumxoMYO3B7Cd33ncfBnT8WO5gLeK5BPaq2VkwyDVjtPdQYmd/3jRVlaQbHr8bbVK9A1veHn4Z5H6zWcgvhDKnidByOnLbARKhgeNgI0juYXNhz2xXQlEPVd/DbwRrfDxeoC91wbi6FOpfTt5cppn0pWwTOvxtlUaQl6WKEBSYU9vmAdez3Cq9j/WffUv0Pd7V3s/GpcUQLc50fRVehF7S/TMpXaP4Kpnp0VXA6L+cgTOpUqKdsVM1dRz9s4XdJiyNs6zv7eLrLI5wuaAMzy6WK6SKbjhOX5bUFvEZ8leZGQsH5colIqXtpWO4NwcLJfAImrdv64jNaaNmHfmab7Nf+slekzuSzVptAA8rmtcOkcNF6CbyZbMY4WbcBaLsPIyVdGhCp2wLJLoSxIXR2spllfJSMN/1DWIxlJw9ckIydy+gNQSwMEFAAACAgAAAgh7Or51clsAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tJJFkplFonlqqmmSiYWJhbmJrnlKUpJxcqIxUNzUPCnZXCkWqL6ksiDVLzE3FaInILEkIy0zLyUzL13PvSgzxR1ktFJsLQBQSwECLQAUAAAICAAACCHsn9M/vGcCAAAMBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHs6vnVyWwAAAB4AAAACQAkAAAAAAAAAAAAAAC0AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGsDAAAAAA==
+      objectReference: {fileID: 0}
     - target: {fileID: 6872520505286171847, guid: 86309158a0e3b8d42b78452df7a10311, type: 3}
       propertyPath: m_Name
       value: Objects
@@ -8143,6 +8151,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1331723932}
+    - target: {fileID: 6023027876475338286, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
+      propertyPath: gravityDown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
 --- !u!4 &8252384549194471978 stripped
