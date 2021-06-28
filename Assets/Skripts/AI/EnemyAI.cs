@@ -76,15 +76,6 @@ public class EnemyAI : MonoBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
-        // Jump
-        if (jumpEnabled && isGrounded)
-        {
-            if (direction.y > jumpNodeHeightRequirement)
-            {
-                rb.AddForce(Vector2.up * speed * jumpModifier);
-            }
-        } 
-
         // Check if hole is ahead
         Vector3 ahead;
         if (target.position.x > this.transform.position.x){
@@ -98,17 +89,36 @@ public class EnemyAI : MonoBehaviour
         RaycastHit2D  raycastHit = Physics2D.Raycast(startDown, Vector2.down, 20f, platformLayerMask);
 
         Color rayColor;
-        if(raycastHit.collider != null){
+
+        bool nearHole = false;
+        if (raycastHit.collider == null){
+            nearHole = true;
+        }
+
+        if(!nearHole){
             rayColor = Color.green;
         } else {
             rayColor = Color.red;
         }
         Debug.DrawRay(startDown, Vector2.down *20, rayColor, 0);
         Debug.DrawLine(this.transform.position, this.transform.position + ahead, rayColor, 0);
-        if(raycastHit.collider == null){
+
+        if(nearHole && !jumpEnabled){
             force = Vector3.zero;
         }
+        
+        if (nearHole && jumpEnabled && isGrounded){
+            rb.AddForce(Vector2.up * speed * jumpModifier);
+        }
 
+        // Jump
+        if (jumpEnabled && isGrounded)
+        {
+            if (direction.y > jumpNodeHeightRequirement)
+            {
+                rb.AddForce(Vector2.up * speed * jumpModifier);
+            }
+        } 
 
         // Movement
         if (!isGrounded){ 
