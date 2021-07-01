@@ -7,6 +7,12 @@ public class EnemyAI : MonoBehaviour
 {
     public Animator animator;
 
+    [Header("Attack")]
+    public int damage = 10;
+    public int attackRange;
+    public float attackSpeed = 5f;
+    private float attackTime = 0f;
+
     [Header("Pathfinding")]
     public Transform target;
     public float activateDistance = 50f;
@@ -45,6 +51,17 @@ public class EnemyAI : MonoBehaviour
         if (TargetInDistance() && followEnabled)
         {
             PathFollow();
+        }
+
+        //When in range of the Player, deal Damage
+        if(Vector2.Distance(transform.position, target.transform.position) <= attackRange)
+        {
+            attackTime += Time.deltaTime;
+            if (attackTime > 1/attackSpeed )
+            {
+                target.gameObject.GetComponent<Health>().Decrement(damage);
+                attackTime = 0f;
+            }
         }
     }
 
