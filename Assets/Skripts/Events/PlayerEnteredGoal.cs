@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerEnteredGoal : EventManager.Event<PlayerEnteredGoal>
 {
@@ -34,10 +35,26 @@ public class PlayerEnteredGoal : EventManager.Event<PlayerEnteredGoal>
                 t2.Seconds,
                 t2.Milliseconds);
 
-            Debug.Log("####### GEWONNEN #######\n####### Keine neue Bestzeit :-( ####### \n Zeit: " + timeString + "\n Best: " + timeString2 + "\n ");
-
+            Debug.Log("####### GEWONNEN #######\n####### Keine neue Bestzeit :-( ####### \n Zeit: " + timeString +
+                      "\n Best: " + timeString2 + "\n ");
         }
-        
-        EventManager.Schedule<PlayerSpawn>(2);
+
+        var customEvent = EventManager.Schedule<LoadLevel>();
+        var currentLevelName = SceneManager.GetActiveScene().name;
+        if (currentLevelName.ToLower().Contains("level1"))
+        {
+            LevelController.setHighestCompletedLevel(1);
+            customEvent.levelName = "Level2";
+        }
+        else if (currentLevelName.ToLower().Contains("level2"))
+        {
+            LevelController.setHighestCompletedLevel(2);
+            customEvent.levelName = "Level3";
+        }
+        else
+        {
+            LevelController.setHighestCompletedLevel(3);
+            customEvent.levelName = "MainMenuScene";
+        }
     }
 }
