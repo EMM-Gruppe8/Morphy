@@ -34,6 +34,8 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
+    AttackableAttacker attackable;
+
     private Vector2 downVector = Vector2.down;
 
     public void Start()
@@ -46,7 +48,7 @@ public class EnemyAI : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, -1f * Mathf.Abs(transform.localScale.y), transform.localScale.z);
             jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
         }
-
+        attackable = GetComponent<AttackableAttacker>();
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
 
@@ -56,6 +58,7 @@ public class EnemyAI : MonoBehaviour
         {
             PathFollow();
         }
+        attackable.attackNearest();
     }
 
     private void UpdatePath()
