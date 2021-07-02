@@ -35,7 +35,7 @@ public class MainMenuScript : MonoBehaviour
      */
     public void StartGame() {
         Debug.Log("Start Game");
-        SceneManager.LoadScene("Prototype1");
+        SceneManager.LoadScene("Level1");
 
         int currentLevel = LevelController.getHighestCompletedLevel() + 1;
         // TODO: Implement when Game Engine is ready
@@ -54,10 +54,10 @@ public class MainMenuScript : MonoBehaviour
 
         switch(level){
             case 1:
-                SceneManager.LoadScene("GyroDemo");
+                SceneManager.LoadScene("Level1");
                 break;
             case 2:
-                SceneManager.LoadScene("Prototype1");
+                SceneManager.LoadScene("Level2");
                 break;
         }
     }

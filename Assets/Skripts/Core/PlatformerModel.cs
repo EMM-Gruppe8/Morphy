@@ -22,6 +22,11 @@ public class PlatformerModel
     public HighscoreController highscoreController;
 
     /// <summary>
+    /// Spawner for Enemy artifact, on enemy death event
+    /// </summary>
+    public EnemyArtifactSpawner enemyArtifactSpawner;
+
+    /// <summary>
     /// The spawn point in the scene.
     /// </summary>
     public Transform spawnPoint;

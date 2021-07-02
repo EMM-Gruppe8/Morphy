@@ -31,16 +31,15 @@ public class Health : MonoBehaviour
     {
         currentHp = Mathf.Clamp(currentHp - amount, 0, maxHP);
         updateHealthBar();
-        if (currentHp == 0)
-        {
-            if (gameObject.tag == "Player") {
-                FindObjectOfType<AudioManager>().Play("PlayerDeath");
-                var customEvent = EventManager.Schedule<HealthIsZero>();
-                customEvent.Health = this;
-            } else {
-                FindObjectOfType<AudioManager>().Play("EnemyDeath");
-            }
+        if (currentHp != 0) return;
+        if (gameObject.tag == "Player") {
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
+        } else {
+            FindObjectOfType<AudioManager>().Play("EnemyDeath");
         }
+        var customEvent = EventManager.Schedule<HealthIsZero>();
+        customEvent.gameObject = gameObject;
+
     }
 
     public void Die()

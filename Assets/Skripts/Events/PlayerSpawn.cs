@@ -8,6 +8,7 @@ public class PlayerSpawn : EventManager.Event<PlayerSpawn>
 
     public override void Execute()
     {
+        // Respawn player on spawn, activate Input and Set max health
         var player = model.player;
         var highscoreController = model.highscoreController;
         highscoreController.StartMeasurement();
@@ -16,6 +17,7 @@ public class PlayerSpawn : EventManager.Event<PlayerSpawn>
         player.health.SetMaxHealth();
         player.Teleport(model.spawnPoint.transform.position);
         player.jumpState = PlayerController.JumpState.Grounded;
+        // let camera follow player
         model.virtualCamera.m_Follow = player.transform;
         model.virtualCamera.m_LookAt = player.transform;
         EventManager.Schedule<EnablePlayerInput>(2f);
