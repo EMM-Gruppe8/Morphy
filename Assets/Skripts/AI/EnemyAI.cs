@@ -6,10 +6,11 @@ using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
     public Animator animator;
+    public CharacterType characterType;
 
     [Header("Pathfinding")]
     public Transform target;
-    public float activateDistance = 25f;
+    public float activateDistance = 50f;
     public float pathUpdateSeconds = 0.5f;
 
     [Header("Physics")]
@@ -18,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     public float jumpNodeHeightRequirement = 0.8f;
     public float jumpModifier = 0.3f;
     public float jumpCheckOffset = 0.1f;
+    public bool gravityDown = true;
 
     public LayerMask platformLayerMask;
 
@@ -32,10 +34,18 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
+    private Vector2 downVector = Vector2.down;
+
     public void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        if(!gravityDown){
+            rb.gravityScale=-rb.gravityScale;
+            downVector = Vector2.up;
+            transform.localScale = new Vector3(transform.localScale.x, -1f * Mathf.Abs(transform.localScale.y), transform.localScale.z);
+            jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
+        }
 
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
@@ -70,18 +80,59 @@ public class EnemyAI : MonoBehaviour
         }
 
         // See if colliding with anything
-        isGrounded = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, Vector2.down, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffset, platformLayerMask);
+        isGrounded = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, downVector, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffset, platformLayerMask);
         
         // Direction Calculation
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
+
+        // Check if hole is ahead
+        Vector3 ahead;
+        if (target.position.x > this.transform.position.x){
+            ahead = Vector3.right*2;
+        } else {
+            ahead = Vector3.left*2;
+        }
+
+        float rayLength;
+        if (jumpEnabled){
+            rayLength = 15;
+        } else{
+            rayLength = 2;
+        }
+        
+        Vector3 startDown = this.transform.position + ahead;
+        RaycastHit2D  raycastHit = Physics2D.Raycast(startDown, downVector, rayLength, platformLayerMask);
+
+        Color rayColor;
+
+        bool nearHole = false;
+        if (raycastHit.collider == null){
+            nearHole = true;
+        }
+
+        if(!nearHole){
+            rayColor = Color.green;
+        } else {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay(startDown, downVector *rayLength, rayColor, 0);
+        Debug.DrawLine(this.transform.position, this.transform.position + ahead, rayColor, 0);
+
+        if(nearHole && !jumpEnabled){
+            force = Vector3.zero;
+        }
+        
+        if (nearHole && jumpEnabled && isGrounded){
+            rb.AddForce(Vector2.up * speed * jumpModifier);
+        }
 
         // Jump
         if (jumpEnabled && isGrounded)
         {
             if (direction.y > jumpNodeHeightRequirement)
             {
-                rb.AddForce(Vector2.up * speed * jumpModifier);
+                rb.AddForce(-downVector * speed * jumpModifier);
             }
         } 
 

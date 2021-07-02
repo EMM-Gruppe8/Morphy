@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6023027876475338282}
+  characterType: 2
   target: {fileID: 0}
   activateDistance: 20
   pathUpdateSeconds: 0.5
