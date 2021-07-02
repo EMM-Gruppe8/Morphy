@@ -9,10 +9,7 @@ public class RotateWorld : EventManager.Event<RotateWorld>
     public override void Execute()
     {
         var player = model.player;
-        player.controlEnabled = false;
         player.invertedMovement = !player.invertedMovement;
         player.spriteRenderer.flipY = !player.spriteRenderer.flipY;
-        
-        EventManager.Schedule<EnablePlayerInput>(2);
     }
 }

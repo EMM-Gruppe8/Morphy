@@ -9,7 +9,7 @@ public class PlayerController : KinematicObject
     public JumpState jumpState = JumpState.Grounded;
     public MovementState movementState = MovementState.Standing;
     public Animator animator;
-    public Collider2D collider2d;
+    public BoxCollider2D collider2d;
     public Health health;
     public SpriteRenderer spriteRenderer;
     public bool controlEnabled = true;
@@ -38,7 +38,7 @@ public class PlayerController : KinematicObject
     private void Awake()
     {
         health = GetComponent<Health>();
-        collider2d = GetComponent<Collider2D>();
+        collider2d = GetComponent<BoxCollider2D>();
     }
 
     protected override void Update()
@@ -49,6 +49,7 @@ public class PlayerController : KinematicObject
         UpdateMovementState();
         UpdateAnimator();
         UpdateCharacterType();
+        UpdateBoxCollider2D();
         base.Update();
     }
 
@@ -58,13 +59,21 @@ public class PlayerController : KinematicObject
         {
             if (Input.acceleration.x >= WalkingThreshold || Input.acceleration.x <= -WalkingThreshold)
             {
-                _movement.x = Invert * Input.acceleration.x * 1.5f;
+                if (jumpState == JumpState.InFlight && _currentCharacterType == CharacterType.Slime)
+                {
+                    _movement.x = 0;
+                }
+                else
+                {
+                    _movement.x = (Invert * Input.acceleration.x * 1.5f);
+                }
             }
             else
             {
                 _movement.x = 0;
             }
 
+            // Let only the Bunny Jump
             if (jumpState == JumpState.Grounded && Input.acceleration.z >= JumpingThreshold &&
                 _currentCharacterType == CharacterType.Bunny)
             {
@@ -84,15 +93,17 @@ public class PlayerController : KinematicObject
 
     private void UpdateGravityRotation()
     {
-        if (_currentCharacterType != CharacterType.Slime) return;
+        if (_currentCharacterType != CharacterType.Slime) return; // Update rotation only if Character is a Slime
         var angle = Math.Abs(Mathf.Atan2(-Input.acceleration.x, -Input.acceleration.y) * Mathf.Rad2Deg);
         switch (_rotateDirection)
         {
             case RoateDirection.DOWN when angle >= 90:
+                jumpState = JumpState.PrepareToJump;
                 Schedule<RotateWorld>();
                 _rotateDirection = RoateDirection.UP;
                 break;
             case RoateDirection.UP when angle < 90:
+                jumpState = JumpState.PrepareToJump;
                 Schedule<RotateWorld>();
                 _rotateDirection = RoateDirection.DOWN;
                 break;
@@ -154,6 +165,11 @@ public class PlayerController : KinematicObject
         {
             ChangeCharacterType(targetCharacterType);
         }
+    }
+
+    private void UpdateBoxCollider2D()
+    {
+        collider2d.size = new Vector2(spriteRenderer.sprite.bounds.size.x, spriteRenderer.sprite.bounds.size.y);
     }
 
     public float calculateDistanceToObject(GameObject go)
@@ -316,6 +332,33 @@ public class PlayerController : KinematicObject
             case JumpState.InFlight:
                 animator.SetBool(IsJumping, true);
                 break;
+        }
+    }
+
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check position of collision
+        var landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
+
+        switch (landedOnTop)
+        {
+            // Special attack if Bunny or Slime jumps on head
+            case true when _currentCharacterType == CharacterType.Bunny ||
+                           _currentCharacterType == CharacterType.Slime && collision.gameObject:
+            {
+                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                attackableAttacker.attackWithCustomAction(collision.gameObject);
+                break;
+            }
+            // Special attack if Rhino sprints on enemy
+            case false when _currentCharacterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
+                            collision.gameObject:
+            {
+                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                attackableAttacker.attackWithCustomAction(collision.gameObject);
+                break;
+            }
         }
     }
 
