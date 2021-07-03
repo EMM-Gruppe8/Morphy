@@ -133,6 +133,40 @@ public class EnemyAI : MonoBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         force = direction * speed * Time.deltaTime;
 
+        bool nearHole = isNearHole();
+
+        if(nearHole && !jumpEnabled){
+            force = Vector3.zero;
+        }
+        
+        if (nearHole && jumpEnabled && isGrounded){
+            rb.AddForce(Vector2.up * speed * jumpModifier);
+        }
+
+        // Jump
+        if (jumpEnabled && isGrounded)
+        {
+            if (direction.y > jumpNodeHeightRequirement)
+            {
+                rb.AddForce(-downVector * speed * jumpModifier);
+            }
+        } 
+
+        // Movement
+        if (!isGrounded){ 
+            force.y = 0;
+        }
+        rb.AddForce(force);
+
+        // Next Waypoint
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        if (distance < nextWaypointDistance)
+        {
+            currentWaypoint++;
+        }
+    }
+
+    private bool isNearHole(){
         // Check if hole is ahead
         Vector3 ahead;
         if (target.position.x > this.transform.position.x){
@@ -166,35 +200,7 @@ public class EnemyAI : MonoBehaviour
         Debug.DrawRay(startDown, downVector *rayLength, rayColor, 0);
         Debug.DrawLine(this.transform.position, this.transform.position + ahead, rayColor, 0);
 
-        if(nearHole && !jumpEnabled){
-            force = Vector3.zero;
-        }
-        
-        if (nearHole && jumpEnabled && isGrounded){
-            rb.AddForce(Vector2.up * speed * jumpModifier);
-        }
-
-        // Jump
-        if (jumpEnabled && isGrounded)
-        {
-            if (direction.y > jumpNodeHeightRequirement)
-            {
-                rb.AddForce(-downVector * speed * jumpModifier);
-            }
-        } 
-
-        // Movement
-        if (!isGrounded){ 
-            force.y = 0;
-        }
-        rb.AddForce(force);
-
-        // Next Waypoint
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-        if (distance < nextWaypointDistance)
-        {
-            currentWaypoint++;
-        }
+        return nearHole;
     }
 
     private bool TargetInDistance()
