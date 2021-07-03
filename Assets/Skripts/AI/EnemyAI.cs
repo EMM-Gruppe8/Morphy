@@ -35,6 +35,9 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb;
     Vector2 force;
     AttackableAttacker attackable;
+    public Collider2D collider2d;
+    public Bounds Bounds => collider2d.bounds;
+    public MovementState movementState = MovementState.Standing;
 
     private Vector2 downVector = Vector2.down;
 
@@ -42,6 +45,7 @@ public class EnemyAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        collider2d = GetComponent<Collider2D>();
         if(!gravityDown){
             rb.gravityScale=-rb.gravityScale;
             downVector = Vector2.up;
@@ -205,5 +209,38 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+    }
+
+     void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check position of collision
+        var landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
+
+        switch (landedOnTop)
+        {
+            // Special attack if Bunny or Slime jumps on head
+            case true when characterType == CharacterType.Bunny ||
+                           characterType == CharacterType.Slime && collision.gameObject:
+            {
+                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                attackableAttacker.attackWithCustomAction(collision.gameObject);
+                break;
+            }
+            // Special attack if Rhino sprints on enemy
+            case false when characterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
+                            collision.gameObject:
+            {
+                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                attackableAttacker.attackWithCustomAction(collision.gameObject);
+                break;
+            }
+        }
+    }
+
+    public enum MovementState
+    {
+        Standing,
+        Walking,
+        Sprinting
     }
 }

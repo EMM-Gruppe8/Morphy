@@ -209,7 +209,7 @@ MonoBehaviour:
   activateDistance: 20
   pathUpdateSeconds: 0.5
   speed: 600
-  nextWaypointDistance: 3
+  nextWaypointDistance: 2
   jumpNodeHeightRequirement: 0.8
   jumpModifier: 1.5
   jumpCheckOffset: 0.1
@@ -220,6 +220,8 @@ MonoBehaviour:
   followEnabled: 1
   jumpEnabled: 0
   directionLookEnabled: 1
+  collider2d: {fileID: 0}
+  movementState: 0
 --- !u!61 &4963380235308118393
 BoxCollider2D:
   m_ObjectHideFlags: 0
