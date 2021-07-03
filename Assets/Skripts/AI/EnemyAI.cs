@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Pathfinding;
 
@@ -42,6 +41,8 @@ public class EnemyAI : MonoBehaviour
     bool isInitialRun = true;
     private Vector2 downVector = Vector2.down;
 
+    private const float WalkingThreshold = 0.05f;
+    private const float SprintingThreshold = 0.7f;
 
     public void Start()
     {
@@ -154,6 +155,7 @@ public class EnemyAI : MonoBehaviour
         if (!isGrounded){ 
             force.y = 0;
         }
+        UpdateMovementState();
         rb.AddForce(force);
 
         // Next Waypoint
@@ -211,6 +213,10 @@ public class EnemyAI : MonoBehaviour
         TurnGravity();
     }
 
+    public void Run(){
+        force.x = force.x*1.5f;
+    }
+
     public void DoSpecialMovement(){
         if (characterType == CharacterType.Bunny){
             Vector3 ahead;
@@ -241,7 +247,32 @@ public class EnemyAI : MonoBehaviour
             }
         }
         else if (characterType == CharacterType.Rhino){
+            Vector3 ahead;
+            if (target.position.x > this.transform.position.x){
+                ahead = Vector3.right;
+            } else {
+                ahead = Vector3.left;
+            }
+            float rayLength = 15f;
+            RaycastHit2D  raycastHit = Physics2D.Raycast(this.transform.position, ahead, rayLength, playerLayerMask);
 
+            bool nearEnemy = true;
+            if (raycastHit.collider == null){
+                nearEnemy = false;
+            }
+
+            Color rayColor;
+            if(!nearEnemy){
+                rayColor = Color.yellow;
+            } else {
+                rayColor = Color.blue;
+            }
+
+            Debug.DrawRay(this.transform.position, ahead * rayLength, rayColor, 0);
+
+            if (nearEnemy){
+                Run();
+            } 
         }
         else if (characterType == CharacterType.Slime){
             Vector3 over = -downVector;
@@ -293,20 +324,36 @@ public class EnemyAI : MonoBehaviour
                 // Special attack if Bunny or Slime jumps on head
                 case true when characterType == CharacterType.Bunny ||
                             characterType == CharacterType.Slime && collision.gameObject:
-                {
-                    var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                    attackableAttacker.attackWithCustomAction(collision.gameObject);
-                    break;
-                }
+                    {
+                        var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                        attackableAttacker.attackWithCustomAction(collision.gameObject);
+                        break;
+                    }
                 // Special attack if Rhino sprints on enemy
                 case false when characterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
                                 collision.gameObject:
-                {
-                    var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                    attackableAttacker.attackWithCustomAction(collision.gameObject);
-                    break;
-                }
+                    {
+                        var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                        attackableAttacker.attackWithCustomAction(collision.gameObject);
+                        break;
+                    }
             }
+        }
+    }
+
+    private void UpdateMovementState()
+    {
+        if (Math.Abs(force.x) >= WalkingThreshold && Math.Abs(force.x) < SprintingThreshold)
+        {
+            movementState = MovementState.Walking;
+        }
+        else if (Math.Abs(force.x) >= SprintingThreshold)
+        {
+            movementState = MovementState.Sprinting;
+        }
+        else
+        {
+            movementState = MovementState.Standing;
         }
     }
 
