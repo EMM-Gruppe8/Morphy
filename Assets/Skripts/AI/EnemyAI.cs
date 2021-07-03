@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     RaycastHit2D isGrounded;
     Seeker seeker;
     Rigidbody2D rb;
-
+    Vector2 force;
     AttackableAttacker attackable;
 
     private Vector2 downVector = Vector2.down;
@@ -57,8 +57,9 @@ public class EnemyAI : MonoBehaviour
         if (TargetInDistance() && followEnabled)
         {
             PathFollow();
+            UpdateAnimation();
+            attackable.attackNearest();
         }
-        attackable.attackNearest();
     }
 
     private void UpdatePath()
@@ -67,6 +68,45 @@ public class EnemyAI : MonoBehaviour
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
+    }
+
+    private void UpdateAnimation(){
+        // Direction Graphics Handling
+        if (directionLookEnabled)
+        {
+            if (rb.velocity.x > 0.05f)
+            {
+                transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else if (rb.velocity.x < -0.05f)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+        }
+
+        // Animation
+        if (isGrounded)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(force.x));
+        }
+        else if (rb.velocity.magnitude < 0)
+        {
+            animator.SetFloat("Speed", 0);
+        } 
+
+        if (jumpEnabled && !isGrounded)
+        {
+            animator.SetBool("isJumping", true);
+        } else
+        {
+            animator.SetBool("isJumping", false);
+        }
+
+        /*
+        if(recieve Damage)
+        {
+            animator.SetBool("recieveDamage", true);
+        } */
     }
 
     private void PathFollow()
@@ -87,7 +127,7 @@ public class EnemyAI : MonoBehaviour
         
         // Direction Calculation
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        force = direction * speed * Time.deltaTime;
 
         // Check if hole is ahead
         Vector3 ahead;
@@ -151,43 +191,6 @@ public class EnemyAI : MonoBehaviour
         {
             currentWaypoint++;
         }
-
-        // Direction Graphics Handling
-        if (directionLookEnabled)
-        {
-            if (rb.velocity.x > 0.05f)
-            {
-                transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-            else if (rb.velocity.x < -0.05f)
-            {
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-        }
-
-        // Animation
-        if (isGrounded)
-        {
-            animator.SetFloat("Speed", Mathf.Abs(force.x));
-        }
-        else if (rb.velocity.magnitude < 0)
-        {
-            animator.SetFloat("Speed", 0);
-        } 
-
-        if (jumpEnabled && !isGrounded)
-        {
-            animator.SetBool("isJumping", true);
-        } else
-        {
-            animator.SetBool("isJumping", false);
-        }
-
-        /*
-        if(recieve Damage)
-        {
-            animator.SetBool("recieveDamage", true);
-        } */
     }
 
     private bool TargetInDistance()
