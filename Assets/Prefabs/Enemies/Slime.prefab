@@ -217,11 +217,12 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
   followEnabled: 1
   jumpEnabled: 0
   directionLookEnabled: 1
-  collider2d: {fileID: 0}
-  movementState: 0
 --- !u!61 &4963380235308118393
 BoxCollider2D:
   m_ObjectHideFlags: 0

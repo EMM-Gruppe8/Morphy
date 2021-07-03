@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
     public bool gravityDown = true;
 
     public LayerMask platformLayerMask;
+    public LayerMask playerLayerMask;
 
     [Header("Custom Behavior")]
     public bool followEnabled = true;
@@ -35,11 +36,12 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb;
     Vector2 force;
     AttackableAttacker attackable;
-    public Collider2D collider2d;
-    public Bounds Bounds => collider2d.bounds;
-    public MovementState movementState = MovementState.Standing;
-
+    Collider2D collider2d;
+    Bounds Bounds => collider2d.bounds;
+    MovementState movementState = MovementState.Standing;
+    bool isInitialRun = true;
     private Vector2 downVector = Vector2.down;
+
 
     public void Start()
     {
@@ -105,12 +107,6 @@ public class EnemyAI : MonoBehaviour
         {
             animator.SetBool("isJumping", false);
         }
-
-        /*
-        if(recieve Damage)
-        {
-            animator.SetBool("recieveDamage", true);
-        } */
     }
 
     private void PathFollow()
@@ -135,24 +131,28 @@ public class EnemyAI : MonoBehaviour
 
         bool nearHole = isNearHole();
 
+        // Stop movement if Charakter can't jump and is going towards a hole
         if(nearHole && !jumpEnabled){
             force = Vector3.zero;
         }
         
-        if (nearHole && jumpEnabled && isGrounded){
-            rb.AddForce(Vector2.up * speed * jumpModifier);
+        if (!isInitialRun){
+            // Jump if charakter can jump and is near a hole
+            if (nearHole && jumpEnabled){
+                Jump();
+            }
+            // Jump if Player is higher than the Enemy
+            if (jumpEnabled && direction.y > jumpNodeHeightRequirement)
+            {
+                Jump();  
+            } 
+
+            DoSpecialMovement();
         }
 
-        // Jump
-        if (jumpEnabled && isGrounded)
-        {
-            if (direction.y > jumpNodeHeightRequirement)
-            {
-                rb.AddForce(-downVector * speed * jumpModifier);
-            }
-        } 
+        isInitialRun = false;
 
-        // Movement
+        // Disable upward force if Charakter is Jumping
         if (!isGrounded){ 
             force.y = 0;
         }
@@ -201,6 +201,49 @@ public class EnemyAI : MonoBehaviour
         Debug.DrawLine(this.transform.position, this.transform.position + ahead, rayColor, 0);
 
         return nearHole;
+    }
+
+    public void Jump(){
+        if (isGrounded){
+            rb.AddForce(-downVector * speed * jumpModifier);  
+        }
+    }
+
+    public void DoSpecialMovement(){
+        if (characterType == CharacterType.Bunny){
+            Vector3 ahead;
+            if (target.position.x > this.transform.position.x){
+                ahead = Vector3.right;
+            } else {
+                ahead = Vector3.left;
+            }
+            float rayLength = 5f;
+            RaycastHit2D  raycastHit = Physics2D.Raycast(this.transform.position, ahead, rayLength, playerLayerMask);
+
+            bool nearEnemy = true;
+            if (raycastHit.collider == null){
+                nearEnemy = false;
+            }
+
+            Color rayColor;
+            if(!nearEnemy){
+                rayColor = Color.yellow;
+            } else {
+                rayColor = Color.blue;
+            }
+
+            Debug.DrawRay(this.transform.position, ahead * rayLength, rayColor, 0);
+
+            if (nearEnemy){
+                Jump();
+            }
+        }
+        else if (characterType == CharacterType.Rhino){
+
+        }
+        else if (characterType == CharacterType.Slime){
+
+        }
     }
 
     private bool TargetInDistance()
