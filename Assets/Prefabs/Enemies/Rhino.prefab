@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 6023027876475338284}
   - component: {fileID: 6023027876475338287}
   - component: {fileID: 6023027876475338286}
-  - component: {fileID: 7906553280157440114}
   - component: {fileID: 3206414212685271516}
-  m_Layer: 0
+  - component: {fileID: 7906553280157440114}
+  m_Layer: 7
   m_Name: Rhino
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -136,11 +136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83cc26a43296d47c7a551a65069a13ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 150
+  attackRange: 5
   nearAttackRange: 100
   mass: 1
   cooldownTimeInSeconds: 1
   attackButton: {fileID: 0}
+  enemyAttackDelay: 0.1
 --- !u!114 &6023027876475338284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,25 +213,13 @@ MonoBehaviour:
   jumpNodeHeightRequirement: 0.8
   jumpModifier: 1.5
   jumpCheckOffset: 0.1
+  gravityDown: 1
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
   followEnabled: 1
   jumpEnabled: 0
   directionLookEnabled: 1
---- !u!114 &7906553280157440114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6023027876475338272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb0e9be4e89d524fbdc1764ffb68952, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterType: 2
 --- !u!70 &3206414212685271516
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -247,3 +236,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.01, y: -0.04}
   m_Size: {x: 0.42, y: 0.26}
   m_Direction: 1
+--- !u!114 &7906553280157440114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023027876475338272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbb0e9be4e89d524fbdc1764ffb68952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: 2
