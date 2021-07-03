@@ -219,26 +219,28 @@ public class EnemyAI : MonoBehaviour
 
      void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check position of collision
-        var landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
+        if (collision.gameObject.tag != gameObject.tag){
+            // Check position of collision
+            var landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
 
-        switch (landedOnTop)
-        {
-            // Special attack if Bunny or Slime jumps on head
-            case true when characterType == CharacterType.Bunny ||
-                           characterType == CharacterType.Slime && collision.gameObject:
+            switch (landedOnTop)
             {
-                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                attackableAttacker.attackWithCustomAction(collision.gameObject);
-                break;
-            }
-            // Special attack if Rhino sprints on enemy
-            case false when characterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
-                            collision.gameObject:
-            {
-                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                attackableAttacker.attackWithCustomAction(collision.gameObject);
-                break;
+                // Special attack if Bunny or Slime jumps on head
+                case true when characterType == CharacterType.Bunny ||
+                            characterType == CharacterType.Slime && collision.gameObject:
+                {
+                    var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                    attackableAttacker.attackWithCustomAction(collision.gameObject);
+                    break;
+                }
+                // Special attack if Rhino sprints on enemy
+                case false when characterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
+                                collision.gameObject:
+                {
+                    var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                    attackableAttacker.attackWithCustomAction(collision.gameObject);
+                    break;
+                }
             }
         }
     }
