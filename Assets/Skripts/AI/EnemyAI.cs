@@ -333,8 +333,10 @@ public class EnemyAI : MonoBehaviour
                 case false when characterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
                                 collision.gameObject:
                     {
-                        var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                        attackableAttacker.attackWithCustomAction(collision.gameObject);
+                        try {
+                            var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                            attackableAttacker.attackWithCustomAction(collision.gameObject);
+                        } catch (NullReferenceException e){}
                         break;
                     }
             }

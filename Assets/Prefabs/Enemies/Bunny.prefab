@@ -141,7 +141,7 @@ MonoBehaviour:
   mass: 1
   cooldownTimeInSeconds: 1
   attackButton: {fileID: 0}
-  enemyAttackDelay: 0.2
+  enemyAttackDelay: 1
 --- !u!114 &5087857396356817493
 MonoBehaviour:
   m_ObjectHideFlags: 0
