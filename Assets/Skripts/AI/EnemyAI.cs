@@ -49,13 +49,17 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
         if(!gravityDown){
-            rb.gravityScale=-rb.gravityScale;
-            downVector = Vector2.up;
-            transform.localScale = new Vector3(transform.localScale.x, -1f * Mathf.Abs(transform.localScale.y), transform.localScale.z);
-            jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
+            TurnGravity();
         }
         attackable = GetComponent<AttackableAttacker>();
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
+    }
+
+    private void TurnGravity(){
+        rb.gravityScale=-rb.gravityScale;
+        downVector = -downVector;
+        transform.localScale = new Vector3(transform.localScale.x, -downVector.y * Mathf.Abs(transform.localScale.y), transform.localScale.z);
+        jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
     }
 
     private void FixedUpdate()
@@ -137,16 +141,10 @@ public class EnemyAI : MonoBehaviour
         }
         
         if (!isInitialRun){
-            // Jump if charakter can jump and is near a hole
-            if (nearHole && jumpEnabled){
+            // Jump if charakter can jump and is near a hole or the player has the highground
+            if (nearHole | direction.y > jumpNodeHeightRequirement){
                 Jump();
             }
-            // Jump if Player is higher than the Enemy
-            if (jumpEnabled && direction.y > jumpNodeHeightRequirement)
-            {
-                Jump();  
-            } 
-
             DoSpecialMovement();
         }
 
@@ -204,9 +202,13 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void Jump(){
-        if (isGrounded){
+        if (isGrounded && jumpEnabled){
             rb.AddForce(-downVector * speed * jumpModifier);  
         }
+    }
+
+    public void Fall(){
+        TurnGravity();
     }
 
     public void DoSpecialMovement(){
@@ -242,7 +244,27 @@ public class EnemyAI : MonoBehaviour
 
         }
         else if (characterType == CharacterType.Slime){
+            Vector3 over = -downVector;
+            float rayLength = 30f;
+            RaycastHit2D  raycastHit = Physics2D.Raycast(this.transform.position, over, rayLength, playerLayerMask);
 
+            bool enemyOver = true;
+            if (raycastHit.collider == null){
+                enemyOver = false;
+            }
+
+            Color rayColor;
+            if(!enemyOver){
+                rayColor = Color.yellow;
+            } else {
+                rayColor = Color.blue;
+            }
+
+            Debug.DrawRay(this.transform.position, over * rayLength, rayColor, 0);
+
+            if (enemyOver){
+                Fall();
+            }
         }
     }
 

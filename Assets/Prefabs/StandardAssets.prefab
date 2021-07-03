@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83cc26a43296d47c7a551a65069a13ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 6
+  attackRange: 7
   nearAttackRange: 100
   mass: 1
   cooldownTimeInSeconds: 1
