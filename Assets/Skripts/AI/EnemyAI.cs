@@ -50,17 +50,20 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
         if(!gravityDown){
-            TurnGravity();
+            TurnGravity(false);
         }
         attackable = GetComponent<AttackableAttacker>();
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
 
-    private void TurnGravity(){
+    private void TurnGravity(bool turnSemaphore){
         rb.gravityScale=-rb.gravityScale;
         downVector = -downVector;
         transform.localScale = new Vector3(transform.localScale.x, -downVector.y * Mathf.Abs(transform.localScale.y), transform.localScale.z);
         jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
+        if (turnSemaphore){
+            gravityDown = !gravityDown;
+        }
     }
 
     private void FixedUpdate()
@@ -210,7 +213,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void Fall(){
-        TurnGravity();
+        TurnGravity(true);
     }
 
     public void Run(){
@@ -317,29 +320,33 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.gameObject.tag != gameObject.tag){
             // Check position of collision
-            var landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
-
-            switch (landedOnTop)
-            {
-                // Special attack if Bunny or Slime jumps on head
-                case true when characterType == CharacterType.Bunny ||
-                            characterType == CharacterType.Slime && collision.gameObject:
-                    {
-                        var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                        attackableAttacker.attackWithCustomAction(collision.gameObject);
-                        break;
-                    }
-                // Special attack if Rhino sprints on enemy
-                case false when characterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
-                                collision.gameObject:
-                    {
-                        try {
+            bool landedOnTop;
+            if(!gravityDown){
+                landedOnTop = Bounds.center.y <= collision.collider.bounds.min.y;
+            } else {
+                landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
+            }
+            try {
+                switch (landedOnTop)
+                {
+                    // Special attack if Bunny or Slime jumps on head
+                    case true when characterType == CharacterType.Bunny ||
+                                characterType == CharacterType.Slime && collision.gameObject:
+                        {
                             var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
                             attackableAttacker.attackWithCustomAction(collision.gameObject);
-                        } catch (NullReferenceException e){}
-                        break;
-                    }
-            }
+                            break;
+                        }
+                    // Special attack if Rhino sprints on enemy
+                    case false when characterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
+                                    collision.gameObject:
+                        {
+                            var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                            attackableAttacker.attackWithCustomAction(collision.gameObject);
+                            break;
+                        }
+                }
+            } catch (NullReferenceException e){}
         }
     }
 
