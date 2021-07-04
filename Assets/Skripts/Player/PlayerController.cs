@@ -338,8 +338,13 @@ public class PlayerController : KinematicObject
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check position of collision
-        var landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
+        bool landedOnTop;
+        if (_rotateDirection == RoateDirection.DOWN){
+            landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
+        } else {
+            landedOnTop = Bounds.center.y <= collision.collider.bounds.min.y; 
+        }
+        
 
         switch (landedOnTop)
         {
