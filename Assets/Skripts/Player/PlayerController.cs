@@ -338,33 +338,26 @@ public class PlayerController : KinematicObject
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        bool landedOnTop;
-        if (_rotateDirection == RoateDirection.DOWN){
-            landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
-        } else {
-            landedOnTop = Bounds.center.y <= collision.collider.bounds.min.y; 
-        }
-        
+        if (!collision.gameObject.CompareTag("Enemy")) return;
+        try {
+            var dir = collision.transform.position - transform.position;
+            dir = collision.transform.InverseTransformDirection(dir);
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            
+            if ((_currentCharacterType == CharacterType.Bunny ||
+                 _currentCharacterType == CharacterType.Slime) && collision.gameObject && (Math.Abs(angle) >= 60 && Math.Abs(angle) <= 120 || Math.Abs(angle) >= 250 && Math.Abs(angle) <= 300))
+            {
+                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                attackableAttacker.attackWithCustomAction(collision.gameObject);
 
-        switch (landedOnTop)
-        {
-            // Special attack if Bunny or Slime jumps on head
-            case true when _currentCharacterType == CharacterType.Bunny ||
-                           _currentCharacterType == CharacterType.Slime && collision.gameObject:
+            }
+            else if(_currentCharacterType == CharacterType.Rhino && collision.gameObject && (Math.Abs(angle) >= 150 && Math.Abs(angle) <= 210 || Math.Abs(angle) >= 0 && Math.Abs(angle) <= 30 || Math.Abs(angle) >= 330 && Math.Abs(angle) <= 360)
+            )
             {
                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
                 attackableAttacker.attackWithCustomAction(collision.gameObject);
-                break;
             }
-            // Special attack if Rhino sprints on enemy
-            case false when _currentCharacterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
-                            collision.gameObject:
-            {
-                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                attackableAttacker.attackWithCustomAction(collision.gameObject);
-                break;
-            }
-        }
+        } catch (NullReferenceException e){}
     }
 
     public enum JumpState
