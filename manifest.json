@@ -480,23 +480,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Global.RollController.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Global.RollController.html",
-          "hash": "k0bkf0e/X9Mpc8IiLjnIDLC60jV+nkh+V+uKO5HieM0="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Global.RotateToGravity.yml",
       "output": {
         ".html": {
           "relative_path": "api/Global.RotateToGravity.html",
-          "hash": "kaKPTYGrNmUPovHEf9rRXzy2G2F5xhmFvRDn4NnejaA="
+          "hash": "PeIKds2NQvYi/177GuMbJviqi9W4wxWa1sRU8w4+L98="
         }
       },
       "is_incremental": false,
@@ -532,7 +520,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Global.html",
-          "hash": "Nl1sVz1Xhab2pElgq2kwlmMDdlUSxVyF+Suf9k/TbNk="
+          "hash": "QXnshXbC/sX/wQNdf+C52XiwJEhm8F83ahdELYl7TfU="
         }
       },
       "is_incremental": false,
@@ -544,7 +532,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "4MdKJGUBSA5QcMi47KnbAFGBhAe5sGGw2p3gszTFhfw="
+          "hash": "H72n5DgRvFNWvT3z2Ql05M5PsvXufGpNGQcJFZKwQcA="
         }
       },
       "is_incremental": false,
@@ -642,7 +630,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 43,
+          "total_file_count": 42,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

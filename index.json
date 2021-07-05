@@ -117,7 +117,7 @@
   "api/Global.html": {
     "href": "api/Global.html",
     "title": "Namespace Global | Morpy",
-    "keywords": "Namespace Global Classes AstarPath AttackableAttacker AttackEntersLeavesCooldown CameraController DeathZone EnablePlayerInput EnemyAI Class defining the behaviour of hostile entities EnemyArtifact EnemyArtifactSpawner EnemyDeath EventManager The Simulation class implements the discrete event simulator pattern. Events are pooled, with a default capacity of 4 instances. EventManager.Event An event is something that happens at a point in time in a simulation. The Precondition method is used to check if the event should be executed, as conditions may have changed in the simulation since the event was originally scheduled. EventManager.Event<T> GameController GoalZone Health HealthBarController HealthIsZero HeapQueue<T> HighscoreController KinematicObject Implements game physics for some in game entity. LevelController LoadLevel MainMenuScript MorphPlayer PauseMenuScript PlatformerModel PlayerController PlayerDeath PlayerEnteredDeathZone PlayerEnteredGoal PlayerSpawn RollController RotateToGravity RotateWorld SpawnPoint Enums AstarPath.AstarDistribution Information about where the package was downloaded CharacterType EnemyAI.MovementState The different kind of states of movement a charakter can be in. PlayerController.JumpState PlayerController.MovementState RoateDirection"
+    "keywords": "Namespace Global Classes AstarPath AttackableAttacker AttackEntersLeavesCooldown CameraController DeathZone EnablePlayerInput EnemyAI Class defining the behaviour of hostile entities EnemyArtifact EnemyArtifactSpawner EnemyDeath EventManager The Simulation class implements the discrete event simulator pattern. Events are pooled, with a default capacity of 4 instances. EventManager.Event An event is something that happens at a point in time in a simulation. The Precondition method is used to check if the event should be executed, as conditions may have changed in the simulation since the event was originally scheduled. EventManager.Event<T> GameController GoalZone Health HealthBarController HealthIsZero HeapQueue<T> HighscoreController KinematicObject Implements game physics for some in game entity. LevelController LoadLevel MainMenuScript MorphPlayer PauseMenuScript PlatformerModel PlayerController PlayerDeath PlayerEnteredDeathZone PlayerEnteredGoal PlayerSpawn RotateToGravity Class for rotating an object with the gravity acting on the device. RotateWorld SpawnPoint Enums AstarPath.AstarDistribution Information about where the package was downloaded CharacterType EnemyAI.MovementState The different kind of states of movement a charakter can be in. PlayerController.JumpState PlayerController.MovementState RoateDirection"
   },
   "api/Global.KinematicObject.html": {
     "href": "api/Global.KinematicObject.html",
@@ -194,15 +194,10 @@
     "title": "Enum RoateDirection | Morpy",
     "keywords": "Enum RoateDirection Namespace : Global Assembly : cs.temp.dll.dll Syntax public enum RoateDirection Fields Name Description DOWN UP"
   },
-  "api/Global.RollController.html": {
-    "href": "api/Global.RollController.html",
-    "title": "Class RollController | Morpy",
-    "keywords": "Class RollController Inheritance Object RollController Namespace : Global Assembly : cs.temp.dll.dll Syntax public class RollController : MonoBehaviour Fields acceleration Declaration public int acceleration Field Value Type Description Int32 Methods OnGUI() Declaration protected void OnGUI()"
-  },
   "api/Global.RotateToGravity.html": {
     "href": "api/Global.RotateToGravity.html",
     "title": "Class RotateToGravity | Morpy",
-    "keywords": "Class RotateToGravity Inheritance Object RotateToGravity Namespace : Global Assembly : cs.temp.dll.dll Syntax public class RotateToGravity : MonoBehaviour"
+    "keywords": "Class RotateToGravity Class for rotating an object with the gravity acting on the device. Inheritance Object RotateToGravity Namespace : Global Assembly : cs.temp.dll.dll Syntax public class RotateToGravity : MonoBehaviour"
   },
   "api/Global.RotateWorld.html": {
     "href": "api/Global.RotateWorld.html",

@@ -2805,31 +2805,6 @@ references:
   commentId: F:Global.RoateDirection.UP
   fullName: RoateDirection.UP
   nameWithType: RoateDirection.UP
-- uid: Global.RollController
-  name: RollController
-  href: api/Global.RollController.html
-  commentId: T:Global.RollController
-  fullName: RollController
-  nameWithType: RollController
-- uid: Global.RollController.acceleration
-  name: acceleration
-  href: api/Global.RollController.html#Global_RollController_acceleration
-  commentId: F:Global.RollController.acceleration
-  fullName: RollController.acceleration
-  nameWithType: RollController.acceleration
-- uid: Global.RollController.OnGUI
-  name: OnGUI()
-  href: api/Global.RollController.html#Global_RollController_OnGUI
-  commentId: M:Global.RollController.OnGUI
-  fullName: RollController.OnGUI()
-  nameWithType: RollController.OnGUI()
-- uid: Global.RollController.OnGUI*
-  name: OnGUI
-  href: api/Global.RollController.html#Global_RollController_OnGUI_
-  commentId: Overload:Global.RollController.OnGUI
-  isSpec: "True"
-  fullName: RollController.OnGUI
-  nameWithType: RollController.OnGUI
 - uid: Global.RotateToGravity
   name: RotateToGravity
   href: api/Global.RotateToGravity.html
