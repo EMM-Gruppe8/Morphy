@@ -2,11 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Modified copy of the main Gyro Controllers
+/// <summary>
+/// Class for rotating an object with the gravity acting on the device.
+/// </summary>
 public class RotateToGravity : MonoBehaviour
 {
+    /// <summary>
+    /// Saving a time delayed value of the rotation th smoot out the movement
+    /// </summary>
     float smoothedRotation = 0f;
-    // Update is called once per frame
+
+    /// <summary>
+    /// Rotates the object it is attached to with the gravity.
+    /// This is done by measuring the angle between the x and y forces acting upon the device.
+    /// Thhis angle is then smoothed out and an subtracted from the object to counter its movement.
+    /// </summary>
     void Update()
     {
         // Measure Angle Between x and y axis and convert to deg.
