@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
 using Pathfinding;
-
+/// <summary>
+/// Class defining the behaviour of hostile entities
+/// </summary>
 public class EnemyAI : MonoBehaviour
 {
     public Animator animator;
@@ -44,6 +46,11 @@ public class EnemyAI : MonoBehaviour
     private const float WalkingThreshold = 0.05f;
     private const float SprintingThreshold = 0.7f;
 
+    /// <summary>
+    /// Initializes AI by getting all necessary components,
+    /// turning the gravity if nexessary and starting
+    /// to compute paths
+    /// </summary>
     public void Start()
     {
         seeker = GetComponent<Seeker>();
