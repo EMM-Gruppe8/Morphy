@@ -19,8 +19,8 @@
     ],
     "build": {
         "globalMetadata": {
-            "_appTitle": "Example Unity documentation",
-            "_appFooter": "Example Unity documentation",
+            "_appTitle": "Morpy",
+            "_appFooter": "Morphy Unity documentation",
             "_enableSearch": true
         },
         "content": [
@@ -62,7 +62,7 @@
             }
         ],
         "sitemap": {
-            "baseUrl": "https://normanderwan.github.io/DocFxForUnity",
+            "baseUrl": "https://enze-l.github.io/Morphy",
             "changefreq": "weekly",
             "fileOptions": {
                 "api/*": {
