@@ -62,7 +62,11 @@ public class EnemyAI : MonoBehaviour
         attackable = GetComponent<AttackableAttacker>();
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
-
+    
+    /// <summary>
+    /// Flipping the gravity effect of the charakter
+    /// </summary>
+    /// <param name="turnSemaphore">Signals if the gravity boolean should be inverted</param>
     private void TurnGravity(bool turnSemaphore){
         rb.gravityScale=-rb.gravityScale;
         downVector = -downVector;
