@@ -3,11 +3,11 @@
     "fileOptions": {
       "api/*": {
         "baseUrl": "http://emm-gruppe8.github.io/Morphy/",
-        "changefreq": "daily"
+        "changefreq": "always"
       }
     },
     "baseUrl": "http://emm-gruppe8.github.io/Morphy/",
-    "changefreq": "daily"
+    "changefreq": "always"
   },
   "homepages": [],
   "source_base_path": "D:/a/Morphy/Morphy/Documentation",
