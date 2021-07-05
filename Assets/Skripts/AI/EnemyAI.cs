@@ -232,7 +232,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void Run(){
-        force.x = force.x*1.5f;
+        force.x = force.x*2f;
     }
 
     public void DoSpecialMovement(){
