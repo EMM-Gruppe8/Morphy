@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Pathfinding;
 
@@ -22,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     public bool gravityDown = true;
 
     public LayerMask platformLayerMask;
+    public LayerMask playerLayerMask;
 
     [Header("Custom Behavior")]
     public bool followEnabled = true;
@@ -33,32 +33,44 @@ public class EnemyAI : MonoBehaviour
     RaycastHit2D isGrounded;
     Seeker seeker;
     Rigidbody2D rb;
-
+    Vector2 force;
     AttackableAttacker attackable;
-
+    Collider2D collider2d;
+    Bounds Bounds => collider2d.bounds;
+    MovementState movementState = MovementState.Standing;
+    bool isInitialRun = true;
     private Vector2 downVector = Vector2.down;
+
+    private const float WalkingThreshold = 0.05f;
+    private const float SprintingThreshold = 0.7f;
 
     public void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        collider2d = GetComponent<Collider2D>();
         if(!gravityDown){
-            rb.gravityScale=-rb.gravityScale;
-            downVector = Vector2.up;
-            transform.localScale = new Vector3(transform.localScale.x, -1f * Mathf.Abs(transform.localScale.y), transform.localScale.z);
-            jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
+            TurnGravity();
         }
         attackable = GetComponent<AttackableAttacker>();
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
 
+    private void TurnGravity(){
+        rb.gravityScale=-rb.gravityScale;
+        downVector = -downVector;
+        transform.localScale = new Vector3(transform.localScale.x, -downVector.y * Mathf.Abs(transform.localScale.y), transform.localScale.z);
+        jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
+    }
+
     private void FixedUpdate()
     {
+        attackable.attackNearest();
         if (TargetInDistance() && followEnabled)
         {
             PathFollow();
+            UpdateAnimation();
         }
-        attackable.attackNearest();
     }
 
     private void UpdatePath()
@@ -66,6 +78,39 @@ public class EnemyAI : MonoBehaviour
         if (followEnabled && TargetInDistance() && seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
+        }
+    }
+
+    private void UpdateAnimation(){
+        // Direction Graphics Handling
+        if (directionLookEnabled)
+        {
+            if (rb.velocity.x > 0.05f)
+            {
+                transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else if (rb.velocity.x < -0.05f)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+        }
+
+        // Animation
+        if (isGrounded)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(force.x));
+        }
+        else if (rb.velocity.magnitude < 0)
+        {
+            animator.SetFloat("Speed", 0);
+        } 
+
+        if (jumpEnabled && !isGrounded)
+        {
+            animator.SetBool("isJumping", true);
+        } else
+        {
+            animator.SetBool("isJumping", false);
         }
     }
 
@@ -87,8 +132,41 @@ public class EnemyAI : MonoBehaviour
         
         // Direction Calculation
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        force = direction * speed * Time.deltaTime;
 
+        bool nearHole = isNearHole();
+
+        // Stop movement if Charakter can't jump and is going towards a hole
+        if(nearHole && !jumpEnabled){
+            force = Vector3.zero;
+        }
+        
+        if (!isInitialRun){
+            // Jump if charakter can jump and is near a hole or the player has the highground
+            if (nearHole | direction.y > jumpNodeHeightRequirement){
+                Jump();
+            }
+            DoSpecialMovement();
+        }
+
+        isInitialRun = false;
+
+        // Disable upward force if Charakter is Jumping
+        if (!isGrounded){ 
+            force.y = 0;
+        }
+        UpdateMovementState();
+        rb.AddForce(force);
+
+        // Next Waypoint
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        if (distance < nextWaypointDistance)
+        {
+            currentWaypoint++;
+        }
+    }
+
+    private bool isNearHole(){
         // Check if hole is ahead
         Vector3 ahead;
         if (target.position.x > this.transform.position.x){
@@ -122,72 +200,103 @@ public class EnemyAI : MonoBehaviour
         Debug.DrawRay(startDown, downVector *rayLength, rayColor, 0);
         Debug.DrawLine(this.transform.position, this.transform.position + ahead, rayColor, 0);
 
-        if(nearHole && !jumpEnabled){
-            force = Vector3.zero;
-        }
-        
-        if (nearHole && jumpEnabled && isGrounded){
-            rb.AddForce(Vector2.up * speed * jumpModifier);
-        }
+        return nearHole;
+    }
 
-        // Jump
-        if (jumpEnabled && isGrounded)
-        {
-            if (direction.y > jumpNodeHeightRequirement)
-            {
-                rb.AddForce(-downVector * speed * jumpModifier);
+    public void Jump(){
+        if (isGrounded && jumpEnabled){
+            rb.AddForce(-downVector * speed * jumpModifier);  
+        }
+    }
+
+    public void Fall(){
+        TurnGravity();
+    }
+
+    public void Run(){
+        force.x = force.x*1.5f;
+    }
+
+    public void DoSpecialMovement(){
+        if (characterType == CharacterType.Bunny){
+            Vector3 ahead;
+            if (target.position.x > this.transform.position.x){
+                ahead = Vector3.right;
+            } else {
+                ahead = Vector3.left;
             }
-        } 
+            float rayLength = 5f;
+            RaycastHit2D  raycastHit = Physics2D.Raycast(this.transform.position, ahead, rayLength, playerLayerMask);
 
-        // Movement
-        if (!isGrounded){ 
-            force.y = 0;
-        }
-        rb.AddForce(force);
-
-        // Next Waypoint
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-        if (distance < nextWaypointDistance)
-        {
-            currentWaypoint++;
-        }
-
-        // Direction Graphics Handling
-        if (directionLookEnabled)
-        {
-            if (rb.velocity.x > 0.05f)
-            {
-                transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            bool nearEnemy = true;
+            if (raycastHit.collider == null){
+                nearEnemy = false;
             }
-            else if (rb.velocity.x < -0.05f)
-            {
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
+            Color rayColor;
+            if(!nearEnemy){
+                rayColor = Color.yellow;
+            } else {
+                rayColor = Color.blue;
+            }
+
+            Debug.DrawRay(this.transform.position, ahead * rayLength, rayColor, 0);
+
+            if (nearEnemy){
+                Jump();
             }
         }
+        else if (characterType == CharacterType.Rhino){
+            Vector3 ahead;
+            if (target.position.x > this.transform.position.x){
+                ahead = Vector3.right;
+            } else {
+                ahead = Vector3.left;
+            }
+            float rayLength = 15f;
+            RaycastHit2D  raycastHit = Physics2D.Raycast(this.transform.position, ahead, rayLength, playerLayerMask);
 
-        // Animation
-        if (isGrounded)
-        {
-            animator.SetFloat("Speed", Mathf.Abs(force.x));
+            bool nearEnemy = true;
+            if (raycastHit.collider == null){
+                nearEnemy = false;
+            }
+
+            Color rayColor;
+            if(!nearEnemy){
+                rayColor = Color.yellow;
+            } else {
+                rayColor = Color.blue;
+            }
+
+            Debug.DrawRay(this.transform.position, ahead * rayLength, rayColor, 0);
+
+            if (nearEnemy){
+                Run();
+            } 
         }
-        else if (rb.velocity.magnitude < 0)
-        {
-            animator.SetFloat("Speed", 0);
-        } 
+        else if (characterType == CharacterType.Slime){
+            Vector3 over = -downVector;
+            float rayLength = 30f;
+            RaycastHit2D  raycastHit = Physics2D.Raycast(this.transform.position, over, rayLength, playerLayerMask);
 
-        if (jumpEnabled && !isGrounded)
-        {
-            animator.SetBool("isJumping", true);
-        } else
-        {
-            animator.SetBool("isJumping", false);
+            bool enemyOver = true;
+            if (raycastHit.collider == null){
+                enemyOver = false;
+            }
+
+            Color rayColor;
+            if(!enemyOver){
+                rayColor = Color.yellow;
+            } else {
+                rayColor = Color.blue;
+            }
+
+            Debug.DrawRay(this.transform.position, over * rayLength, rayColor, 0);
+
+            if (enemyOver){
+                Fall();
+            }
         }
-
-        /*
-        if(recieve Damage)
-        {
-            animator.SetBool("recieveDamage", true);
-        } */
     }
 
     private bool TargetInDistance()
@@ -202,5 +311,58 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+    }
+
+     void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag != gameObject.tag){
+            // Check position of collision
+            var landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
+
+            switch (landedOnTop)
+            {
+                // Special attack if Bunny or Slime jumps on head
+                case true when characterType == CharacterType.Bunny ||
+                            characterType == CharacterType.Slime && collision.gameObject:
+                    {
+                        var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                        attackableAttacker.attackWithCustomAction(collision.gameObject);
+                        break;
+                    }
+                // Special attack if Rhino sprints on enemy
+                case false when characterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
+                                collision.gameObject:
+                    {
+                        try {
+                            var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                            attackableAttacker.attackWithCustomAction(collision.gameObject);
+                        } catch (NullReferenceException e){}
+                        break;
+                    }
+            }
+        }
+    }
+
+    private void UpdateMovementState()
+    {
+        if (Math.Abs(force.x) >= WalkingThreshold && Math.Abs(force.x) < SprintingThreshold)
+        {
+            movementState = MovementState.Walking;
+        }
+        else if (Math.Abs(force.x) >= SprintingThreshold)
+        {
+            movementState = MovementState.Sprinting;
+        }
+        else
+        {
+            movementState = MovementState.Standing;
+        }
+    }
+
+    public enum MovementState
+    {
+        Standing,
+        Walking,
+        Sprinting
     }
 }

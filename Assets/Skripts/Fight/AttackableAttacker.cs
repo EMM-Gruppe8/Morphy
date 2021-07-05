@@ -28,7 +28,7 @@ public class AttackableAttacker : MonoBehaviour
     // Attack Button that should be greyed out during cooldowm
     public GameObject attackButton;
 
-    public float enemyAttackDelay = .1f;
+    public float enemyAttackDelay = .2f;
 
     private bool initialAttack = true;
 
