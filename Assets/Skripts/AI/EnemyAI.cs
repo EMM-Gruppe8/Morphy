@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour
     /// <summary>
     /// Initializes AI by getting all necessary components,
     /// turning the gravity if nexessary and starting
-    /// to compute paths
+    /// to compute paths.
     /// </summary>
     public void Start()
     {
@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour
     }
     
     /// <summary>
-    /// Flipping the gravity effect of the charakter
+    /// Flipping the gravity effect of the charakter.
     /// </summary>
     /// <param name="turnSemaphore">Signals if the gravity boolean should be inverted</param>
     private void TurnGravity(bool turnSemaphore){
@@ -78,8 +78,8 @@ public class EnemyAI : MonoBehaviour
     }
 
     /// <summary>
-    /// Run by unity for Physics based interactions.
-    /// Used here to calculate the path of the enemy
+    /// Run by unity for physics based interactions.
+    /// Used here to calculate the path of the enemy.
     /// </summary>
     private void FixedUpdate()
     {
@@ -91,6 +91,12 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Refreshes the path.
+    /// Checks if the charakter should follow,
+    /// the target is near enough to be seen
+    /// or it has already reached the target.
+    /// </summary>
     private void UpdatePath()
     {
         if (followEnabled && TargetInDistance() && seeker.IsDone())
@@ -98,7 +104,11 @@ public class EnemyAI : MonoBehaviour
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
     }
-
+    
+    /// <summary>
+    /// Updates the animation according to the movement direction
+    /// and the state of the movement (walking, jumping, running etc.).
+    /// </summary>
     private void UpdateAnimation(){
         // Direction Graphics Handling
         if (directionLookEnabled)
@@ -132,6 +142,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Lets the charakter move towards its target.
+    /// The AI moves differently depending on the charakter.
+    /// </summary>
     private void PathFollow()
     {
         if (path == null)
@@ -148,13 +162,13 @@ public class EnemyAI : MonoBehaviour
         // See if colliding with anything
         isGrounded = Physics2D.Raycast(GetComponent<Collider2D>().bounds.center, downVector, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffset, platformLayerMask);
         
-        // Direction Calculation
+        // Direction calculation
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         force = direction * speed * Time.deltaTime;
 
         bool nearHole = isNearHole();
 
-        // Stop movement if Charakter can't jump and is going towards a hole
+        // Stop movement if charakter can't jump and is going towards a hole
         if(nearHole && !jumpEnabled){
             force = Vector3.zero;
         }
@@ -176,7 +190,7 @@ public class EnemyAI : MonoBehaviour
         UpdateMovementState();
         rb.AddForce(force);
 
-        // Next Waypoint
+        // Next waypoint
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
         {
@@ -184,6 +198,13 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the charakter is near a hole.
+    /// This is done by casting a ray downwards in front of the charakter.
+    /// If it doesn't hit something there is a hole in front.
+    /// The threshold for how deep a hole has to be varies by charakter.
+    /// </summary>
+    /// <returns>if the charakter is near a hole</returns>
     private bool isNearHole(){
         // Check if hole is ahead
         Vector3 ahead;
@@ -215,26 +236,45 @@ public class EnemyAI : MonoBehaviour
         } else {
             rayColor = Color.red;
         }
+
+        //Draw Lines corresponding to the setting inside the Editor
         Debug.DrawRay(startDown, downVector *rayLength, rayColor, 0);
         Debug.DrawLine(this.transform.position, this.transform.position + ahead, rayColor, 0);
 
         return nearHole;
     }
 
+    /// <summary>
+    /// Makes the charakter jump by applying an upwards force.
+    /// </summary>
     public void Jump(){
         if (isGrounded && jumpEnabled){
             rb.AddForce(-downVector * speed * jumpModifier);  
         }
     }
 
+    /// <summary>
+    /// Makes a charakter fall on the other side by turning
+    /// the gravity around.
+    /// </summary>
     public void Fall(){
         TurnGravity(true);
     }
 
+    /// <summary>
+    /// Makes a charakter run by multiplying its force in
+    /// the x-direction.
+    /// </summary>
     public void Run(){
         force.x = force.x*1.5f;
     }
 
+    /// <summary>
+    /// Executes a special movement if the charakter is near the player
+    /// This is done by casting a ray in the direction the player has
+    /// to come from in order for the move to be effective. The direction
+    /// and action taken uppon detection varies by charakter.
+    /// </summary>
     public void DoSpecialMovement(){
         if (characterType == CharacterType.Bunny){
             Vector3 ahead;
@@ -317,11 +357,21 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Measures if the target is in distance by computing the distance
+    /// and comparing it to the set activation distance.
+    /// </summary>
+    /// <returns>if the target is in distance</returns>
     private bool TargetInDistance()
     {
         return Vector2.Distance(transform.position, target.transform.position) < activateDistance;
     }
 
+    /// <summary>
+    /// Executes upon reaching the last point of the path.
+    /// Sets the currentWaypoint to zero.
+    /// </summary>
+    /// <param name="p">The Path taken</param>
     private void OnPathComplete(Path p)
     {
         if (!p.error)
@@ -331,6 +381,14 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Executed by colliding with other object.
+    /// Decides in which angle of attack and which object is hit.
+    /// Based upon this an special attack may be triggered.
+    /// This is based upon the type of charakter and the angle in which
+    /// its hit.
+    /// </summary>
+    /// <param name="collision"></param>
      void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag != gameObject.tag){
@@ -365,6 +423,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the state of the movement and changes between the states
+    /// by comparing the force in x-direction with the configured speed thresholds.
+    /// </summary>
     private void UpdateMovementState()
     {
         if (Math.Abs(force.x) >= WalkingThreshold && Math.Abs(force.x) < SprintingThreshold)
@@ -381,6 +443,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The different kind of states of movement a charakter can be in.
+    /// </summary>
     public enum MovementState
     {
         Standing,
