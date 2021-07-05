@@ -63,10 +63,10 @@
         ],
         "sitemap": {
             "baseUrl": "http://emm-gruppe8.github.io/Morphy/",
-            "changefreq": "daily",
+            "changefreq": "always",
             "fileOptions": {
                 "api/*": {
-                    "changefreq": "daily"
+                    "changefreq": "always"
                 }
             }
         },

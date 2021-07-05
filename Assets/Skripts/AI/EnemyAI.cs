@@ -77,6 +77,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Run by unity for Physics based interactions.
+    /// Used here to calculate the path of the enemy
+    /// </summary>
     private void FixedUpdate()
     {
         attackable.attackNearest();
