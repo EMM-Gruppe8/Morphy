@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4147693340188792926}
   - component: {fileID: 5864683336227782189}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: A*
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 5189245993874426190}
   - component: {fileID: 5189245993874426189}
   - component: {fileID: 5189245993874426227}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53805f7457bb3484b866c04c360bdaf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 3
   currentHp: 0
   healthBarPrefab: {fileID: 4306621868248852509, guid: cf00219910f2c40b9adcce6b67dd044a, type: 3}
 --- !u!61 &5189245993874426189
@@ -786,11 +786,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83cc26a43296d47c7a551a65069a13ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 150
+  attackRange: 7
   nearAttackRange: 100
   mass: 1
   cooldownTimeInSeconds: 1
   attackButton: {fileID: 0}
+  enemyAttackDelay: 1
 --- !u!1 &5189245994337375149
 GameObject:
   m_ObjectHideFlags: 0
