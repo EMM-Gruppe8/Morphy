@@ -3,7 +3,7 @@
 ## About
 Morphy is a mobile game centered around movement. Turn, push and pull your phone and discover all the ways in which you can control the charakters, each one unlike the others. Jump high with bunny, use the brute force of the rhino or even turn the world upside down with slime. Only if you take full advantage of their abilities will you be able to escape!
 
-![Screenshot](https://raw.githubusercontent.com/EMM-Gruppe8/Morphy/main/Documents/Screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/EMM-Gruppe8/Morphy/gh-pages/resources/Screenshot.png)
 
 ## Movement
 - Tilt your phone right or left to move into that direction
