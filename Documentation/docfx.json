@@ -26,7 +26,8 @@
         "content": [
             {
                 "files": [
-                    "toc.yml"
+                    "toc.yml",
+                    "index.md"
                 ]
             },
             {
@@ -39,7 +40,8 @@
             {
                 "src": "manual",
                 "files": [
-                    "toc.yml"
+                    "toc.yml",
+                    "*.md"
                 ],
                 "dest": "manual"
             }
