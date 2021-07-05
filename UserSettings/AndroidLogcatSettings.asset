@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "LGH930adea15fc",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 31439,
+        "processId": 1227,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -30,18 +30,36 @@
             "deviceId": "LGH930adea15fc",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 30526,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LGH930adea15fc",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 31096,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LGH930adea15fc",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 31439,
+            "exited": true
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.teslacoilsw.launcher",
+            "processId": 3170,
+            "exited": false
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 32518,
+            "exited": false
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 1227,
             "exited": false
         }
     ],
