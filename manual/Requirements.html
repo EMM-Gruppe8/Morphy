@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Beschreibung: | Morpy </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Beschreibung: | Morpy ">
+    <meta name="generator" content="docfx 2.58.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="beschreibung">Beschreibung:</h1>
+
+<p>Der Spieler spielt einen Virus in einem 2D Jump ‘n Run, welcher die Fähigkeiten von
+Gegnern übernehmen kann. Attackiert und besiegt der Spieler beispielsweise einen
+fliegenden Gegner, so kann der Spieler nun selber fliegen.
+Der Spieler kann hierbei immer nur die Fähigkeiten einer Spielfigur gleichzeitig besitzen:
+Kann der Spieler zur Zeit fliegen und tötet einen Gegner, welcher an Wänden laufen kann,
+so kann der Spieler nun an Wänden laufen, jedoch nicht mehr fliegen.
+Der Spieler muss hierbei die Fähigkeiten verschiedener Gegner nutzen, um das Level
+erfolgreich zu durchqueren, es kommt also auch auf das Geschick des Spielers an, das
+Level mit den richtigen Fähigkeiten möglichst schnell zu meistern.</p>
+<p><strong><em>Plattform: iOS + Android</em></strong></p>
+<h1 id="funktionale-anforderungen">Funktionale Anforderungen</h1>
+<h2 id="1-steuerung--interaktionen">1. Steuerung / Interaktionen</h2>
+<ul>
+<li>Die Spielfigur wird über die Gyroskopsensor bzw. Beschleunigungssensor des
+Smartphones bewegt.</li>
+<li>Die Geschwindigkeit der Spielfigur passt sich dabei der Neigung an, sodass diese
+auch sprinten kann</li>
+<li>Charaktere verhalten sich unterschiedlich zur Schwerkraft, bzw Interaktion damit</li>
+<li>Die Angriffe werden über die Touch-Eingabe aktiviert.</li>
+<li>Der Wechsel zwischen Charakteren wird über Touch-Eingaben aktiviert.</li>
+</ul>
+<h2 id="2-leveldesign">2. Leveldesign</h2>
+<ul>
+<li>Es soll in jedem Level Hindernisse geben, die es zu überwinden gilt. Es soll dabei
+nicht möglich sein, das Level nur mit einer Fähigkeit durchzuspielen, sodass der
+Spieler gezwungen wird sich andere Fähigkeiten zu besorgen.<ul>
+<li>höhere Hindernisse können durch Springen überwunden werden (Stein)</li>
+<li>sehr Hohe Hindernisse können nur durch wechsel der Seite (oben/unten) überwunden werden</li>
+<li>Gräben können nur durch Springen oder Seitenwechsel überwunden werden</li>
+<li>weite Schluchten können nur mit Sprinten überwunden werden (Springen von Berg)</li>
+<li>## 3. Levelfortschritt</li>
+</ul>
+</li>
+<li>Es gibt drei unterschiedliche Level, die erst freigeschaltet werden, nachdem das
+vorherige erfolgreich durchgespielt wurde.</li>
+<li>Die Level werden dabei schwieriger, um die Herausforderung für geübte Spieler zu
+erhöhen</li>
+</ul>
+<h2 id="4-ui-und-menüs">4. UI und Menüs</h2>
+<ul>
+<li>Im Hauptmenü kann der Spieler direkt weiterspielen, freigeschaltete Level
+auswählen und seine Zeiten einsehen.</li>
+<li>Im Pausenmenü kann der Spieler das Spiel pausieren, komplett neustarten und
+zurück zum Hauptmenü gehen</li>
+</ul>
+<h2 id="5-fähigkeit-seitenwechsel">5. Fähigkeit Seitenwechsel</h2>
+<ul>
+<li>Charakter mit dieser Fähikeit sollte beim auf-den-Kopfstellen des Smartphones auf die gegenüberliegende Seite fallen und dort genau so laufen können, wie auf der anderen (Charakter: Slime)</li>
+</ul>
+<h2 id="6-fähigkeit-hüpfen">6. Fähigkeit Hüpfen</h2>
+<ul>
+<li>Durch Ranziehen des Handys kann der Charakter hüpfen (Charakter: Bunny)</li>
+<li>Je nach Stärke der Bewegung kann die Höhe des Sprungen moduliert werden</li>
+</ul>
+<h2 id="7-fähigkeit-übernehmen">7. Fähigkeit übernehmen</h2>
+<ul>
+<li>Die Fähigkeit eines besiegten Gegners kann übernommen werden<ul>
+<li>In der Nähe des Leichnahms kann ein Button gedrückt werden um die Fähigkeit zu übernehmen</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-gegner-ai">8. Gegner AI</h2>
+<ul>
+<li>Gegner mit verschiedenen Eigenschaften haben unterschiedliche Verhaltensweisen
+beim Kampf und in der Fortbewegung und verwenden sie gegen den Spieler</li>
+</ul>
+<h2 id="9-gesundheitssystem">9. Gesundheitssystem</h2>
+<ul>
+<li>Der Spieler und die Gegner haben ein Gesundheitssystem basieren auf
+Health-Points, welche im Fern- oder Nahkampf reduziert werden.</li>
+</ul>
+<h2 id="10-kampfsystem">10. Kampfsystem</h2>
+<ul>
+<li>Charaktere können durch charakterspezifische Aktionen Gegner sofort Ausschalten (Auf den Kopf springen: Hase, Rammen: Nashorn, Auf Gegner fallen: Slime)</li>
+<li>Charakter können durch Boxen geringen Schaden ausrichten (für alle Charaktere gleich). Dies wird durch einen virtuellen Button ausgelöst</li>
+</ul>
+<h2 id="optional-bestzeiten">(Optional). Bestzeiten</h2>
+<ul>
+<li>Die Zeit, die der Spieler für ein Level benötigt, wird gespeichert, das erhöht den
+wiederspielwert, da der Spieler seine eigenen Bestzeiten einsehen kann</li>
+</ul>
+<h2 id="optional-feedback-über-vibration-des-smartphones">(Optional) Feedback über Vibration des Smartphones</h2>
+<ul>
+<li>Wird der Spieler verletzt, oder stirbt vibriert das Smartphone, um dem Spieler ein
+besseres Feedback zu geben</li>
+</ul>
+<h2 id="optional-audio">(Optional) Audio</h2>
+<ul>
+<li>Aktionen und Bewegungen verursachen unterschiedliche Töne(Optional) Checkpoints</li>
+<li>Es können Checkpoints erreicht werden, bei denen der Spieler im Falle seines Todes
+wieder starten kann.</li>
+<li>Der Spieler kann dabei jederzeit zum letzten Checkpoint zurückkehren</li>
+</ul>
+<h2 id="optional-fähigkeit-fliegen">(optional) Fähigkeit: Fliegen</h2>
+<ul>
+<li>Charakter “Biene” kann fliegen und aus der Luft angreifen</li>
+<li>Nach dem Töten des Gegners erscheint an der Stelle der Tötung ein Orb</li>
+<li>Der Spieler besitzt ein Rand seines Bildschirms einen “Morph” Button, welcher aktiv
+wird, wenn ein Orb in der Nähe ist<ul>
+<li>Ähnlich zu dem “Report” Button in Among Us</li>
+</ul>
+</li>
+<li>Nach Drücken des Buttons holt der Spieler sich die Fähigkeit des Orbs</li>
+<li>Der Spieler kann sein Gerät nun neigen, um sich auch hoch unten runter zu
+bewegen
+## (optional) Fähigkeit: Grappling Hook</li>
+<li>Charakter “Chameleon” kann mit Hilfe der Zunge an Wände, Böden, Decke haften
+und sich dort selber hinziehen - kann jedoch nicht normal laufen</li>
+<li>Morphing funktioniert wieder gleich wie unter 5. Fähigkeit: Fliegen</li>
+<li>Die Fähigkeit kann genutzt werden, in dem auf eine Wand/Decke/Boden getippt wird</li>
+</ul>
+<h1 id="nicht-funktionale-anforderungen">Nicht-Funktionale Anforderungen</h1>
+<ul>
+<li>Benutzerfreundlichkeit in der Bedienung und in den Menüs</li>
+<li>Unterstützung verschiedener Auflösungen und Bildschirmverhältnisse bei den
+Smartphones.</li>
+</ul>
+<h1 id="fähigkeiten-aufteilung-der-arbeiten">Fähigkeiten, Aufteilung der Arbeiten</h1>
+<p>Ausgelagert in das Dokument EMM: Arbeitspakete</p>
+<h2 id="assets">Assets:</h2>
+<p><strong><em>“Pixel Adventure 1”</em></strong></p>
+<p><a href="https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360">https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360</a></p>
+<p><strong><em>“Pixel Adventure 2”</em></strong></p>
+<p><a href="https://assetstore.unity.com/packages/2d/characters/pixel-adventure-2-155418#reviews">https://assetstore.unity.com/packages/2d/characters/pixel-adventure-2-155418#reviews</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/EMM-Gruppe8/Morphy/blob/documentation/Documentation/manual/Requirements.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Morphy Unity documentation
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

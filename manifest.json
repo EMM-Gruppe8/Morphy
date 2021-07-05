@@ -564,11 +564,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "manual/coniunctis.md",
+      "source_relative_path": "manual/Characters.md",
       "output": {
         ".html": {
-          "relative_path": "manual/coniunctis.html",
-          "hash": "iiD7YYT8skAj82ROP4d+Y4PvoNidDY8zGuPiSdESA7M="
+          "relative_path": "manual/Characters.html",
+          "hash": "QuV2208y2gDZk82Q9fClKhphKgyFtYxl59jeNwpZh/0="
         }
       },
       "is_incremental": false,
@@ -576,11 +576,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "manual/etiam.md",
+      "source_relative_path": "manual/Requirements.md",
       "output": {
         ".html": {
-          "relative_path": "manual/etiam.html",
-          "hash": "n0sAS0fF6LNRCWFSJK9diDaS0Xgg3MQLXKwx1i4/eAI="
+          "relative_path": "manual/Requirements.html",
+          "hash": "/zF9Z6pvqXvDCxoCL5ARq5S7lNU0pWcFfi9AsVN4I8s="
         }
       },
       "is_incremental": false,
@@ -592,29 +592,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/toc.html",
-          "hash": "rP+c9KPLMLO+q5u7rC7ci/iMYXqbmZC8g5PeGCEXGU4="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/ExampleManual.png",
-      "output": {
-        "resource": {
-          "relative_path": "resources/ExampleManual.png"
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "resources/ExampleScriptingApi.png",
-      "output": {
-        "resource": {
-          "relative_path": "resources/ExampleScriptingApi.png"
+          "hash": "DQqMrvhFSD2yCaW/5OCKnNRF6V7Hz7NnoQVlTnQCyJE="
         }
       },
       "is_incremental": false,
@@ -637,7 +615,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "yJmrE3yX1pNdaVuwjza5/7HGejso5LoAwSufMStobAY="
+          "hash": "rsJotzoVznL0OXxUXkz9WtUtz9K0gS20Ibt+efn8/TU="
         }
       },
       "is_incremental": false,
