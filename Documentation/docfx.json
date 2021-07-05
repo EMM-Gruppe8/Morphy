@@ -62,7 +62,7 @@
             }
         ],
         "sitemap": {
-            "baseUrl": "https://enze-l.github.io/Morphy",
+            "baseUrl": "http://emm-gruppe8.github.io/Morphy/",
             "changefreq": "weekly",
             "fileOptions": {
                 "api/*": {
