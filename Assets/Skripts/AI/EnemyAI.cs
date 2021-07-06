@@ -83,12 +83,10 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        if (!TargetInDistance() || !followEnabled) return;
         attackable.attackNearest();
-        if (TargetInDistance() && followEnabled)
-        {
-            PathFollow();
-            UpdateAnimation();
-        }
+        PathFollow();
+        UpdateAnimation();
     }
 
     /// <summary>
@@ -133,7 +131,7 @@ public class EnemyAI : MonoBehaviour
             animator.SetFloat("Speed", 0);
         } 
 
-        if (jumpEnabled && !isGrounded)
+        if (jumpEnabled && !isGrounded && characterType == CharacterType.Bunny)
         {
             animator.SetBool("isJumping", true);
         } else
@@ -390,38 +388,28 @@ public class EnemyAI : MonoBehaviour
     /// </summary>
     /// <param name="collision"></param>
      void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag != gameObject.tag){
-            // Check position of collision
-            bool landedOnTop;
-            if(!gravityDown){
-                landedOnTop = Bounds.center.y <= collision.collider.bounds.min.y;
-            } else {
-                landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
-            }
-            try {
-                switch (landedOnTop)
-                {
-                    // Special attack if Bunny or Slime jumps on head
-                    case true when characterType == CharacterType.Bunny ||
-                                characterType == CharacterType.Slime && collision.gameObject:
-                        {
-                            var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                            attackableAttacker.attackWithCustomAction(collision.gameObject);
-                            break;
-                        }
-                    // Special attack if Rhino sprints on enemy
-                    case false when characterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
-                                    collision.gameObject:
-                        {
-                            var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                            attackableAttacker.attackWithCustomAction(collision.gameObject);
-                            break;
-                        }
-                }
-            } catch (NullReferenceException e){}
-        }
-    }
+     {
+         if (!collision.gameObject.CompareTag("Player")) return;
+         try {
+             var dir = collision.transform.position - transform.position;
+             dir = collision.transform.InverseTransformDirection(dir);
+             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            
+             if ((characterType == CharacterType.Bunny ||
+                  characterType == CharacterType.Slime) && collision.gameObject && (Math.Abs(angle) >= 60 && Math.Abs(angle) <= 120 || Math.Abs(angle) >= 250 && Math.Abs(angle) <= 300))
+             {
+                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                 attackableAttacker.attackWithCustomAction(collision.gameObject);
+
+             }
+             else if(characterType == CharacterType.Rhino && collision.gameObject && (Math.Abs(angle) >= 150 && Math.Abs(angle) <= 210 || Math.Abs(angle) >= 0 && Math.Abs(angle) <= 30 || Math.Abs(angle) >= 330 && Math.Abs(angle) <= 360)
+             )
+             {
+                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                 attackableAttacker.attackWithCustomAction(collision.gameObject);
+             }
+         } catch (NullReferenceException e){}
+     }
 
     /// <summary>
     /// Updates the state of the movement and changes between the states
