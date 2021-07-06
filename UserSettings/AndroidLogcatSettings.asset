@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "LGH930adea15fc",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 24507,
+        "processId": 14370,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -60,6 +60,12 @@
             "deviceId": "LGH930adea15fc",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 24507,
+            "exited": false
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 14370,
             "exited": false
         }
     ],

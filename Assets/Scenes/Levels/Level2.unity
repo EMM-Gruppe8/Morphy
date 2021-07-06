@@ -50853,10 +50853,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 202368830}
-    - target: {fileID: 7906553280157440114, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
-      propertyPath: characterType
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
 --- !u!1 &2106202882
