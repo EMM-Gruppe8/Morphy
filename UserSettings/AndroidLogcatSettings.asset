@@ -61,6 +61,12 @@
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 1227,
             "exited": false
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23659,
+            "exited": false
         }
     ],
     "m_Tags": {
