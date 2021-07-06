@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "LGH930adea15fc",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 9347,
+        "processId": 24507,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -23,25 +23,43 @@
         {
             "deviceId": "LGH930adea15fc",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 25780,
+            "processId": 20731,
+            "exited": true
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 21463,
+            "exited": true
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 22565,
+            "exited": true
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23191,
+            "exited": true
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23656,
+            "exited": true
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.teslacoilsw.launcher",
+            "processId": 3170,
             "exited": false
         },
         {
             "deviceId": "LGH930adea15fc",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 23659,
-            "exited": false
-        },
-        {
-            "deviceId": "LGH930adea15fc",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 1934,
-            "exited": false
-        },
-        {
-            "deviceId": "LGH930adea15fc",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 9347,
+            "processId": 24507,
             "exited": false
         }
     ],
