@@ -68,8 +68,8 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //attackable.attackNearest(); // TODO: prüfen ob wir das haben wollen zusammen mit den Special Attacks
         if (!TargetInDistance() || !followEnabled) return;
+        attackable.attackNearest();
         PathFollow();
         UpdateAnimation();
     }
