@@ -368,16 +368,10 @@ public class EnemyAI : MonoBehaviour
     /// <summary>
     /// Makes the charakter jump by applying an upwards force.
     /// </summary>
-<<<<<<< HEAD
     public void Jump(){
         if (isGrounded && jumpEnabled && bunnyCanAttack){
             rb.AddForce(-downVector * speed * jumpModifier);
             StartCoroutine(InsertDelayForEnemy());
-=======
-    private void Jump(){
-        if (isGrounded && jumpEnabled){
-            rb.AddForce(-downVector * speed * jumpModifier);  
->>>>>>> main
         }
     }
 
@@ -399,13 +393,8 @@ public class EnemyAI : MonoBehaviour
     /// Makes a charakter run by multiplying its force in
     /// the x-direction.
     /// </summary>
-<<<<<<< HEAD
     public void Run(){
         force.x = force.x*2f;
-=======
-    private void Run(){
-        force.x = force.x*1.5f;
->>>>>>> main
     }
 
     /// <summary>
