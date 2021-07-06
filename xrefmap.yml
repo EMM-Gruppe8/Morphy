@@ -1195,32 +1195,6 @@ references:
   commentId: F:Global.EnemyAI.directionLookEnabled
   fullName: EnemyAI.directionLookEnabled
   nameWithType: EnemyAI.directionLookEnabled
-- uid: Global.EnemyAI.DoSpecialMovement
-  name: DoSpecialMovement()
-  href: api/Global.EnemyAI.html#Global_EnemyAI_DoSpecialMovement
-  commentId: M:Global.EnemyAI.DoSpecialMovement
-  fullName: EnemyAI.DoSpecialMovement()
-  nameWithType: EnemyAI.DoSpecialMovement()
-- uid: Global.EnemyAI.DoSpecialMovement*
-  name: DoSpecialMovement
-  href: api/Global.EnemyAI.html#Global_EnemyAI_DoSpecialMovement_
-  commentId: Overload:Global.EnemyAI.DoSpecialMovement
-  isSpec: "True"
-  fullName: EnemyAI.DoSpecialMovement
-  nameWithType: EnemyAI.DoSpecialMovement
-- uid: Global.EnemyAI.Fall
-  name: Fall()
-  href: api/Global.EnemyAI.html#Global_EnemyAI_Fall
-  commentId: M:Global.EnemyAI.Fall
-  fullName: EnemyAI.Fall()
-  nameWithType: EnemyAI.Fall()
-- uid: Global.EnemyAI.Fall*
-  name: Fall
-  href: api/Global.EnemyAI.html#Global_EnemyAI_Fall_
-  commentId: Overload:Global.EnemyAI.Fall
-  isSpec: "True"
-  fullName: EnemyAI.Fall
-  nameWithType: EnemyAI.Fall
 - uid: Global.EnemyAI.followEnabled
   name: followEnabled
   href: api/Global.EnemyAI.html#Global_EnemyAI_followEnabled
@@ -1233,19 +1207,6 @@ references:
   commentId: F:Global.EnemyAI.gravityDown
   fullName: EnemyAI.gravityDown
   nameWithType: EnemyAI.gravityDown
-- uid: Global.EnemyAI.Jump
-  name: Jump()
-  href: api/Global.EnemyAI.html#Global_EnemyAI_Jump
-  commentId: M:Global.EnemyAI.Jump
-  fullName: EnemyAI.Jump()
-  nameWithType: EnemyAI.Jump()
-- uid: Global.EnemyAI.Jump*
-  name: Jump
-  href: api/Global.EnemyAI.html#Global_EnemyAI_Jump_
-  commentId: Overload:Global.EnemyAI.Jump
-  isSpec: "True"
-  fullName: EnemyAI.Jump
-  nameWithType: EnemyAI.Jump
 - uid: Global.EnemyAI.jumpCheckOffset
   name: jumpCheckOffset
   href: api/Global.EnemyAI.html#Global_EnemyAI_jumpCheckOffset
@@ -1318,19 +1279,6 @@ references:
   commentId: F:Global.EnemyAI.playerLayerMask
   fullName: EnemyAI.playerLayerMask
   nameWithType: EnemyAI.playerLayerMask
-- uid: Global.EnemyAI.Run
-  name: Run()
-  href: api/Global.EnemyAI.html#Global_EnemyAI_Run
-  commentId: M:Global.EnemyAI.Run
-  fullName: EnemyAI.Run()
-  nameWithType: EnemyAI.Run()
-- uid: Global.EnemyAI.Run*
-  name: Run
-  href: api/Global.EnemyAI.html#Global_EnemyAI_Run_
-  commentId: Overload:Global.EnemyAI.Run
-  isSpec: "True"
-  fullName: EnemyAI.Run
-  nameWithType: EnemyAI.Run
 - uid: Global.EnemyAI.speed
   name: speed
   href: api/Global.EnemyAI.html#Global_EnemyAI_speed
