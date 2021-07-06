@@ -60,10 +60,10 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
+        attackable = GetComponent<AttackableAttacker>();
         if(!gravityDown){
             TurnGravity(false);
         }
-        attackable = GetComponent<AttackableAttacker>();
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
     
@@ -78,7 +78,7 @@ public class EnemyAI : MonoBehaviour
         jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
         if (turnSemaphore){
             gravityDown = !gravityDown;
-        }
+        }         
     }
 
     /// <summary>
