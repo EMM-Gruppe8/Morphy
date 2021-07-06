@@ -502,28 +502,31 @@ public class EnemyAI : MonoBehaviour
     /// its hit.
     /// </summary>
     /// <param name="collision"></param>
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!collision.gameObject.CompareTag("Player")) return;
-        try {
-            var dir = collision.transform.position - transform.position;
-            dir = collision.transform.InverseTransformDirection(dir);
-            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            
-            if ((characterType == CharacterType.Bunny ||
-                characterType == CharacterType.Slime) && collision.gameObject && (Math.Abs(angle) >= 60 && Math.Abs(angle) <= 120 || Math.Abs(angle) >= 250 && Math.Abs(angle) <= 300))
-            {
-                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                attackableAttacker.attackWithCustomAction(collision.gameObject);
-
-            }
-            else if(characterType == CharacterType.Rhino && collision.gameObject && (Math.Abs(angle) >= 150 && Math.Abs(angle) <= 210 || Math.Abs(angle) >= 0 && Math.Abs(angle) <= 30 || Math.Abs(angle) >= 330 && Math.Abs(angle) <= 360))
-            {
-                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                attackableAttacker.attackWithCustomAction(collision.gameObject);
-            }
-        } catch (NullReferenceException e){}
-    }
+     void OnCollisionEnter2D(Collision2D collision)
+     {
+         if (!collision.gameObject.CompareTag("Player")) return;
+         try {
+             var dir = collision.transform.position - transform.position;
+             dir = collision.transform.InverseTransformDirection(dir);
+             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+             if (!collision.gameObject) return;
+             if ((characterType == CharacterType.Bunny || characterType == CharacterType.Slime) && gravityDown && (-(angle) >= 60 && -(angle) <= 120))
+             {
+                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                 attackableAttacker.attackWithCustomAction(collision.gameObject);
+             }
+             if ((characterType == CharacterType.Bunny || characterType == CharacterType.Slime) && !gravityDown && ((angle) >= 60 && (angle) <= 120))
+             {
+                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                 attackableAttacker.attackWithCustomAction(collision.gameObject);
+             }
+             if ((characterType == CharacterType.Rhino) && (Math.Abs(angle) >= 150 && Math.Abs(angle) <= 210 || Math.Abs(angle) >= 0 && Math.Abs(angle) <= 30 || Math.Abs(angle) >= 330 && Math.Abs(angle) <= 360))
+             {
+                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                 attackableAttacker.attackWithCustomAction(collision.gameObject);
+             }
+         } catch (NullReferenceException e){}
+     }
 
     /// <summary>
     /// Updates the state of the movement and changes between the states

@@ -344,15 +344,18 @@ public class PlayerController : KinematicObject
             dir = collision.transform.InverseTransformDirection(dir);
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             
-            if ((_currentCharacterType == CharacterType.Bunny ||
-                 _currentCharacterType == CharacterType.Slime) && collision.gameObject && (Math.Abs(angle) >= 60 && Math.Abs(angle) <= 120 || Math.Abs(angle) >= 250 && Math.Abs(angle) <= 300))
+            if (!collision.gameObject) return;
+            if ((_currentCharacterType == CharacterType.Bunny || _currentCharacterType == CharacterType.Slime) && _rotateDirection == RoateDirection.DOWN && (-(angle) >= 60 && -(angle) <= 120))
             {
                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
                 attackableAttacker.attackWithCustomAction(collision.gameObject);
-
             }
-            else if(_currentCharacterType == CharacterType.Rhino && collision.gameObject && (Math.Abs(angle) >= 150 && Math.Abs(angle) <= 210 || Math.Abs(angle) >= 0 && Math.Abs(angle) <= 30 || Math.Abs(angle) >= 330 && Math.Abs(angle) <= 360)
-            )
+            if ((_currentCharacterType == CharacterType.Bunny || _currentCharacterType == CharacterType.Slime) && _rotateDirection == RoateDirection.UP && ((angle) >= 60 && (angle) <= 120))
+            {
+                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                attackableAttacker.attackWithCustomAction(collision.gameObject);
+            }
+            if ((_currentCharacterType == CharacterType.Rhino) && (Math.Abs(angle) >= 150 && Math.Abs(angle) <= 210 || Math.Abs(angle) >= 0 && Math.Abs(angle) <= 30 || Math.Abs(angle) >= 330 && Math.Abs(angle) <= 360))
             {
                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
                 attackableAttacker.attackWithCustomAction(collision.gameObject);
