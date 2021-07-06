@@ -7892,6 +7892,10 @@ PrefabInstance:
       propertyPath: gravityDown
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5087857396356817496, guid: fe8eb82ae5bb2d348866cdd9e77f6a68, type: 3}
+      propertyPath: bunnySpecialAttackDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5087857396356817497, guid: fe8eb82ae5bb2d348866cdd9e77f6a68, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.1524
@@ -7906,11 +7910,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5087857396356817497, guid: fe8eb82ae5bb2d348866cdd9e77f6a68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.53
+      value: -8.46
       objectReference: {fileID: 0}
     - target: {fileID: 5087857396356817497, guid: fe8eb82ae5bb2d348866cdd9e77f6a68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.38
+      value: -3.44
       objectReference: {fileID: 0}
     - target: {fileID: 5087857396356817497, guid: fe8eb82ae5bb2d348866cdd9e77f6a68, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8117,11 +8121,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6023027876475338280, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.43
+      value: 7.88
       objectReference: {fileID: 0}
     - target: {fileID: 6023027876475338280, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.73
+      value: -3.57
       objectReference: {fileID: 0}
     - target: {fileID: 6023027876475338280, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
       propertyPath: m_LocalPosition.z

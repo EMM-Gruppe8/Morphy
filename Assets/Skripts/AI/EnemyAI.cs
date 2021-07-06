@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using Pathfinding;
+using System.Collections;
+using System.Collections.Generic;
 /// <summary>
 /// Class defining the behaviour of hostile entities
 /// </summary>
@@ -29,6 +31,8 @@ public class EnemyAI : MonoBehaviour
     public bool followEnabled = true;
     public bool jumpEnabled = true;
     public bool directionLookEnabled = true;
+    public float bunnySpecialAttackDelay = 3f;
+    private bool bunnyCanAttack = true;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -206,10 +210,14 @@ public class EnemyAI : MonoBehaviour
     private bool isNearHole(){
         // Check if hole is ahead
         Vector3 ahead;
+        float aheadMultiplier = 2;
+        if (characterType == CharacterType.Rhino){
+            aheadMultiplier = 3;
+        }
         if (target.position.x > this.transform.position.x){
-            ahead = Vector3.right*2;
+            ahead = Vector3.right*aheadMultiplier;
         } else {
-            ahead = Vector3.left*2;
+            ahead = Vector3.left*aheadMultiplier;
         }
 
         float rayLength;
@@ -246,9 +254,16 @@ public class EnemyAI : MonoBehaviour
     /// Makes the charakter jump by applying an upwards force.
     /// </summary>
     public void Jump(){
-        if (isGrounded && jumpEnabled){
-            rb.AddForce(-downVector * speed * jumpModifier);  
+        if (isGrounded && jumpEnabled && bunnyCanAttack){
+            rb.AddForce(-downVector * speed * jumpModifier);
+            StartCoroutine(InsertDelayForEnemy());
         }
+    }
+
+    private IEnumerator InsertDelayForEnemy(){
+        bunnyCanAttack = false;
+        yield return new WaitForSeconds(bunnySpecialAttackDelay);
+        bunnyCanAttack = true;
     }
 
     /// <summary>
