@@ -6,44 +6,159 @@ using Pathfinding;
 /// </summary>
 public class EnemyAI : MonoBehaviour
 {
+    /// <summary>
+    /// The animation object which is used to animate the character.
+    /// </summary>
     public Animator animator;
+
+    /// <summary>
+    /// Defines what kind of character the AI has.
+    /// </summary>
     public CharacterType characterType;
 
     [Header("Pathfinding")]
+
+    /// <summary>
+    /// Defines the target the character should move towards.
+    /// </summary>
     public Transform target;
+
+    /// <summary>
+    /// Defines how far the player has to be away for the character to start moving.
+    /// </summary>
     public float activateDistance = 50f;
+
+    /// <summary>
+    /// Defines how often the path should be recalculated.
+    /// </summary>
     public float pathUpdateSeconds = 0.5f;
 
     [Header("Physics")]
+
+    /// <summary>
+    /// Defines a baseline speed at which the character should move.
+    /// </summary>
     public float speed = 200f;
+
+    /// <summary>
+    /// Defines at which point a new Waypoint should be used to follow the path.
+    /// </summary>
     public float nextWaypointDistance = 3f;
+
+    /// <summary>
+    /// Defines at which height-differenc of the path the charakter should attempt jumping.
+    /// </summary>
     public float jumpNodeHeightRequirement = 0.8f;
+
+    /// <summary>
+    /// Defines the multiplier that gets applied into the y-direction if a charakter jumps.
+    /// </summary>
     public float jumpModifier = 0.3f;
+
+    /// <summary>
+    /// Defines a little bit of wiggle-room to decide if the character touches the ground or not.
+    /// </summary>
     public float jumpCheckOffset = 0.1f;
+
+    /// <summary>
+    /// Defines if the character should walk on the flor or the ceiling.
+    /// </summary>
     public bool gravityDown = true;
 
+    /// <summary>
+    /// The layer on which the charakter should move on.
+    /// </summary>
     public LayerMask platformLayerMask;
     public LayerMask playerLayerMask;
+    /// <summary>
+    /// The layer on which the playes is on. 
+    /// </summary>
 
     [Header("Custom Behavior")]
+
+    /// <summary>
+    /// Defines if the charakter should follow the player.
+    /// </summary>
     public bool followEnabled = true;
+
+    /// <summary>
+    /// Defines if the charakter is able to jump.
+    /// </summary>
     public bool jumpEnabled = true;
+
+    /// <summary>
+    /// Defines if the charakter looks into the direction it is going into.
+    /// </summary>
     public bool directionLookEnabled = true;
 
+    /// <summary>
+    /// The path the charakter takes.
+    /// </summary>
     private Path path;
+
+    /// <summary>
+    /// Saves at which point on the path the charakter is right now.
+    /// </summary>
     private int currentWaypoint = 0;
+
+    /// <summary>
+    /// Signals if the charakter touches the ground at the moment.
+    /// </summary>
     RaycastHit2D isGrounded;
+
+    /// <summary>
+    /// The script enabling the charakter to calculat a path.
+    /// </summary>
     Seeker seeker;
+
+    /// <summary>
+    /// The part of the charakter on which applies gravity.
+    /// </summary>
     Rigidbody2D rb;
+
+    /// <summary>
+    /// The forces getting applied to the charakter at any given moment.
+    /// </summary>
     Vector2 force;
+
+    /// <summary>
+    /// Script that enables the charakter to attack and to get attacked.
+    /// </summary>
     AttackableAttacker attackable;
+    /// <summary>
+    /// The collider surrounding the charakter.
+    /// </summary>
     Collider2D collider2d;
+
+    /// <summary>
+    /// The boundaries of the Charakter
+    /// </summary>
     Bounds Bounds => collider2d.bounds;
+
+    /// <summary>
+    /// The state of movement the charakter currently is in.
+    /// </summary>
     MovementState movementState = MovementState.Standing;
+
+    /// <summary>
+    /// Indicates if it is the first run of the physics simulation.
+    /// It fixes strange behaviour with charakter jumping without it.
+    /// </summary>
     bool isInitialRun = true;
+
+    /// <summary>
+    /// Defines in which direction the gravity should act on the character.
+    /// </summary>
     private Vector2 downVector = Vector2.down;
 
+    /// <summary>
+    /// Defines at which speed and aboce a movement is considered walking.
+    /// </summary>
     private const float WalkingThreshold = 0.05f;
+
+    /// <summary>
+    /// Defines at which speed and above a movement is considered sprinting.
+    /// </summary>
     private const float SprintingThreshold = 0.7f;
 
     /// <summary>
@@ -245,7 +360,7 @@ public class EnemyAI : MonoBehaviour
     /// <summary>
     /// Makes the charakter jump by applying an upwards force.
     /// </summary>
-    public void Jump(){
+    private void Jump(){
         if (isGrounded && jumpEnabled){
             rb.AddForce(-downVector * speed * jumpModifier);  
         }
@@ -255,7 +370,7 @@ public class EnemyAI : MonoBehaviour
     /// Makes a charakter fall on the other side by turning
     /// the gravity around.
     /// </summary>
-    public void Fall(){
+    private void Fall(){
         TurnGravity(true);
     }
 
@@ -263,7 +378,7 @@ public class EnemyAI : MonoBehaviour
     /// Makes a charakter run by multiplying its force in
     /// the x-direction.
     /// </summary>
-    public void Run(){
+    private void Run(){
         force.x = force.x*1.5f;
     }
 
@@ -273,7 +388,7 @@ public class EnemyAI : MonoBehaviour
     /// to come from in order for the move to be effective. The direction
     /// and action taken uppon detection varies by charakter.
     /// </summary>
-    public void DoSpecialMovement(){
+    private void DoSpecialMovement(){
         if (characterType == CharacterType.Bunny){
             Vector3 ahead;
             if (target.position.x > this.transform.position.x){
@@ -387,29 +502,28 @@ public class EnemyAI : MonoBehaviour
     /// its hit.
     /// </summary>
     /// <param name="collision"></param>
-     void OnCollisionEnter2D(Collision2D collision)
-     {
-         if (!collision.gameObject.CompareTag("Player")) return;
-         try {
-             var dir = collision.transform.position - transform.position;
-             dir = collision.transform.InverseTransformDirection(dir);
-             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player")) return;
+        try {
+            var dir = collision.transform.position - transform.position;
+            dir = collision.transform.InverseTransformDirection(dir);
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             
-             if ((characterType == CharacterType.Bunny ||
-                  characterType == CharacterType.Slime) && collision.gameObject && (Math.Abs(angle) >= 60 && Math.Abs(angle) <= 120 || Math.Abs(angle) >= 250 && Math.Abs(angle) <= 300))
-             {
-                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                 attackableAttacker.attackWithCustomAction(collision.gameObject);
+            if ((characterType == CharacterType.Bunny ||
+                characterType == CharacterType.Slime) && collision.gameObject && (Math.Abs(angle) >= 60 && Math.Abs(angle) <= 120 || Math.Abs(angle) >= 250 && Math.Abs(angle) <= 300))
+            {
+                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                attackableAttacker.attackWithCustomAction(collision.gameObject);
 
-             }
-             else if(characterType == CharacterType.Rhino && collision.gameObject && (Math.Abs(angle) >= 150 && Math.Abs(angle) <= 210 || Math.Abs(angle) >= 0 && Math.Abs(angle) <= 30 || Math.Abs(angle) >= 330 && Math.Abs(angle) <= 360)
-             )
-             {
-                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
-                 attackableAttacker.attackWithCustomAction(collision.gameObject);
-             }
-         } catch (NullReferenceException e){}
-     }
+            }
+            else if(characterType == CharacterType.Rhino && collision.gameObject && (Math.Abs(angle) >= 150 && Math.Abs(angle) <= 210 || Math.Abs(angle) >= 0 && Math.Abs(angle) <= 30 || Math.Abs(angle) >= 330 && Math.Abs(angle) <= 360))
+            {
+                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                attackableAttacker.attackWithCustomAction(collision.gameObject);
+            }
+        } catch (NullReferenceException e){}
+    }
 
     /// <summary>
     /// Updates the state of the movement and changes between the states
