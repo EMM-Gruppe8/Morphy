@@ -72,6 +72,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Global.AudioManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.AudioManager.html",
+          "hash": "zOCFfWyDd7XVRsFwtTMFn9Om/YfPoVjRe6oUWS+ozj0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Global.CameraController.yml",
       "output": {
         ".html": {
@@ -504,6 +516,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Global.Sound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Sound.html",
+          "hash": "BH9T50A1/OKtaOQJAM23BAYWhuMpJgkUodJN+KbqxyU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Global.SpawnPoint.yml",
       "output": {
         ".html": {
@@ -520,7 +544,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Global.html",
-          "hash": "QXnshXbC/sX/wQNdf+C52XiwJEhm8F83ahdELYl7TfU="
+          "hash": "lFaVaZTqg4E9vfvtZmXK+RfSdWvwMRUM1lbMQk2gTK0="
         }
       },
       "is_incremental": false,
@@ -532,7 +556,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "H72n5DgRvFNWvT3z2Ql05M5PsvXufGpNGQcJFZKwQcA="
+          "hash": "3ejmFYuQzVebrWRLZpVIx49ZpsZmIZcfzTwJ2ti1pV4="
         }
       },
       "is_incremental": false,
@@ -630,7 +654,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 42,
+          "total_file_count": 44,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

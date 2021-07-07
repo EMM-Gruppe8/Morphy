@@ -1074,6 +1074,43 @@ references:
   commentId: F:Global.AttackEntersLeavesCooldown.isInCooldown
   fullName: AttackEntersLeavesCooldown.isInCooldown
   nameWithType: AttackEntersLeavesCooldown.isInCooldown
+- uid: Global.AudioManager
+  name: AudioManager
+  href: api/Global.AudioManager.html
+  commentId: T:Global.AudioManager
+  fullName: AudioManager
+  nameWithType: AudioManager
+- uid: Global.AudioManager.instance
+  name: instance
+  href: api/Global.AudioManager.html#Global_AudioManager_instance
+  commentId: F:Global.AudioManager.instance
+  fullName: AudioManager.instance
+  nameWithType: AudioManager.instance
+- uid: Global.AudioManager.mixerGroup
+  name: mixerGroup
+  href: api/Global.AudioManager.html#Global_AudioManager_mixerGroup
+  commentId: F:Global.AudioManager.mixerGroup
+  fullName: AudioManager.mixerGroup
+  nameWithType: AudioManager.mixerGroup
+- uid: Global.AudioManager.Play(System.String)
+  name: Play(String)
+  href: api/Global.AudioManager.html#Global_AudioManager_Play_System_String_
+  commentId: M:Global.AudioManager.Play(System.String)
+  fullName: AudioManager.Play(System.String)
+  nameWithType: AudioManager.Play(String)
+- uid: Global.AudioManager.Play*
+  name: Play
+  href: api/Global.AudioManager.html#Global_AudioManager_Play_
+  commentId: Overload:Global.AudioManager.Play
+  isSpec: "True"
+  fullName: AudioManager.Play
+  nameWithType: AudioManager.Play
+- uid: Global.AudioManager.sounds
+  name: sounds
+  href: api/Global.AudioManager.html#Global_AudioManager_sounds
+  commentId: F:Global.AudioManager.sounds
+  fullName: AudioManager.sounds
+  nameWithType: AudioManager.sounds
 - uid: Global.CameraController
   name: CameraController
   href: api/Global.CameraController.html
@@ -2810,6 +2847,66 @@ references:
   isSpec: "True"
   fullName: RotateWorld.Execute
   nameWithType: RotateWorld.Execute
+- uid: Global.Sound
+  name: Sound
+  href: api/Global.Sound.html
+  commentId: T:Global.Sound
+  fullName: Sound
+  nameWithType: Sound
+- uid: Global.Sound.clip
+  name: clip
+  href: api/Global.Sound.html#Global_Sound_clip
+  commentId: F:Global.Sound.clip
+  fullName: Sound.clip
+  nameWithType: Sound.clip
+- uid: Global.Sound.loop
+  name: loop
+  href: api/Global.Sound.html#Global_Sound_loop
+  commentId: F:Global.Sound.loop
+  fullName: Sound.loop
+  nameWithType: Sound.loop
+- uid: Global.Sound.mixerGroup
+  name: mixerGroup
+  href: api/Global.Sound.html#Global_Sound_mixerGroup
+  commentId: F:Global.Sound.mixerGroup
+  fullName: Sound.mixerGroup
+  nameWithType: Sound.mixerGroup
+- uid: Global.Sound.name
+  name: name
+  href: api/Global.Sound.html#Global_Sound_name
+  commentId: F:Global.Sound.name
+  fullName: Sound.name
+  nameWithType: Sound.name
+- uid: Global.Sound.pitch
+  name: pitch
+  href: api/Global.Sound.html#Global_Sound_pitch
+  commentId: F:Global.Sound.pitch
+  fullName: Sound.pitch
+  nameWithType: Sound.pitch
+- uid: Global.Sound.pitchVariance
+  name: pitchVariance
+  href: api/Global.Sound.html#Global_Sound_pitchVariance
+  commentId: F:Global.Sound.pitchVariance
+  fullName: Sound.pitchVariance
+  nameWithType: Sound.pitchVariance
+- uid: Global.Sound.source
+  name: source
+  href: api/Global.Sound.html#Global_Sound_source
+  commentId: F:Global.Sound.source
+  fullName: Sound.source
+  nameWithType: Sound.source
+- uid: Global.Sound.volume
+  name: volume
+  href: api/Global.Sound.html#Global_Sound_volume
+  commentId: F:Global.Sound.volume
+  fullName: Sound.volume
+  nameWithType: Sound.volume
+- uid: Global.Sound.volumeVariance
+  name: volumeVariance
+  href: api/Global.Sound.html#Global_Sound_volumeVariance
+  commentId: F:Global.Sound.volumeVariance
+  fullName: Sound.volumeVariance
+  nameWithType: Sound.volumeVariance
 - uid: Global.SpawnPoint
   name: SpawnPoint
   href: api/Global.SpawnPoint.html
