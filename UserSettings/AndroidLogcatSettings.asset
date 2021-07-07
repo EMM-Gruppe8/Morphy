@@ -1,7 +1,7 @@
 {
-    "m_SelectedDeviceId": "LGH930adea15fc",
+    "m_SelectedDeviceId": "8f326fc2",
     "m_SelectedPackage": {
-        "deviceId": "LGH930adea15fc",
+        "deviceId": "8f326fc2",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
         "processId": 14370,
         "exited": false
@@ -18,6 +18,12 @@
             "deviceId": "8f326fc2",
             "name": "bitpit.launcher",
             "processId": 24233,
+            "exited": false
+        },
+        {
+            "deviceId": "8f326fc2",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8340,
             "exited": false
         },
         {
