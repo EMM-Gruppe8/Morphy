@@ -76,7 +76,7 @@ public class HighscoreController : MonoBehaviour
     /// <summary>
     /// Reads the Highscore TimeSpan for a specific level. Return the TimeSpan.Zero,
     /// </summary>
-    public TimeSpan GetSavedHighScoreForLevelByName(string level)
+    public static TimeSpan GetSavedHighScoreForLevelByName(string level)
     {
         try
         {

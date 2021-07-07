@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /**
  * Main Menu Script
@@ -12,10 +12,12 @@ public class MainMenuScript : MonoBehaviour
     public GameObject mainMenu;
     public GameObject levelSelection;
     public GameObject[] levels;
+    public GameObject[] highscoreDisplays;
 
     // Setup dynamic parts of the menu
     public void Start() {
         updateDisabledLevels();
+        updateHighscores();
     }
 
     // Enable all levels in the level selection screen that the user has unlocked
@@ -26,6 +28,15 @@ public class MainMenuScript : MonoBehaviour
             if (levels.Length > i) {
                 levels[i].transform.Find("Disabled").gameObject.SetActive(false);
                 Debug.Log("Enabling Level" + (i + 1));
+            }
+        }
+    }
+
+    private void updateHighscores() {
+        for(int i = 0; i < highscoreDisplays.Length; i++) {
+            TimeSpan highscore = HighscoreController.GetSavedHighScoreForLevelByName("Level" + (i + 1));
+            if (highscore != TimeSpan.Zero) {
+                highscoreDisplays[i].GetComponent<Text>().text = highscore.ToString(@"mm\:ss");
             }
         }
     }
