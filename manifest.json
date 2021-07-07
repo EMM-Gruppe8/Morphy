@@ -588,6 +588,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "manual/Reflection.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/Reflection.html",
+          "hash": "4fP6Pu7XXzQ3C4rvrcCR89WxrZc6grzQiEIu2kscBk8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "manual/Requirements.md",
       "output": {
         ".html": {
@@ -684,7 +696,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 6,
+          "total_file_count": 7,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
