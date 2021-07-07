@@ -27,3 +27,9 @@ Morphy is a mobile game centered around movement. Turn, push and pull your phone
 ### Slime
 - Can walk on floor as well as on ceiling
 - Attacks hard by falling onto enemies
+
+## Installation
+### Android
+//todo
+### iOS
+//todo
