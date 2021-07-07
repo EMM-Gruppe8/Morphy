@@ -612,6 +612,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "manual/System.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/System.html",
+          "hash": "rM56Lz209aOEBb1CdX/FmPkG38ZbrjMW0ssFVr0vfA4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "manual/Technologies.md",
       "output": {
         ".html": {
@@ -672,7 +684,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 5,
+          "total_file_count": 6,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
