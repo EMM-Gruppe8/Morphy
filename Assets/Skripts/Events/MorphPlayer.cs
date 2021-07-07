@@ -10,6 +10,7 @@ public class MorphPlayer : EventManager.Event<MorphPlayer>
         EnemyArtifact enemyArtifact = gameObject.GetComponent(typeof(EnemyArtifact)) as EnemyArtifact;
         if (!enemyArtifact) return;
         model.player.targetCharacterType = enemyArtifact.characterType;
+        model.player.health.SetMaxHealth();
         gameObject.SetActive(false);
     }
 }

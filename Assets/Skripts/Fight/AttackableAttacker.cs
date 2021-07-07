@@ -28,6 +28,10 @@ public class AttackableAttacker : MonoBehaviour
     // Attack Button that should be greyed out during cooldowm
     public GameObject attackButton;
 
+    public float enemyAttackDelay = .2f;
+
+    private bool initialAttack = true;
+
     // Get the tag for our enemy, who we should attack
     // For the player, these will be the "Enemy" objects
     // For enemies this will be the player
@@ -109,6 +113,11 @@ public class AttackableAttacker : MonoBehaviour
             return;
         }
 
+        if (gameObject.tag == "Enemy" && initialAttack) {
+            StartCoroutine(InsertDelayForEnemy());
+            return;
+        }
+
         Debug.Log("Attacking enemy");
         if (gameObject.tag == "Player") {
             FindObjectOfType<AudioManager>().Play("PlayerAttack");
@@ -116,6 +125,11 @@ public class AttackableAttacker : MonoBehaviour
         go.GetComponent<AttackableAttacker>().getAttacked(gameObject, 1);
 
         StartCoroutine(cooldown());
+    }
+
+    private IEnumerator InsertDelayForEnemy(){
+        yield return new WaitForSeconds(enemyAttackDelay);
+        initialAttack = false;
     }
 
     // Try to attack a specific GameObject with our special custom action

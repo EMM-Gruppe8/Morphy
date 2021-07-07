@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 202368830}
+    - target: {fileID: 4963380235308118390, guid: 75a1b56091c7e0f48a3dc8a8ccef033f, type: 3}
+      propertyPath: gravityDown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4963380235308118391, guid: 75a1b56091c7e0f48a3dc8a8ccef033f, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -525,6 +529,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 202368830}
+    - target: {fileID: 4963380235308118390, guid: 75a1b56091c7e0f48a3dc8a8ccef033f, type: 3}
+      propertyPath: gravityDown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4963380235308118392, guid: 75a1b56091c7e0f48a3dc8a8ccef033f, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -49804,6 +49812,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 202368830}
+    - target: {fileID: 4963380235308118390, guid: 75a1b56091c7e0f48a3dc8a8ccef033f, type: 3}
+      propertyPath: gravityDown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4963380235308118392, guid: 75a1b56091c7e0f48a3dc8a8ccef033f, type: 3}
       propertyPath: m_Name
       value: Slime (1)
@@ -49943,6 +49955,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -14.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5189245993874426187, guid: 86309158a0e3b8d42b78452df7a10311, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5189245993874426188, guid: 86309158a0e3b8d42b78452df7a10311, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.2
@@ -49955,6 +49971,14 @@ PrefabInstance:
       propertyPath: boxCollider2D
       value: 
       objectReference: {fileID: 369581908}
+    - target: {fileID: 5189245993874426191, guid: 86309158a0e3b8d42b78452df7a10311, type: 3}
+      propertyPath: gravityModifier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189245993874426191, guid: 86309158a0e3b8d42b78452df7a10311, type: 3}
+      propertyPath: targetCharacterType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5189245994337375149, guid: 86309158a0e3b8d42b78452df7a10311, type: 3}
       propertyPath: m_Name
       value: StandardAssets
@@ -50099,11 +50123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6023027876475338280, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.25
+      value: -22.41
       objectReference: {fileID: 0}
     - target: {fileID: 6023027876475338280, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.839403
+      value: 24.48
       objectReference: {fileID: 0}
     - target: {fileID: 6023027876475338280, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50141,6 +50165,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 202368830}
+    - target: {fileID: 6023027876475338286, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
+      propertyPath: gravityDown
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1a51eb1eee2c94fbf940b492d8f6ea, type: 3}
 --- !u!4 &2091955151 stripped

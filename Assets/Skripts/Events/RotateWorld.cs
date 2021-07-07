@@ -11,5 +11,6 @@ public class RotateWorld : EventManager.Event<RotateWorld>
         var player = model.player;
         player.invertedMovement = !player.invertedMovement;
         player.spriteRenderer.flipY = !player.spriteRenderer.flipY;
+        
     }
 }

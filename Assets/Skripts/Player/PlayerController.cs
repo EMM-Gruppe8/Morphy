@@ -55,7 +55,7 @@ public class PlayerController : KinematicObject
 
     private void ProcessPlayerAccelerationInput()
     {
-        if (controlEnabled)
+        if (controlEnabled && !PauseMenuScript.isPaused)
         {
             if (Input.acceleration.x >= WalkingThreshold || Input.acceleration.x <= -WalkingThreshold)
             {
@@ -94,21 +94,21 @@ public class PlayerController : KinematicObject
 
     private void UpdateGravityRotation()
     {
-        if (_currentCharacterType != CharacterType.Slime) return; // Update rotation only if Character is a Slime
+        if (_currentCharacterType != CharacterType.Slime || PauseMenuScript.isPaused) return; // Update rotation only if Character is a Slime
         var angle = Math.Abs(Mathf.Atan2(-Input.acceleration.x, -Input.acceleration.y) * Mathf.Rad2Deg);
         switch (_rotateDirection)
-        {
-            case RoateDirection.DOWN when angle >= 90:
-                jumpState = JumpState.PrepareToJump;
-                Schedule<RotateWorld>();
-                _rotateDirection = RoateDirection.UP;
-                break;
-            case RoateDirection.UP when angle < 90:
-                jumpState = JumpState.PrepareToJump;
-                Schedule<RotateWorld>();
-                _rotateDirection = RoateDirection.DOWN;
-                break;
-        }
+            {
+                case RoateDirection.DOWN when (angle >= 90 && Math.Abs(angle - 180f) > 0.000000f):
+                    jumpState = JumpState.PrepareToJump;
+                    Schedule<RotateWorld>();
+                    _rotateDirection = RoateDirection.UP;
+                    break;
+                case RoateDirection.UP when angle < 90:
+                    jumpState = JumpState.PrepareToJump;
+                    Schedule<RotateWorld>();
+                    _rotateDirection = RoateDirection.DOWN;
+                    break;
+            }
     }
 
     private void UpdateJumpState()
@@ -339,28 +339,29 @@ public class PlayerController : KinematicObject
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check position of collision
-        var landedOnTop = Bounds.center.y >= collision.collider.bounds.max.y;
-
-        switch (landedOnTop)
-        {
-            // Special attack if Bunny or Slime jumps on head
-            case true when _currentCharacterType == CharacterType.Bunny ||
-                           _currentCharacterType == CharacterType.Slime && collision.gameObject:
+        if (!collision.gameObject.CompareTag("Enemy")) return;
+        try {
+            var dir = collision.transform.position - transform.position;
+            dir = collision.transform.InverseTransformDirection(dir);
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            
+            if (!collision.gameObject) return;
+            if ((_currentCharacterType == CharacterType.Bunny || _currentCharacterType == CharacterType.Slime) && _rotateDirection == RoateDirection.DOWN && (-(angle) >= 60 && -(angle) <= 120))
             {
                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
                 attackableAttacker.attackWithCustomAction(collision.gameObject);
-                break;
             }
-            // Special attack if Rhino sprints on enemy
-            case false when _currentCharacterType == CharacterType.Rhino && movementState == MovementState.Sprinting &&
-                            collision.gameObject:
+            if ((_currentCharacterType == CharacterType.Bunny || _currentCharacterType == CharacterType.Slime) && _rotateDirection == RoateDirection.UP && ((angle) >= 60 && (angle) <= 120))
             {
                 var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
                 attackableAttacker.attackWithCustomAction(collision.gameObject);
-                break;
             }
-        }
+            if ((_currentCharacterType == CharacterType.Rhino) && (Math.Abs(angle) >= 150 && Math.Abs(angle) <= 210 || Math.Abs(angle) >= 0 && Math.Abs(angle) <= 30 || Math.Abs(angle) >= 330 && Math.Abs(angle) <= 360))
+            {
+                var attackableAttacker = collision.gameObject.GetComponent<AttackableAttacker>();
+                attackableAttacker.attackWithCustomAction(collision.gameObject);
+            }
+        } catch (NullReferenceException e){}
     }
 
     public enum JumpState

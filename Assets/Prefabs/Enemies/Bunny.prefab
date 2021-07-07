@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5087857396356817497}
   - component: {fileID: 5087857396356817498}
   - component: {fileID: 5087857396356817500}
-  - component: {fileID: 5087857396356817503}
   - component: {fileID: 5087857396356817495}
+  - component: {fileID: 5087857396356817503}
   - component: {fileID: 5087857396356817493}
   - component: {fileID: 5087857396356817501}
   - component: {fileID: 5087857396356817496}
@@ -109,23 +109,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5087857396356817503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5087857396356817504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83cc26a43296d47c7a551a65069a13ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 150
-  nearAttackRange: 100
-  mass: 1
-  cooldownTimeInSeconds: 1
-  attackButton: {fileID: 0}
 --- !u!114 &5087857396356817495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +124,24 @@ MonoBehaviour:
   maxHP: 3
   currentHp: 3
   healthBarPrefab: {fileID: 4306621868248852509, guid: cf00219910f2c40b9adcce6b67dd044a, type: 3}
+--- !u!114 &5087857396356817503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087857396356817504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cc26a43296d47c7a551a65069a13ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 5
+  nearAttackRange: 100
+  mass: 1
+  cooldownTimeInSeconds: 1
+  attackButton: {fileID: 0}
+  enemyAttackDelay: 1
 --- !u!114 &5087857396356817493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,17 +204,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5087857396356817500}
+  characterType: 0
   target: {fileID: 0}
   activateDistance: 20
   pathUpdateSeconds: 0.5
   speed: 600
-  nextWaypointDistance: 3
+  nextWaypointDistance: 2
   jumpNodeHeightRequirement: 0.8
   jumpModifier: 1.5
   jumpCheckOffset: 0.1
+  gravityDown: 1
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
   followEnabled: 1
   jumpEnabled: 1
   directionLookEnabled: 1

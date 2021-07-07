@@ -8,7 +8,6 @@ public class HealthBarController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(transform.parent.localScale.x);
         if (transform.parent.localScale.x < 0 && !isFlipped) {
             transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             isFlipped = true;
