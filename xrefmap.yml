@@ -2279,6 +2279,12 @@ references:
   commentId: T:Global.MainMenuScript
   fullName: MainMenuScript
   nameWithType: MainMenuScript
+- uid: Global.MainMenuScript.highscoreDisplays
+  name: highscoreDisplays
+  href: api/Global.MainMenuScript.html#Global_MainMenuScript_highscoreDisplays
+  commentId: F:Global.MainMenuScript.highscoreDisplays
+  fullName: MainMenuScript.highscoreDisplays
+  nameWithType: MainMenuScript.highscoreDisplays
 - uid: Global.MainMenuScript.levels
   name: levels
   href: api/Global.MainMenuScript.html#Global_MainMenuScript_levels
