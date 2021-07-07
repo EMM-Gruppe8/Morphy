@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "8f326fc2",
+    "m_SelectedDeviceId": "LGH930adea15fc",
     "m_SelectedPackage": {
-        "deviceId": "8f326fc2",
+        "deviceId": "LGH930adea15fc",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 14370,
+        "processId": 14761,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -72,6 +72,12 @@
             "deviceId": "LGH930adea15fc",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 14370,
+            "exited": false
+        },
+        {
+            "deviceId": "LGH930adea15fc",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 14761,
             "exited": false
         }
     ],

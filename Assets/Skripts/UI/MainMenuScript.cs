@@ -36,8 +36,11 @@ public class MainMenuScript : MonoBehaviour
     public void StartGame() {
         Debug.Log("Start Game");
         SceneManager.LoadScene("Level1");
-        OpenLevel(LevelController.getHighestCompletedLevel() + 1);
-    }
+
+        int currentLevel = LevelController.getHighestCompletedLevel() + 1;
+        if (currentLevel > 3) currentLevel = 3;
+        OpenLevel(currentLevel);
+  }
 
     /**
      * Start the game at a specific level
