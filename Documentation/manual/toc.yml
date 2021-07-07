@@ -1,4 +1,6 @@
-- name: Characters
-  href: Characters.md
-- name: "Project Requirements"
+- name: 1. Project Requirements
   href: Requirements.md
+- name: 2. Characters
+  href: Characters.md
+- name: 3. Sources
+  href: Sources.md
