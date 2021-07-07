@@ -205,6 +205,7 @@ public class PlayerController : KinematicObject
         if (!gameObject) return;
         var customEvent = Schedule<MorphPlayer>();
         customEvent.gameObject = gameObject;
+        FindObjectOfType<AudioManager>().Play("PlayerMorph");
     }
 
     private void ChangeCharacterType(CharacterType characterType)
