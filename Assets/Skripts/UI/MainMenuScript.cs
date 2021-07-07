@@ -38,8 +38,9 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("Level1");
 
         int currentLevel = LevelController.getHighestCompletedLevel() + 1;
-        // TODO: Implement when Game Engine is ready
-    }
+        if (currentLevel > 3) currentLevel = 3;
+        OpenLevel(currentLevel);
+  }
 
     /**
      * Start the game at a specific level
@@ -58,6 +59,9 @@ public class MainMenuScript : MonoBehaviour
                 break;
             case 2:
                 SceneManager.LoadScene("Level2");
+                break;
+            case 3:
+                SceneManager.LoadScene("Level3");
                 break;
         }
     }

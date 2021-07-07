@@ -64,4 +64,5 @@ public class Health : MonoBehaviour
             healthBar.value = (float) currentHp / (float) maxHP;
         }
     }
+
 }
