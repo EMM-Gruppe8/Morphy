@@ -49,7 +49,7 @@ auswählen und seine Zeiten einsehen.
 - Im Pausenmenü kann der Spieler das Spiel pausieren, komplett neustarten und
 zurück zum Hauptmenü gehen
 
-***Erfüllungsgrad: 80%***
+***Erfüllungsgrad: 100%***
 
 ## 5. Fähigkeit Seitenwechsel
 - Charakter mit dieser Fähikeit sollte beim auf-den-Kopfstellen des Smartphones auf die gegenüberliegende Seite fallen und dort genau so laufen können, wie auf der anderen (Charakter: Slime)
@@ -89,7 +89,7 @@ Health-Points, welche im Fern- oder Nahkampf reduziert werden.
 ## (Optional). Bestzeiten
 - Die Zeit, die der Spieler für ein Level benötigt, wird gespeichert, das erhöht den Wiederspielwert, da der Spieler seine eigenen Bestzeiten einsehen kann
 
-***Erfüllungsgrad: 80%***
+***Erfüllungsgrad: 100%***
 
 ## (Optional) Feedback über Vibration des Smartphones
 - Wird der Spieler verletzt, oder stirbt vibriert das Smartphone, um dem Spieler ein
