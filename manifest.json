@@ -600,6 +600,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "manual/Reflection_Magdalena.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/Reflection_Magdalena.html",
+          "hash": "t0Bhqmkm+5HJO7xDap/q/CcMQgq9z/u5L5h3M2nEHn4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "manual/Requirements.md",
       "output": {
         ".html": {
@@ -696,7 +708,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 7,
+          "total_file_count": 8,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
