@@ -223,6 +223,7 @@ MonoBehaviour:
   followEnabled: 1
   jumpEnabled: 1
   directionLookEnabled: 1
+  bunnySpecialAttackDelay: 3
 --- !u!70 &5087857396356817502
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
