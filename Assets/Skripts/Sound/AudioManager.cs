@@ -5,11 +5,19 @@ using UnityEngine;
 // Source: https://www.youtube.com/watch?v=6OT43pvUyfY
 public class AudioManager : MonoBehaviour
 {
-
+	/// <summary>
+  /// Current AudioManager interface. Needed to enforce singeton behaviour
+  /// </summary>
 	public static AudioManager instance;
 
+	/// <summary>
+  /// Unity Audio Mixer Group
+  /// </summary>
 	public AudioMixerGroup mixerGroup;
 
+	/// <summary>
+  /// A list of sounds that can be played during the game
+  /// </summary>
 	public Sound[] sounds;
 
 	void Start()
@@ -39,6 +47,10 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+  /// Play a sound using the AudioManager
+  /// </summary>
+  /// <param name="sound">Name of the sound as defined in the Sounds array</param>
 	public void Play(string sound)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound);

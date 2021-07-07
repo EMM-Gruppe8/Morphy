@@ -1,6 +1,9 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
 
+/// <summary>
+/// An audio clip for the Audio Manager
+/// </summary>
 [System.Serializable]
 public class Sound {
 
