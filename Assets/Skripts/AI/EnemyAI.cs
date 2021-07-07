@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using Pathfinding;
+using System.Collections;
+using System.Collections.Generic;
 /// <summary>
 /// Class defining the behaviour of hostile entities
 /// </summary>
@@ -90,6 +92,8 @@ public class EnemyAI : MonoBehaviour
     /// Defines if the charakter looks into the direction it is going into.
     /// </summary>
     public bool directionLookEnabled = true;
+    public float bunnySpecialAttackDelay = 3f;
+    private bool bunnyCanAttack = true;
 
     /// <summary>
     /// The path the charakter takes.
@@ -171,10 +175,10 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
+        attackable = GetComponent<AttackableAttacker>();
         if(!gravityDown){
             TurnGravity(false);
         }
-        attackable = GetComponent<AttackableAttacker>();
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
     
@@ -189,7 +193,7 @@ public class EnemyAI : MonoBehaviour
         jumpNodeHeightRequirement = -jumpNodeHeightRequirement;
         if (turnSemaphore){
             gravityDown = !gravityDown;
-        }
+        }         
     }
 
     /// <summary>
@@ -321,10 +325,14 @@ public class EnemyAI : MonoBehaviour
     private bool isNearHole(){
         // Check if hole is ahead
         Vector3 ahead;
+        float aheadMultiplier = 2;
+        if (characterType == CharacterType.Rhino){
+            aheadMultiplier = 3;
+        }
         if (target.position.x > this.transform.position.x){
-            ahead = Vector3.right*2;
+            ahead = Vector3.right*aheadMultiplier;
         } else {
-            ahead = Vector3.left*2;
+            ahead = Vector3.left*aheadMultiplier;
         }
 
         float rayLength;
@@ -360,10 +368,17 @@ public class EnemyAI : MonoBehaviour
     /// <summary>
     /// Makes the charakter jump by applying an upwards force.
     /// </summary>
-    private void Jump(){
-        if (isGrounded && jumpEnabled){
-            rb.AddForce(-downVector * speed * jumpModifier);  
+    public void Jump(){
+        if (isGrounded && jumpEnabled && bunnyCanAttack){
+            rb.AddForce(-downVector * speed * jumpModifier);
+            StartCoroutine(InsertDelayForEnemy());
         }
+    }
+
+    private IEnumerator InsertDelayForEnemy(){
+        bunnyCanAttack = false;
+        yield return new WaitForSeconds(bunnySpecialAttackDelay);
+        bunnyCanAttack = true;
     }
 
     /// <summary>
@@ -378,8 +393,8 @@ public class EnemyAI : MonoBehaviour
     /// Makes a charakter run by multiplying its force in
     /// the x-direction.
     /// </summary>
-    private void Run(){
-        force.x = force.x*1.5f;
+    public void Run(){
+        force.x = force.x*2f;
     }
 
     /// <summary>
