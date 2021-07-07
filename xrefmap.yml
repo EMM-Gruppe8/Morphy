@@ -2012,6 +2012,19 @@ references:
   isSpec: "True"
   fullName: HighscoreController.GetSavedHighScore
   nameWithType: HighscoreController.GetSavedHighScore
+- uid: Global.HighscoreController.GetSavedHighScoreForLevelByName(System.String)
+  name: GetSavedHighScoreForLevelByName(String)
+  href: api/Global.HighscoreController.html#Global_HighscoreController_GetSavedHighScoreForLevelByName_System_String_
+  commentId: M:Global.HighscoreController.GetSavedHighScoreForLevelByName(System.String)
+  fullName: HighscoreController.GetSavedHighScoreForLevelByName(System.String)
+  nameWithType: HighscoreController.GetSavedHighScoreForLevelByName(String)
+- uid: Global.HighscoreController.GetSavedHighScoreForLevelByName*
+  name: GetSavedHighScoreForLevelByName
+  href: api/Global.HighscoreController.html#Global_HighscoreController_GetSavedHighScoreForLevelByName_
+  commentId: Overload:Global.HighscoreController.GetSavedHighScoreForLevelByName
+  isSpec: "True"
+  fullName: HighscoreController.GetSavedHighScoreForLevelByName
+  nameWithType: HighscoreController.GetSavedHighScoreForLevelByName
 - uid: Global.HighscoreController.SaveHighScore(TimeSpan)
   name: SaveHighScore(TimeSpan)
   href: api/Global.HighscoreController.html#Global_HighscoreController_SaveHighScore_TimeSpan_

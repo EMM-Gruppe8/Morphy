@@ -83,7 +83,8 @@
   
   <h1 id="Global_HighscoreController" data-uid="Global.HighscoreController" class="text-break">Class HighscoreController
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Controller who manages all high scores and times. The current implementation only has the time measurement.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -102,7 +103,8 @@
   
   <a id="Global_HighscoreController_CheckTimeIsNewHighScore_" data-uid="Global.HighscoreController.CheckTimeIsNewHighScore*"></a>
   <h4 id="Global_HighscoreController_CheckTimeIsNewHighScore_TimeSpan_" data-uid="Global.HighscoreController.CheckTimeIsNewHighScore(TimeSpan)">CheckTimeIsNewHighScore(TimeSpan)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Checks if a given TimeSpan is a better highscore fpr the current llevel</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -144,7 +146,8 @@
   
   <a id="Global_HighscoreController_GetCurrentTime_" data-uid="Global.HighscoreController.GetCurrentTime*"></a>
   <h4 id="Global_HighscoreController_GetCurrentTime" data-uid="Global.HighscoreController.GetCurrentTime">GetCurrentTime()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Reads the current TimeSpan, from start to now.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -169,7 +172,8 @@
   
   <a id="Global_HighscoreController_GetSavedHighScore_" data-uid="Global.HighscoreController.GetSavedHighScore*"></a>
   <h4 id="Global_HighscoreController_GetSavedHighScore" data-uid="Global.HighscoreController.GetSavedHighScore">GetSavedHighScore()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Reads the Highscore TimeSpan for the current level.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -192,9 +196,53 @@
   </table>
   
   
+  <a id="Global_HighscoreController_GetSavedHighScoreForLevelByName_" data-uid="Global.HighscoreController.GetSavedHighScoreForLevelByName*"></a>
+  <h4 id="Global_HighscoreController_GetSavedHighScoreForLevelByName_System_String_" data-uid="Global.HighscoreController.GetSavedHighScoreForLevelByName(System.String)">GetSavedHighScoreForLevelByName(String)</h4>
+  <div class="markdown level1 summary"><p>Reads the Highscore TimeSpan for a specific level. Return the TimeSpan.Zero,</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan GetSavedHighScoreForLevelByName(string level)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeSpan</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Global_HighscoreController_SaveHighScore_" data-uid="Global.HighscoreController.SaveHighScore*"></a>
   <h4 id="Global_HighscoreController_SaveHighScore_TimeSpan_" data-uid="Global.HighscoreController.SaveHighScore(TimeSpan)">SaveHighScore(TimeSpan)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Saves a HighScore for the current Level to the user pref.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -221,7 +269,8 @@
   
   <a id="Global_HighscoreController_StartMeasurement_" data-uid="Global.HighscoreController.StartMeasurement*"></a>
   <h4 id="Global_HighscoreController_StartMeasurement" data-uid="Global.HighscoreController.StartMeasurement">StartMeasurement()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>sets the the current Time.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

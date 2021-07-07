@@ -2,331 +2,331 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.AstarPath.AstarDistribution.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.AstarPath.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.AttackableAttacker.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.AttackEntersLeavesCooldown.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.AudioManager.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.CameraController.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.CharacterType.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.DeathZone.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.EnablePlayerInput.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.EnemyAI.MovementState.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.EnemyAI.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.EnemyArtifact.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.EnemyArtifactSpawner.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.EnemyDeath.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.EventManager.Event.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.EventManager.Event-1.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.EventManager.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.GameController.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.GoalZone.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.Health.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.HealthBarController.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.HealthIsZero.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.HeapQueue-1.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.HighscoreController.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.KinematicObject.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.LevelController.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.LoadLevel.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.MainMenuScript.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.MorphPlayer.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.PauseMenuScript.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.PlatformerModel.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.PlayerController.JumpState.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.PlayerController.MovementState.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.PlayerController.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.PlayerDeath.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.PlayerEnteredDeathZone.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.PlayerEnteredGoal.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.PlayerSpawn.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.RoateDirection.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.RotateToGravity.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.RotateWorld.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.Sound.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.SpawnPoint.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/api/Global.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/index.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/Characters.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/Reflection.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/Reflection_Bennett.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/Reflection_Constantin.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/Reflection_Leon.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/Reflection_Magdalena.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/Requirements.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/Sources.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/System.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://emm-gruppe8.github.io/Morphy/manual/Technologies.html</loc>
-    <lastmod>2021-07-07T02:53:30+00:00</lastmod>
+    <lastmod>2021-07-07T03:12:12+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
