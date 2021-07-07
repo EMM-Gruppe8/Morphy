@@ -12,12 +12,12 @@
 - kills by falling onto someone
 - is slow
 
-## Shell
+## Shell (optional and not realised)
 - moves slowly
 - kills on contact
 - kills on otherside but stays stuck till gravity lets it stand on its feet again
 
-## Bee
-- kan fly
+## Bee (optional and not realised)
+- can fly
 - shots downwards
 - dies on contact with environment
