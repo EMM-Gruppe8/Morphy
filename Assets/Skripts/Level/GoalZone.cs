@@ -10,5 +10,6 @@ public class GoalZone : MonoBehaviour
         if (playerController == null) return;
         var customEvent = EventManager.Schedule<PlayerEnteredGoal>();
         customEvent.GoalZone = this;
+        FindObjectOfType<AudioManager>().Play("LevelComplete");
     }
 }

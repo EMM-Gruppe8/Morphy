@@ -77,6 +77,7 @@ public class PlayerController : KinematicObject
             if (jumpState == JumpState.Grounded && Input.acceleration.z >= JumpingThreshold &&
                 _currentCharacterType == CharacterType.Bunny)
             {
+                FindObjectOfType<AudioManager>().Play("PlayerJump");
                 jumpState = JumpState.PrepareToJump;
                 _jumpAccelerationSpeed = Input.acceleration.z >= _maxJumpForce ? _maxJumpForce : Input.acceleration.z;
             }
@@ -204,6 +205,7 @@ public class PlayerController : KinematicObject
         if (!gameObject) return;
         var customEvent = Schedule<MorphPlayer>();
         customEvent.gameObject = gameObject;
+        FindObjectOfType<AudioManager>().Play("PlayerMorph");
     }
 
     private void ChangeCharacterType(CharacterType characterType)
