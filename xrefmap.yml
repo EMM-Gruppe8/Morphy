@@ -1183,6 +1183,12 @@ references:
   commentId: F:Global.EnemyAI.animator
   fullName: EnemyAI.animator
   nameWithType: EnemyAI.animator
+- uid: Global.EnemyAI.bunnySpecialAttackDelay
+  name: bunnySpecialAttackDelay
+  href: api/Global.EnemyAI.html#Global_EnemyAI_bunnySpecialAttackDelay
+  commentId: F:Global.EnemyAI.bunnySpecialAttackDelay
+  fullName: EnemyAI.bunnySpecialAttackDelay
+  nameWithType: EnemyAI.bunnySpecialAttackDelay
 - uid: Global.EnemyAI.characterType
   name: characterType
   href: api/Global.EnemyAI.html#Global_EnemyAI_characterType
@@ -1207,6 +1213,19 @@ references:
   commentId: F:Global.EnemyAI.gravityDown
   fullName: EnemyAI.gravityDown
   nameWithType: EnemyAI.gravityDown
+- uid: Global.EnemyAI.Jump
+  name: Jump()
+  href: api/Global.EnemyAI.html#Global_EnemyAI_Jump
+  commentId: M:Global.EnemyAI.Jump
+  fullName: EnemyAI.Jump()
+  nameWithType: EnemyAI.Jump()
+- uid: Global.EnemyAI.Jump*
+  name: Jump
+  href: api/Global.EnemyAI.html#Global_EnemyAI_Jump_
+  commentId: Overload:Global.EnemyAI.Jump
+  isSpec: "True"
+  fullName: EnemyAI.Jump
+  nameWithType: EnemyAI.Jump
 - uid: Global.EnemyAI.jumpCheckOffset
   name: jumpCheckOffset
   href: api/Global.EnemyAI.html#Global_EnemyAI_jumpCheckOffset
@@ -1279,6 +1298,19 @@ references:
   commentId: F:Global.EnemyAI.playerLayerMask
   fullName: EnemyAI.playerLayerMask
   nameWithType: EnemyAI.playerLayerMask
+- uid: Global.EnemyAI.Run
+  name: Run()
+  href: api/Global.EnemyAI.html#Global_EnemyAI_Run
+  commentId: M:Global.EnemyAI.Run
+  fullName: EnemyAI.Run()
+  nameWithType: EnemyAI.Run()
+- uid: Global.EnemyAI.Run*
+  name: Run
+  href: api/Global.EnemyAI.html#Global_EnemyAI_Run_
+  commentId: Overload:Global.EnemyAI.Run
+  isSpec: "True"
+  fullName: EnemyAI.Run
+  nameWithType: EnemyAI.Run
 - uid: Global.EnemyAI.speed
   name: speed
   href: api/Global.EnemyAI.html#Global_EnemyAI_speed
