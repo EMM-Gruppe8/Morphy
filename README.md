@@ -30,6 +30,7 @@ Morphy is a mobile game centered around movement. Turn, push and pull your phone
 
 ## Installation
 ### Android
-//todo
+1. Download this file on your Android Phone https://github.com/EMM-Gruppe8/Morphy/releases/download/v1.0/Morphy.apk 
+2. Klick on the file to execute it (You might need to give permissions to execute the file)
 ### iOS
 //todo
