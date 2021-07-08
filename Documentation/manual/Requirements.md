@@ -103,7 +103,7 @@ wieder starten kann.
 - Der Spieler kann dabei jederzeit zum letzten Checkpoint zurückkehren
 ***Erfüllungsgrad: 50%***
 
-## (optional) Fähigkeit: Fliegen
+## (Optional) Fähigkeit: Fliegen
 - Charakter “Biene” kann fliegen und aus der Luft angreifen
 - Nach dem Töten des Gegners erscheint an der Stelle der Tötung ein Orb
 - Der Spieler besitzt ein Rand seines Bildschirms einen “Morph” Button, welcher aktiv wird, wenn ein Orb in der Nähe ist
@@ -113,7 +113,7 @@ wieder starten kann.
 
 ***Erfüllungsgrad: 0%***
 
-## (optional) Fähigkeit: Grappling Hook
+## (Optional) Fähigkeit: Grappling Hook
 - Charakter “Chameleon” kann mit Hilfe der Zunge an Wände, Böden, Decke haften
 und sich dort selber hinziehen - kann jedoch nicht normal laufen
 - Morphing funktioniert wieder gleich wie unter 5. Fähigkeit: Fliegen
