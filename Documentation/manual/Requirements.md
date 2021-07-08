@@ -126,4 +126,4 @@ und sich dort selber hinziehen - kann jedoch nicht normal laufen
 - Unterstützung verschiedener Auflösungen und Bildschirmverhältnisse bei den
 Smartphones.
 
-***Erfüllungsgrad: 95%***
+***Erfüllungsgrad: 100%***
