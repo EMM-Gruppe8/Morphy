@@ -1,16 +1,17 @@
 ## Bunny
 - Can Jump
-- Kills by Jumping on someone
-- Dies on contact with head into the environment
+- Special-Attack: Jumping on someone
 
 ## Rhino
 - gets fast
-- kills by smashing someone into wall or pushing into void
+- Special-Attack: Running into someone
 
 ## Slime
 - Can walk on both sides
-- kills by falling onto someone
 - is slow
+- Special-Attack: falling onto someone
+
+---
 
 ## Shell (optional and not implemented)
 - moves slowly
