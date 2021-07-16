@@ -8,3 +8,14 @@ https://assetstore.unity.com/packages/2d/characters/pixel-adventure-2-155418#rev
 ## Pathfinding basis:
 ***"A\* Pathfinding Project"***
 https://arongranberg.com/astar/
+
+## Audio Manager
+***Brackey's Audio Manager***
+https://www.youtube.com/watch?v=6OT43pvUyfY / https://brackeys.com/wp-content/FilesForDownload/AudioManager.zip
+
+## Health Bar
+The health bar is based on Brackey's ***Unity Health Bar UI*** but has been customized to fit the project
+https://www.youtube.com/watch?v=BLfNP4Sc_iA
+
+## Knockback/Impact System
+Based on http://answers.unity.com/answers/309747/view.html
