@@ -14,8 +14,8 @@ https://arongranberg.com/astar/
 https://www.youtube.com/watch?v=6OT43pvUyfY / https://brackeys.com/wp-content/FilesForDownload/AudioManager.zip
 
 ## Health Bar
-The health bar is based on Brackey's ***Unity Health Bar UI*** but has been customized to fit the project
+Basierend auf Brackey's ***Unity Health Bar UI***, jedoch für das Projekt angepasst
 https://www.youtube.com/watch?v=BLfNP4Sc_iA
 
 ## Knockback/Impact System
-Based on http://answers.unity.com/answers/309747/view.html
+Basierend auf http://answers.unity.com/answers/309747/view.html
