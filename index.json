@@ -226,8 +226,8 @@
   },
   "manual/Characters.html": {
     "href": "manual/Characters.html",
-    "title": "Bunny | Morpy",
-    "keywords": "Bunny Can Jump Special-Attack: Jumping on someone Rhino gets fast Special-Attack: Running into someone Slime Can walk on both sides is slow Special-Attack: falling onto someone Shell (optional and not implemented) moves slowly kills on contact kills on otherside but stays stuck till gravity lets it stand on its feet again Bee (optional and not implemented) can fly shots downwards dies on contact with environment"
+    "title": "Hase (Bunny) | Morpy",
+    "keywords": "Hase (Bunny) Bewegung: Kann Laufen und springen Spezialattacke: Kann auf Gegner springen Nashorn (Rhino) Bewegung: Kann schnell laufen, aber nicht springen Spezialattacke: Kann Gegner rammen Schleim (Slime) Bewegung: Kann langsam laufen und die Seite wechseln Spezialattacke: Auf Gegner herabfallen Nicht implementierte Gegner Diese Gegner wurden am Anfang des Projektes konzeptioniert, jedoch nicht umgesetzt, da die den Projektrahmen sprengen würden: Schneckenhaus (Shell) Bewegung: Kann langsam laufen Spezialattacke: Tötet Gegner bei Kontakt und auf gegenüber liegender Seite, steckt dann jedoch fest, bis das Gerät so gedreht wird, dass es wieder auf den Beinen stehen kann Biene (Bee) Bewegung: Kann frei fliegen Spezialattacke: Kann nach unten schießen Stirbt jedoch, wenn es die Decke, Boden oder Wände berührt"
   },
   "manual/Reflection.html": {
     "href": "manual/Reflection.html",
@@ -262,7 +262,7 @@
   "manual/Sources.html": {
     "href": "manual/Sources.html",
     "title": "Graphic Assets: | Morpy",
-    "keywords": "Graphic Assets: “Pixel Adventure 1” https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360 “Pixel Adventure 2” https://assetstore.unity.com/packages/2d/characters/pixel-adventure-2-155418#reviews Pathfinding basis: \"A\\ Pathfinding Project\" * https://arongranberg.com/astar/ Audio Manager Brackey's Audio Manager https://www.youtube.com/watch?v=6OT43pvUyfY / https://brackeys.com/wp-content/FilesForDownload/AudioManager.zip Health Bar The health bar is based on Brackey's Unity Health Bar UI but has been customized to fit the project https://www.youtube.com/watch?v=BLfNP4Sc_iA Knockback/Impact System Based on http://answers.unity.com/answers/309747/view.html"
+    "keywords": "Graphic Assets: “Pixel Adventure 1” https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360 “Pixel Adventure 2” https://assetstore.unity.com/packages/2d/characters/pixel-adventure-2-155418#reviews Pathfinding basis: \"A\\ Pathfinding Project\" * https://arongranberg.com/astar/ Audio Manager Brackey's Audio Manager https://www.youtube.com/watch?v=6OT43pvUyfY / https://brackeys.com/wp-content/FilesForDownload/AudioManager.zip Health Bar Basierend auf Brackey's Unity Health Bar UI , jedoch für das Projekt angepasst https://www.youtube.com/watch?v=BLfNP4Sc_iA Knockback/Impact System Basierend auf http://answers.unity.com/answers/309747/view.html"
   },
   "manual/System.html": {
     "href": "manual/System.html",
