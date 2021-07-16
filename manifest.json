@@ -64,7 +64,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Global.AttackableAttacker.html",
-          "hash": "5kNt6Nyw1jKa508KKgmbQDVpXvZZiKJcbkrZTqR2zf0="
+          "hash": "g2idqQQs/0UQR3+7q9jzKxZpULuYVLaU7HrFodI4hjQ="
         }
       },
       "is_incremental": false,
@@ -76,7 +76,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Global.AudioManager.html",
-          "hash": "zOCFfWyDd7XVRsFwtTMFn9Om/YfPoVjRe6oUWS+ozj0="
+          "hash": "xmEU2Kmb7zQ3vy0oPU3Ncgm7zPVqh9qIti8d4+e0WmI="
         }
       },
       "is_incremental": false,
@@ -352,7 +352,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Global.MainMenuScript.html",
-          "hash": "ZgvYenxFyhhoNJERuihnthihqqxwWvlJKb4wWhPjnh4="
+          "hash": "SQH0veft7n2hHctc6waGa2+j7ao9imv0Ug9cfAoMmM0="
         }
       },
       "is_incremental": false,
@@ -376,7 +376,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Global.PauseMenuScript.html",
-          "hash": "GO28s3OOQtie967F+XVOz52WMGLYdpvnzQLoJqbgQ9w="
+          "hash": "rphZHbl7eysCz7ejaditN8DNOKeOlC3owTH70tOkauI="
         }
       },
       "is_incremental": false,
@@ -520,7 +520,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Global.Sound.html",
-          "hash": "BH9T50A1/OKtaOQJAM23BAYWhuMpJgkUodJN+KbqxyU="
+          "hash": "KG1k+e6VXPyLU3O1L3t7kDxWJ5HtWBuLwjVY7FtVx84="
         }
       },
       "is_incremental": false,
@@ -544,7 +544,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Global.html",
-          "hash": "NKeEMcFfG9dfDhPDXvN/FnTiaBJXimLgTiM11cn0vas="
+          "hash": "6bGSDJxRzvFu5iMbhvB56syW6YpmxQPhj9rk1pVnLrQ="
         }
       },
       "is_incremental": false,

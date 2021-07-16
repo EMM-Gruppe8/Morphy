@@ -83,7 +83,9 @@
   
   <h1 id="Global_AttackableAttacker" data-uid="Global.AttackableAttacker" class="text-break">Class AttackableAttacker
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>This component can be added to all objects that can attack others and that can be attacked by others
+Other components need to activate the &quot;attackNearest&quot; Method in this class in order for this attack to attack.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -101,7 +103,9 @@
   
   
   <h4 id="Global_AttackableAttacker_attackButton" data-uid="Global.AttackableAttacker.attackButton">attackButton</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Attack Button that should be greyed out during cooldown.
+If no button is provided, this will be ignored</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -125,7 +129,8 @@
   
   
   <h4 id="Global_AttackableAttacker_attackRange" data-uid="Global.AttackableAttacker.attackRange">attackRange</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Range this object can use to attack other objects</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -149,7 +154,9 @@
   
   
   <h4 id="Global_AttackableAttacker_cooldownTimeInSeconds" data-uid="Global.AttackableAttacker.cooldownTimeInSeconds">cooldownTimeInSeconds</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Time the cooldown needs to complete in seconds.
+By default, an attacker has a cooldown of 1 second before they can attack again</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -173,7 +180,8 @@
   
   
   <h4 id="Global_AttackableAttacker_enemyAttackDelay" data-uid="Global.AttackableAttacker.enemyAttackDelay">enemyAttackDelay</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Delay the enemies use while attacking</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -197,7 +205,8 @@
   
   
   <h4 id="Global_AttackableAttacker_mass" data-uid="Global.AttackableAttacker.mass">mass</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Define the character mass needed for calculating knockback forces</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -221,7 +230,8 @@
   
   
   <h4 id="Global_AttackableAttacker_nearAttackRange" data-uid="Global.AttackableAttacker.nearAttackRange">nearAttackRange</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Range for near attacks</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -248,7 +258,8 @@
   
   <a id="Global_AttackableAttacker_attack_" data-uid="Global.AttackableAttacker.attack*"></a>
   <h4 id="Global_AttackableAttacker_attack_GameObject_" data-uid="Global.AttackableAttacker.attack(GameObject)">attack(GameObject)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Try to attack a specific GameObject on the map.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -267,7 +278,8 @@
       <tr>
         <td><span class="xref">GameObject</span></td>
         <td><span class="parametername">go</span></td>
-        <td></td>
+        <td><p>GameObject to attack</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -275,7 +287,8 @@
   
   <a id="Global_AttackableAttacker_attackNearest_" data-uid="Global.AttackableAttacker.attackNearest*"></a>
   <h4 id="Global_AttackableAttacker_attackNearest" data-uid="Global.AttackableAttacker.attackNearest">attackNearest()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Attack the nearest enemy to this object using the standard attack</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -285,7 +298,8 @@
   
   <a id="Global_AttackableAttacker_attackNearestWithCustomAction_" data-uid="Global.AttackableAttacker.attackNearestWithCustomAction*"></a>
   <h4 id="Global_AttackableAttacker_attackNearestWithCustomAction" data-uid="Global.AttackableAttacker.attackNearestWithCustomAction">attackNearestWithCustomAction()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Attack the nearest enemy with our current special action</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -295,7 +309,8 @@
   
   <a id="Global_AttackableAttacker_attackWithCustomAction_" data-uid="Global.AttackableAttacker.attackWithCustomAction*"></a>
   <h4 id="Global_AttackableAttacker_attackWithCustomAction_GameObject_" data-uid="Global.AttackableAttacker.attackWithCustomAction(GameObject)">attackWithCustomAction(GameObject)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Try to attack a specific GameObject with our special custom action</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -314,7 +329,8 @@
       <tr>
         <td><span class="xref">GameObject</span></td>
         <td><span class="parametername">go</span></td>
-        <td></td>
+        <td><p>GameObject to attack</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -322,7 +338,8 @@
   
   <a id="Global_AttackableAttacker_calculateDistanceToObject_" data-uid="Global.AttackableAttacker.calculateDistanceToObject*"></a>
   <h4 id="Global_AttackableAttacker_calculateDistanceToObject_GameObject_" data-uid="Global.AttackableAttacker.calculateDistanceToObject(GameObject)">calculateDistanceToObject(GameObject)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Calculate the distance from the current object to another GameObject</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -341,7 +358,8 @@
       <tr>
         <td><span class="xref">GameObject</span></td>
         <td><span class="parametername">go</span></td>
-        <td></td>
+        <td><p>GameObject to calculate the distance to</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -356,7 +374,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
-        <td></td>
+        <td><p>Distance</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -364,7 +383,9 @@
   
   <a id="Global_AttackableAttacker_getAttacked_" data-uid="Global.AttackableAttacker.getAttacked*"></a>
   <h4 id="Global_AttackableAttacker_getAttacked_GameObject_System_Int32_" data-uid="Global.AttackableAttacker.getAttacked(GameObject,System.Int32)">getAttacked(GameObject, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Let this object get attacked by another object
+This method is mostly called by other AttackableAttacker components to attack each other</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -383,12 +404,14 @@
       <tr>
         <td><span class="xref">GameObject</span></td>
         <td><span class="parametername">attacker</span></td>
-        <td></td>
+        <td><p>Attacker Object that attacked us</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">strength</span></td>
-        <td></td>
+        <td><p>Strength of the attack</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -396,7 +419,10 @@
   
   <a id="Global_AttackableAttacker_getEnemyTag_" data-uid="Global.AttackableAttacker.getEnemyTag*"></a>
   <h4 id="Global_AttackableAttacker_getEnemyTag" data-uid="Global.AttackableAttacker.getEnemyTag">getEnemyTag()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get the tag for our enemy, who we should attack
+For the player, these will be the &quot;Enemy&quot; objects
+For enemies this will be the player</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -413,7 +439,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
+        <td><p>Unity Tag String &quot;Player&quot; or &quot;Enemy&quot;</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -421,7 +448,8 @@
   
   <a id="Global_AttackableAttacker_getIsInCooldown_" data-uid="Global.AttackableAttacker.getIsInCooldown*"></a>
   <h4 id="Global_AttackableAttacker_getIsInCooldown" data-uid="Global.AttackableAttacker.getIsInCooldown">getIsInCooldown()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get if the current object is in a cooldown</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -438,7 +466,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><p>True if in cooldown</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -446,7 +475,9 @@
   
   <a id="Global_AttackableAttacker_getNearestEnemy_" data-uid="Global.AttackableAttacker.getNearestEnemy*"></a>
   <h4 id="Global_AttackableAttacker_getNearestEnemy" data-uid="Global.AttackableAttacker.getNearestEnemy">getNearestEnemy()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get the Game object for our nearest enemy
+This will return &quot;null&quot; if no enemy exists</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -463,7 +494,8 @@
     <tbody>
       <tr>
         <td><span class="xref">GameObject</span></td>
-        <td></td>
+        <td><p>GameObject or null</p>
+</td>
       </tr>
     </tbody>
   </table>

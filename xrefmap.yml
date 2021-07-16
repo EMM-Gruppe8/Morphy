@@ -2482,19 +2482,6 @@ references:
   isSpec: "True"
   fullName: PauseMenuScript.Resume
   nameWithType: PauseMenuScript.Resume
-- uid: Global.PauseMenuScript.UpdatePauseStatus
-  name: UpdatePauseStatus()
-  href: api/Global.PauseMenuScript.html#Global_PauseMenuScript_UpdatePauseStatus
-  commentId: M:Global.PauseMenuScript.UpdatePauseStatus
-  fullName: PauseMenuScript.UpdatePauseStatus()
-  nameWithType: PauseMenuScript.UpdatePauseStatus()
-- uid: Global.PauseMenuScript.UpdatePauseStatus*
-  name: UpdatePauseStatus
-  href: api/Global.PauseMenuScript.html#Global_PauseMenuScript_UpdatePauseStatus_
-  commentId: Overload:Global.PauseMenuScript.UpdatePauseStatus
-  isSpec: "True"
-  fullName: PauseMenuScript.UpdatePauseStatus
-  nameWithType: PauseMenuScript.UpdatePauseStatus
 - uid: Global.PlatformerModel
   name: PlatformerModel
   href: api/Global.PlatformerModel.html
