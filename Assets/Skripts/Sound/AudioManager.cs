@@ -2,7 +2,10 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-// Source: https://www.youtube.com/watch?v=6OT43pvUyfY
+/// <summary>
+/// AudioManager that handles playing audio in levels and the main menu
+/// Source: https://www.youtube.com/watch?v=6OT43pvUyfY
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
 	/// <summary>

@@ -3,24 +3,43 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/**
- * Main Menu Script
- * Handles actions on the main menu scene
- */
+/// <summary>
+/// Main Menu Script
+/// Handles actions on the main menu scene
+/// </summary>
 public class MainMenuScript : MonoBehaviour
 {
+    /// <summary>
+    /// Main Menu canvas
+    /// </summary>
     public GameObject mainMenu;
+
+    /// <summary>
+    /// Level selection canvas
+    /// </summary>
     public GameObject levelSelection;
+
+    /// <summary>
+    /// List of level selection screens
+    /// </summary>
     public GameObject[] levels;
+
+    /// <summary>
+    /// List of text boxes to display the highscores
+    /// </summary>
     public GameObject[] highscoreDisplays;
 
-    // Setup dynamic parts of the menu
+    /// <summary>
+    /// Setup dynamic parts of the menu
+    /// </summary>
     public void Start() {
         updateDisabledLevels();
         updateHighscores();
     }
 
-    // Enable all levels in the level selection screen that the user has unlocked
+    /// <summary>
+    /// Enable all levels in the level selection screen that the user has unlocked
+    /// </summary>
     private void updateDisabledLevels() {
         int enabledLevels = LevelController.getHighestCompletedLevel();
         Debug.Log("Enabeling level selection up to level " + (enabledLevels + 1));
@@ -32,6 +51,9 @@ public class MainMenuScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update the highscore text displays to display the player's highscores
+    /// </summary>
     private void updateHighscores() {
         for(int i = 0; i < highscoreDisplays.Length; i++) {
             TimeSpan highscore = HighscoreController.GetSavedHighScoreForLevelByName("Level" + (i + 1));
@@ -41,9 +63,9 @@ public class MainMenuScript : MonoBehaviour
         }
     }
 
-    /**
-     * Open the Game Scene to start the game
-     */
+    /// <summary>
+    /// Open the Game Scene to start the game
+    /// </summary>
     public void StartGame() {
         Debug.Log("Start Game");
         SceneManager.LoadScene("Level1");
@@ -53,9 +75,12 @@ public class MainMenuScript : MonoBehaviour
         OpenLevel(currentLevel);
   }
 
-    /**
-     * Start the game at a specific level
-     */
+    /// <summary>
+    /// Start the game at a specific level
+    /// </summary>
+    /// <param name="level">
+    /// Level to start at
+    /// </param>
     public void OpenLevel(int level) {
         Debug.Log("Start Game at level " + level);
 
@@ -77,24 +102,24 @@ public class MainMenuScript : MonoBehaviour
         }
     }
 
-    /**
-     * Quit the application
-     */
+    /// <summary>
+    /// Quit the application
+    /// </summary>
     public void QuitGame() {
         Application.Quit();
     }
 
-    /**
-     * Open the Level Select screen and hide the main menu
-     */
+    /// <summary>
+    /// Open the Level Select screen and hide the main menu
+    /// </summary>
     public void OpenLevelSelect() {
         mainMenu.SetActive(false);
         levelSelection.SetActive(true);
     }
 
-    /**
-     * Open the Main Menu screen and hide the level select screen
-     */
+    /// <summary>
+    /// Open the Main Menu screen and hide the level select screen
+    /// </summary>
     public void OpenMainMenu() {
         mainMenu.SetActive(true);
         levelSelection.SetActive(false);
