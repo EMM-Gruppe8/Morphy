@@ -1,20 +1,20 @@
-- name: 1.1 Project Requirements
+- name: 1.1 Projektanforderungen
   href: Requirements.md
-- name: 1.2 Characters
+- name: 1.2 Charaktere
   href: Characters.md
-- name: 2. Technologies
+- name: 2. Technologien
   href: Technologies.md
 - name: 3. System
   href: System.md
-- name: 4. Reflection
+- name: 4. Einschätzung der Gruppenmitglieder
   href: Reflection.md
-- name: 4.1 Reflection Magdalena
+- name: 4.1 Reflexion Magdalena
   href: Reflection_Magdalena.md
-- name: 4.2 Reflection Constantin
+- name: 4.2 Reflexion Constantin
   href: Reflection_Constantin.md
-- name: 4.3 Reflection Bennett
+- name: 4.3 Reflexion Bennett
   href: Reflection_Bennett.md
-- name: 4.4 Reflection Leon
+- name: 4.4 Reflexion Leon
   href: Reflection_Leon.md
-- name: 5. Sources
+- name: 5. Quellen
   href: Sources.md

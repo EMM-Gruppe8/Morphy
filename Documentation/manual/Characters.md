@@ -1,24 +1,25 @@
-## Bunny
-- Can Jump
-- Special-Attack: Jumping on someone
+## Hase (Bunny)
+- Bewegung: Kann Laufen und springen
+- Spezialattacke: Kann auf Gegner springen
 
-## Rhino
-- gets fast
-- Special-Attack: Running into someone
+## Nashorn (Rhino)
+- Bewegung: Kann schnell laufen, aber nicht springen
+- Spezialattacke: Kann Gegner rammen
 
-## Slime
-- Can walk on both sides
-- is slow
-- Special-Attack: falling onto someone
+## Schleim (Slime)
+- Bewegung: Kann langsam laufen und die Seite wechseln
+- Spezialattacke: Auf Gegner herabfallen
 
 ---
+# Nicht implementierte Gegner
 
-## Shell (optional and not implemented)
-- moves slowly
-- kills on contact
-- kills on otherside but stays stuck till gravity lets it stand on its feet again
+Diese Gegner wurden am Anfang des Projektes konzeptioniert, jedoch nicht umgesetzt, da die den Projektrahmen sprengen würden:
 
-## Bee (optional and not implemented)
-- can fly
-- shots downwards
-- dies on contact with environment
+## Schneckenhaus (Shell)
+- Bewegung: Kann langsam laufen
+- Spezialattacke: Tötet Gegner bei Kontakt und auf gegenüber liegender Seite, steckt dann jedoch fest, bis das Gerät so gedreht wird, dass es wieder auf den Beinen stehen kann
+
+## Biene (Bee)
+- Bewegung: Kann frei fliegen
+- Spezialattacke: Kann nach unten schießen
+- Stirbt jedoch, wenn es die Decke, Boden oder Wände berührt
