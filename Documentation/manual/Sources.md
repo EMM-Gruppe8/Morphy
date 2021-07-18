@@ -19,3 +19,6 @@ https://www.youtube.com/watch?v=BLfNP4Sc_iA
 
 ## Knockback/Impact System
 Basierend auf http://answers.unity.com/answers/309747/view.html
+
+## Event-Manager / Kinematic-Object
+Basiert auf dem integrierten Unity 2D Beispielprojekt und wurde für dieses Projekt angepasst.

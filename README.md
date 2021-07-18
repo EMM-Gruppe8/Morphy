@@ -33,4 +33,11 @@ Morphy is a mobile game centered around movement. Turn, push and pull your phone
 1. Download this file on your Android Phone: https://github.com/EMM-Gruppe8/Morphy/releases/download/v1.0/Morphy.apk 
 3. Klick on the file to execute it (You might need to give permissions to execute the file)
 ### iOS
-//todo
+Due to limitations by Apple, you need to compile the app yourself with your own Apple Developer Account.
+1.	Build the game as a Xcode project for iOS.
+2.	Import the Project in Xcode on your mac.
+3.	Open the “Unity-iPhone.xcodeproj”.
+4.	Create a provisioning profile for the game with your Apple Developer Account.
+5.	Connect and select your iOS Device in Xcode.
+6.	Compile the game on your device and play the Game.
+
