@@ -3,12 +3,24 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    /// <summary>
+    /// Indicates if camera should rotating
+    /// </summary>
     public bool rotate;
-    public RoateDirection Direction = RoateDirection.UP;
+    /// <summary>
+    /// defines the roate rirection
+    /// </summary>
+    public RoateDirection Direction = RoateDirection.UP; // Default ist Up
     float speed = 200f;
 
+    /// <summary>
+    /// the virtualCamera object
+    /// </summary>
     public Cinemachine.CinemachineVirtualCamera virtualCamera;
 
+    /// <summary>
+    /// If rotating, with methods rotated the virtual Camera to the other direction.
+    /// </summary>
     void Update()
     {
         if (rotate)

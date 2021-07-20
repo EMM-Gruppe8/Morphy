@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// The Simulation class implements the discrete event simulator pattern.
 /// Events are pooled, with a default capacity of 4 instances.
 /// </summary>
 public static class EventManager
@@ -12,7 +11,7 @@ public static class EventManager
     static Dictionary<System.Type, Stack<Event>> eventPools = new Dictionary<System.Type, Stack<Event>>();
 
     /// <summary>
-    /// Create a new event of type T and return it, but do not schedule it.
+    /// Create a new event of type T and return it.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
@@ -43,8 +42,8 @@ public static class EventManager
     /// <summary>
     /// Schedule an event for a future tick, and return it.
     /// </summary>
-    /// <returns>The event.</returns>
-    /// <param name="tick">Tick.</param>
+    /// <returns>The event</returns>
+    /// <param name="tick"></param>
     /// <typeparam name="T">The event type parameter.</typeparam>
     static public T Schedule<T>(float tick = 0) where T : Event, new()
     {
@@ -96,8 +95,6 @@ public static class EventManager
 
     /// <summary>
     /// Tick the simulation. Returns the count of remaining events.
-    /// If remaining events is zero, the simulation is finished unless events are
-    /// injected from an external system via a Schedule() call.
     /// </summary>
     /// <returns></returns>
     static public int Tick()
@@ -115,7 +112,6 @@ public static class EventManager
             }
             else
             {
-                // Debug.Log($"<color=green>{ev.tick} {ev.GetType().Name}</color>");
                 ev.Cleanup();
                 try
                 {
@@ -123,8 +119,6 @@ public static class EventManager
                 }
                 catch (KeyNotFoundException)
                 {
-                    //This really should never happen inside a production build.
-                    Debug.LogError($"No Pool for: {ev.GetType()}");
                 }
             }
 
@@ -136,9 +130,6 @@ public static class EventManager
 
     /// <summary>
     /// An event is something that happens at a point in time in a simulation.
-    /// The Precondition method is used to check if the event should be executed,
-    /// as conditions may have changed in the simulation since the event was 
-    /// originally scheduled.
     /// </summary>
     /// <typeparam name="Event"></typeparam>
     public abstract class Event : System.IComparable<Event>
@@ -150,6 +141,9 @@ public static class EventManager
             return tick.CompareTo(other.tick);
         }
 
+        /// <summary>
+        /// The Acton which will be executes when the event is happening
+        /// </summary>
         public abstract void Execute();
 
         public virtual bool Precondition() => true;
@@ -162,7 +156,6 @@ public static class EventManager
 
         /// <summary>
         /// This method is generally used to set references to null when required.
-        /// It is automatically called by the Simulation when an event has completed.
         /// </summary>
         internal virtual void Cleanup()
         {
@@ -170,9 +163,8 @@ public static class EventManager
     }
 
     /// <summary>
-    /// Event<T> adds the ability to hook into the OnExecute callback
-    /// whenever the event is executed. Use this class to allow functionality
-    /// to be plugged into your application with minimal or zero configuration.
+    /// Event adds the ability to hook into the OnExecute callback
+    /// whenever the event is executed.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public abstract class Event<T> : Event where T : Event<T>
@@ -191,8 +183,7 @@ public static class EventManager
 
     /// <summary>
     /// This class provides a container for creating singletons for any other class,
-    /// within the scope of the Simulation. It is typically used to hold the simulation
-    /// models and configuration classes.
+    /// within the scope of the Simulation.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     static class InstanceRegister<T> where T : class, new()

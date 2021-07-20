@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Event that re-spawns the player on the start position
+/// </summary>
 public class PlayerSpawn : EventManager.Event<PlayerSpawn>
 {
     PlatformerModel model = EventManager.GetModel<PlatformerModel>();

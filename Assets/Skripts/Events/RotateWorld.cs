@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Event that inverts the player movement and flip texture, when the device is rotated
+/// </summary>
 public class RotateWorld : EventManager.Event<RotateWorld>
 {
     PlatformerModel model = EventManager.GetModel<PlatformerModel>();

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Basic game controller with contains the platformer model 
+/// </summary>
 public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }

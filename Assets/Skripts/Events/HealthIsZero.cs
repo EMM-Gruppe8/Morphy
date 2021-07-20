@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  Event which manages the case, when a player or a enemy has no health points
+/// </summary>
 public class HealthIsZero : EventManager.Event<HealthIsZero>
 {
     public GameObject gameObject;

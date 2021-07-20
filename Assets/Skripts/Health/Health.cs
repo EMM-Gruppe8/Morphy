@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+///  Basic health controller for the player and the enemies.
+/// </summary>
 public class Health : MonoBehaviour
 {
     public int maxHP = 100;
@@ -15,18 +17,28 @@ public class Health : MonoBehaviour
 
     public GameObject healthBarPrefab;
 
+    /// <summary>
+    /// Create health bar
+    /// </summary>
     void Start() {
-        // Create health bar
         GameObject bar = Instantiate(healthBarPrefab, transform.position + new Vector3(0, GetComponent<SpriteRenderer>().bounds.size.y, 0), Quaternion.identity, transform);
         healthBar = bar.GetComponentInChildren<Slider>();
     }
 
+    /// <summary>
+    /// Increment the current health and update the healthbar
+    /// </summary>
+    /// <param name="amount"></param>
     public void Increment(int amount = 1)
     {
         currentHp = Mathf.Clamp(currentHp + amount, 0, maxHP);
         updateHealthBar();
     }
 
+    /// <summary>
+    /// Decrement the current health and update the healthbar
+    /// </summary>
+    /// <param name="amount"></param>
     public void Decrement(int amount = 1)
     {
         currentHp = Mathf.Clamp(currentHp - amount, 0, maxHP);
@@ -42,17 +54,26 @@ public class Health : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Decrement the current health points to zero
+    /// </summary>
     public void Die()
     {
         while (currentHp > 0) Decrement();
     }
 
+    /// <summary>
+    /// Set the current health points to max
+    /// </summary>
     public void SetMaxHealth()
     {
         currentHp = maxHP;
         updateHealthBar();
     }
 
+    /// <summary>
+    /// Sets the current health points to max, when instance is created
+    /// </summary>
     void Awake()
     {
         currentHp = maxHP;

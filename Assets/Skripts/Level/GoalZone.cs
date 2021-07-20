@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Defines a Zone in which the player conpleted the level
+/// </summary>
 public class GoalZone : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collider)

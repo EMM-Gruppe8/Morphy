@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-
+/// <summary>
+///  Event which disable the enemy gameobject and spawns a new artifact
+/// </summary>
 public class EnemyDeath : EventManager.Event<HealthIsZero>
 {
     public GameObject gameObject;

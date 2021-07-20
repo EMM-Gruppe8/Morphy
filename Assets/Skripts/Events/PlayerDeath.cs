@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Event which handles the death of the player
+/// </summary>
 public class PlayerDeath : EventManager.Event<PlayerDeath>
 {
     PlatformerModel model = EventManager.GetModel<PlatformerModel>();
@@ -21,6 +23,6 @@ public class PlayerDeath : EventManager.Event<PlayerDeath>
         player.controlEnabled = false;
         player.collider2d.enabled = false;
         var customEvent = EventManager.Schedule<LoadLevel>(2);
-        customEvent.levelName = SceneManager.GetActiveScene().name;
+        customEvent.levelName = SceneManager.GetActiveScene().name; // reload scene
     }
 }

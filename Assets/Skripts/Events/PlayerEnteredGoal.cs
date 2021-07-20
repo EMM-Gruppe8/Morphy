@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Event thathandles the case, if the player entered the goal
+/// </summary>
 public class PlayerEnteredGoal : EventManager.Event<PlayerEnteredGoal>
 {
     public GoalZone GoalZone;
@@ -20,7 +23,7 @@ public class PlayerEnteredGoal : EventManager.Event<PlayerEnteredGoal>
             t.Seconds,
             t.Milliseconds);
 
-
+        // saves new time, if time is better than the previous one
         if (model.highscoreController.CheckTimeIsNewHighScore(t))
         {
             HighscoreController.SaveHighScore(t);
@@ -39,6 +42,7 @@ public class PlayerEnteredGoal : EventManager.Event<PlayerEnteredGoal>
                       "\n Best: " + timeString2 + "\n ");
         }
 
+        // loads the next level
         var customEvent = EventManager.Schedule<LoadLevel>();
         var currentLevelName = SceneManager.GetActiveScene().name;
         if (currentLevelName.ToLower().Contains("level1"))
@@ -52,7 +56,7 @@ public class PlayerEnteredGoal : EventManager.Event<PlayerEnteredGoal>
             customEvent.levelName = "Level3";
         }
         else
-        {
+        { // loads menu, when last level is completed
             LevelController.setHighestCompletedLevel(3);
             customEvent.levelName = "MainMenuScene";
         }
